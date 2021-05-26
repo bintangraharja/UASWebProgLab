@@ -46,8 +46,89 @@
 			<div class="col-10">
 				<h4>Description</h4>
 				<p style="text-align: justify;"><?php echo $desc; ?> </p>
-				</div>
+			</div>
 		</div>
+		<br>
+		<div class="row">
+			<div class="col-10">
+				<h4>Facilities</h4>	
+				<div class="row" style="margin-left: 5px;">
+					<div class="col-1">
+						<div class="row d-flex justify-content-center">
+							<i class="fas fa-dumbbell fa-3x"></i>
+						</div>
+						<div class="row d-flex justify-content-center">
+							<p class="text-center">Gym</p>
+						</div>
+					</div>
+					<div class="col-1">
+						<div class="row d-flex justify-content-center">
+							<i class="fas fa-hot-tub fa-3x"></i>
+						</div>
+						<div class="row d-flex justify-content-center">
+							<p class="text-center">Spa</p>
+						</div>
+					</div>
+					<div class="col-1">
+						<div class="row d-flex justify-content-center">
+							<i class="fas fa-cocktail fa-3x"></i>
+						</div>
+						<div class="row d-flex justify-content-center">
+							<p class="text-center">Bar</p>
+						</div>
+					</div>
+					<div class="col-1">
+						<div class="row d-flex justify-content-center">
+							<i class="fas fa-swimmer fa-3x"></i>
+						</div>
+						<div class="row d-flex justify-content-center">
+							<p class="text-center">Swimming Pool</p>
+						</div>
+					</div>
+					<div class="col-1">
+						<div class="row d-flex justify-content-center">
+							<i class="fas fa-wifi fa-3x"></i>
+						</div>
+						<div class="row d-flex justify-content-center">
+							<p class="text-center">WiFi</p>
+						</div>
+					</div>
+					<div class="col-1">
+						<div class="row d-flex justify-content-center">
+							<i class="fas fa-laptop fa-3x"></i>
+						</div>
+						<div class="row d-flex justify-content-center">
+							<p class="text-center">Meeting Room</p>
+						</div>
+					</div>
+					<div class="col-1">
+						<div class="row d-flex justify-content-center">
+							<i class="fas fa-utensils fa-3x"></i>
+						</div>
+						<div class="row d-flex justify-content-center">
+							<p class="text-center">Restaurant</p>
+						</div>
+					</div>
+					<div class="col-1">
+						<div class="row d-flex justify-content-center">
+							<i class="fas fa-shuttle-van fa-3x"></i>
+						</div>
+						<div class="row d-flex justify-content-center">
+							<p class="text-center">Pick Up from Airport</p>
+						</div>
+					</div>
+					<div class="col-1">
+						<div class="row d-flex justify-content-center">
+							<i class="fas fa-headphones fa-3x"></i>
+						</div>
+						<div class="row d-flex justify-content-center">
+							<p class="text-center">Receptionist 24 Hours</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
 		<?php 
 		foreach($hotelRoom as $room){
 			$roomID   = $room['RoomID'];
@@ -72,7 +153,7 @@
 							<div class="col-3">
 								<div class="details">
 									<span style="font-weight: bold;">Rp <?php echo $price;?>,-</span><span> /night</span> 
-									<input type="submit" class="btn btnYes" name="book1" value="BOOK NOW">
+									<a href="BookingForm.php"><button type="submit" class="btn btnYes" name="book1" value="BOOK NOW">BOOK NOW</button></a>
 								</div>
 							</div>
 						</div>
