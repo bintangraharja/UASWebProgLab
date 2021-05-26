@@ -2,13 +2,10 @@
 <html>
 <head>
 	<title>Hotel UAS IF430 - XXX</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="style.css">
-
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<?php
+	echo $style;
+	echo $script;
+	?>
 	<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 </head>
 <body style="background: #DBDBDB;">
@@ -17,11 +14,11 @@
 		<div class="row">
 			<div class="col-5 align-self-center">
 				<p>If you already have an account, please</p>
-				<a href="Login.php"><h3>LOGIN</h3></a>
+				<a href="<?php echo site_url('Login');?>"><h3>LOGIN</h3></a>
 				<h2 class="text-center">/</h2>
 				<p>If you are a new member here, please</p>
-				<a href="Register.php"><h3 class="text-right">REGISTER</h3></a>
-				<a href="HomePage.php"><button type="submit" class="btn btnBack"><i class="fas fa-angle-double-left"></i> Back</button></a>
+				<a href="<?php echo site_url('Register');?>"><h3 class="text-right">REGISTER</h3></a>
+				<a href="<?php echo site_url('Home');?>"><button type="submit" class="btn btnBack"><i class="fas fa-angle-double-left"></i> Back</button></a>
 			</div>
 			<div class="col-7">
 				<div class="container" style="background: white; border-radius: 5px;">

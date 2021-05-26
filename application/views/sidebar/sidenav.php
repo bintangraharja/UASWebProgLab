@@ -9,13 +9,13 @@
 	<div class="vLine">
 		<ul class="nav">
 			<li class="nav__items row" style="margin-top: 150px;">
-				<a href="<?php echo site_url('home');?>" style="line-height: 75px;">HOME</a>
+				<a href="<?php echo site_url('Home');?>" style="line-height: 75px;">HOME</a>
 			</li>
 			<li class="nav__items row">
-				<a href="Login.php" style="line-height: 75px;">LOG IN</a>
+				<a href="<?php echo site_url('Login');?>" style="line-height: 75px;">LOG IN</a>
 			</li>
 			<li class="nav__items row">
-				<a href="Register.php" style="line-height: 75px;">REGISTER</a>
+				<a href="<?php echo site_url('Register');?>" style="line-height: 75px;">REGISTER</a>
 			</li>
 		</ul>
 	</div>
