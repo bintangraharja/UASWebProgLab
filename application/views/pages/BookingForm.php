@@ -52,7 +52,7 @@
 						</div>
 					</div>
 					<hr style="border-color: black;">
-					<form action="">
+					<form action="<?=site_url('BookingForm/book');?>" method="post">
 						<div class="form-group row">
 							<label class="col-3 col-form-label">Guest Name</label>
 							<div class="col-5">

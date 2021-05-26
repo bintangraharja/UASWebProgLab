@@ -13,6 +13,8 @@ class BookingForm extends CI_Controller {
             show_404();
         }else if($method === 'form'){
             $this->index();
+        }else if($method === 'book'){
+            $this->book();
         }else{
             show_404();
         }
@@ -28,5 +30,21 @@ class BookingForm extends CI_Controller {
         
 		$this->load->view('pages/BookingForm.php',$data);
 	}
+    public function book(){
+        $this->load->helper('date');
+        date_default_timezone_set('Asia/Jakarta');
+        $format = '%D, %d %M %Y - %H:%i:%s WIB';
+        $now = mdate($format);
+        $values = array(
+            'GName' => $this->input->post('GName'),
+            'PNumber' => $this->input->post('PNumber'),
+            'Email' => $this->input->post('Email'),
+            'RoomQty' => $this->input->post('RoomQty'),
+            'CheckIn' => $this->input->post('CheckIn'),
+            'CheckOut' => $this->input->post('CheckOut'),
+            'Subtotal' => $this->input->post('Subtotal'),
+            'BookingTime' => $now
+        );
+    }
 }
 ?>
