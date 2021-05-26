@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-<body class="home">
-	<?php echo $sidebar; ?>
+<?php echo $sidebar; ?>
+<body class="home" style= "background-image: url('http://localhost/UASWebprogLab/assets/HomeBG.jpg');">
 	<div class="container">
 		<div class="text-right">
 			<a href="AboutUs.php">About Us</a>
@@ -22,54 +22,43 @@
 	            </div>
 			</div>
 			<div class="col-7">
+
+				<?php
+				//ini buat masukin list hotel
+				//start looping
+				foreach($listHotel as $hotel){
+					$hotelID = $hotel['HotelID'];
+					$hotelName = $hotel['HotelName'];
+					$rating = $hotel['Rating'];
+					$address = $hotel['Address'];
+					$description = $hotel['Description'];
+					$price =$hotel['Price'];
+					//isi data
+				?>
 				<div class="media" style="background: rgba(153, 225, 217, 0.64); padding: 5px; margin-bottom: 5px;">
-					<img src="./Gallery/H0006-example.jpg" style="width: 175px; height: 175px;">
+					<img  src="<?php echo site_url('home/showImg/').$hotelID ?>" style="width: 175px; height: 175px;">
 					<div class="media-body" style="padding-left: 10px;">
 						<div class="row">
 							<div class="col-9">
-								<h4>Hotel Indonesia Kempinski</h4>
-								<p>⭐⭐⭐⭐⭐</p>
-								<p><i class="fas fa-map-marker-alt"></i> Jl.M.H Thamrin no. 1 Jakarta Pusat, Jakarta</p>
-								<p>Start from <span style="font-weight: bold;">Rp 2.498.999,-</span> /night</p>
+								<h4><?php echo $hotelName; ?></h4>
+								<p>
+								<?php for($i = 0; $i < $rating ;$i++){ ?>
+									⭐
+								<?php } ?>
+								</p>
+								<p><i class="fas fa-map-marker-alt"></i> <?php echo $address; ?></p>
+								<p>Start from <span style="font-weight: bold;">Rp <?=$price;?>,-</span> /night</p>
 							</div>
 							<div class="col-3">
-								<a href="DetailHotel.php" class="details" style="line-height: 175px;">View Details</a>
+								<a href="<?=site_url('DetailHotel').'/'.$hotelID;?>" class="details" style="line-height: 175px;">View Details</a>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="media" style="background: rgba(153, 225, 217, 0.64); padding: 5px; margin-bottom: 5px;">
-					<img src="./Gallery/example.jpg" style="width: 175px; height: 175px;">
-					<div class="media-body" style="padding-left: 10px;">
-						<div class="row">
-							<div class="col-9">
-								<h4>Nama Hotel</h4>
-								<p>Rating</p>
-								<p>Location</p>
-								<p>Price</p>
-							</div>
-							<div class="col-3">
-								<a href="DetailHotel.php" class="details" style="line-height: 175px;">View Details</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="media" style="background: rgba(153, 225, 217, 0.64); padding: 5px; margin-bottom: 5px;">
-					<img src="./Gallery/example.jpg" style="width: 175px; height: 175px;">
-					<div class="media-body" style="padding-left: 10px;">
-						<div class="row">
-							<div class="col-9">
-								<h4>Nama Hotel</h4>
-								<p>Rating</p>
-								<p>Location</p>
-								<p>Price</p>
-							</div>
-							<div class="col-3">
-								<a href="DetailHotel.php" class="details" style="line-height: 175px;">View Details</a>
-							</div>
-						</div>
-					</div>
-				</div>
+				<?php 
+				//akhir looping
+				}
+				?>
 			</div>
 		</div>
 	</div>

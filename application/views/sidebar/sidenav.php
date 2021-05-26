@@ -9,7 +9,7 @@
 	<div class="vLine">
 		<ul class="nav">
 			<li class="nav__items row" style="margin-top: 150px;">
-				<a href="HomePage.php" style="line-height: 75px;">HOME</a>
+				<a href="<?php echo site_url('home');?>" style="line-height: 75px;">HOME</a>
 			</li>
 			<li class="nav__items row">
 				<a href="Login.php" style="line-height: 75px;">LOG IN</a>
