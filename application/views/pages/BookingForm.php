@@ -89,13 +89,13 @@
 							<div class="col-4 text-center">
 								<label>Check-In</label>
 						    	<div class="form-group">
-							        <input type="date" class="form-control bForm" name="CheckIn" required>
+							        <input type="date" id="checkin" class="form-control bForm" name="CheckIn" required>
 								</div>
 							</div>
 							<div class="col-4 text-center">
 								<label>Check-Out</label>
 						    	<div class="form-group">
-							        <input type="date" class="form-control bForm" name="CheckOut" required>
+							        <input type="date" id="checkout" class="form-control bForm" name="CheckOut" required>
 								</div>
 							</div>
 						</div>
@@ -115,7 +115,20 @@
 
 	<script>
 	$(document).ready(function(){
+		 
+		
+		function GetDays(){
+                var checkin = new Date(document.getElementById("checkin").value);
+                var checkout = new Date(document.getElementById("checkout").value);
+                return parseInt((checkout - checkin) / (24 * 3600 * 1000));
+			}
+
 		$('.input-number-increment').click(function() {
+			var duration = 0;
+			if(document.getElementById("checkout")){
+				duration = GetDays();
+       	 	}	 
+			console.log(duration);
 			var $input = $(this).parents('.input-number-group').find('.input-number');
 			var val = parseInt($input.val(), 10);
 			$input.val(val + 1);
@@ -123,6 +136,8 @@
 				$input.val(<?=$Qty?>);
 			}
 			$(".subtotal").text("Rp "+<?=$Price?>*$input.val() +",-");
+			$(".submitTotal").val(<?=$Price?>*$input.val());
+		
 		});
 		$('.input-number-decrement').click(function() {
 			var $input = $(this).parents('.input-number-group').find('.input-number');
@@ -132,6 +147,7 @@
 				$input.val(1);
 			}
 			$(".subtotal").text("Rp "+<?=$Price?>*$input.val() +",-");
+			$(".submitTotal").val(<?=$Price?>*$input.val());
 		})
 
 	});

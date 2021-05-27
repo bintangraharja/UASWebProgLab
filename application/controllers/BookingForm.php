@@ -45,6 +45,7 @@ class BookingForm extends CI_Controller {
             'Subtotal' => $this->input->post('Subtotal'),
             'BookingTime' => $now
         );
+        print_r($values);exit;
     }
 }
 ?>
