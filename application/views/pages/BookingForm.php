@@ -89,7 +89,7 @@
 							<div class="col-4 text-center">
 								<label>Check-In</label>
 						    	<div class="form-group">
-							        <input type="date" id="checkin" class="form-control bForm" name="CheckIn" required>
+							        <input type="date" id="checkin" class="form-control bForm" name="CheckIn" onchange="Cekin()" required>
 								</div>
 							</div>
 							<div class="col-4 text-center">
@@ -115,13 +115,26 @@
 
 	<script>
 	$(document).ready(function(){
-		 
-		
+		Date.prototype.toDateInputValue = (function() {
+			var local = new Date(this);
+			local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+			return local.toJSON().slice(0,10);
+		});
+		document.getElementById('checkin').value = new Date().toDateInputValue();
+
+		function Cekin(){
+			var date = document.getElementByID('checkin').value;
+			var now = new Date().toDateInputValue();
+			console.log(now);
+		}
+		function cekout(){
+
+		}
 		function GetDays(){
-                var checkin = new Date(document.getElementById("checkin").value);
-                var checkout = new Date(document.getElementById("checkout").value);
-                return parseInt((checkout - checkin) / (24 * 3600 * 1000));
-			}
+            var checkin = new Date(document.getElementById("checkin").value);
+            var checkout = new Date(document.getElementById("checkout").value);
+            return parseInt((checkout - checkin) / (24 * 3600 * 1000));
+		}
 
 		$('.input-number-increment').click(function() {
 			var duration = 0;
