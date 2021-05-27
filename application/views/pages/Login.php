@@ -52,6 +52,13 @@
 									<input type="text" name="captcha" />
 						        </div>
 							</div>
+							<div>
+								<p style="color:red;"> <?php 
+								if(isset($failInfo)){
+									echo $failInfo; 
+									}
+								?> </p>
+							</div>
 							<div class="row d-flex justify-content-center">
 								<div class="col-md-4 text-center">
 									<input type="submit" class="btn btnYes btn-block" style="border-radius: 30px;" name="signIn" value="Sign In" >
