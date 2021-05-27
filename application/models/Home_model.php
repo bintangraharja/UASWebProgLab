@@ -8,9 +8,10 @@ Class Home_model extends CI_Model{
     }
     public function list_hotel(){
         $query = $this->db->query(
-        'SELECT `hotel`.`HotelID`, `HotelName`, `Rating`, `Address`, `Description` ,MIN(`Price`) as `Price`
-            FROM `hotel` 
-            JOIN `room` ON `hotel`.`HotelID` = `room`.`HotelID`');
+        'SELECT `hotel`.`HotelID`, `HotelName`, `Rating`, `Address`, `Description` ,MIN(`Price`) as `Price` 
+        FROM `hotel` JOIN `room` ON `hotel`.`HotelID` = `room`.`HotelID` 
+        GROUP BY `room`.`HotelID`
+        ORDER BY HotelName');
         return $query->result_array();
     }
     function get_image($id){

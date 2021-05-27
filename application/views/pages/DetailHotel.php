@@ -10,13 +10,14 @@
 		$address = $hotel['Address'];
 		$desc = $hotel['Description'];
 		$rating = $hotel['Rating'];
+		$number = $hotel['Number'];
 	}
 	?>
 	<div class="container-fluid" style="padding-left: 100px; padding-left: 20%; padding-right: 50px;">
 		<div class="row">
 			<div class="col-9">
 				<h1><?php echo $hotelName;?> - <?php for($i = 0; $i < $rating ;$i++){ ?>⭐<?php } ?></h1>
-				<h4><span class="fas fa-map-marker-alt"></span> <?php echo $address;?></h4>
+				<h4><span class="fas fa-map-marker-alt"></span> <?php echo $address;?> (<?=$number;?>)</h4>
 			</div>
 			<div class="col-3">
 				LOGO
@@ -193,7 +194,11 @@
 							<div class="col-3">
 								<div class="details">
 									<span style="font-weight: bold;">Rp <?php echo $price;?>,-</span><span> /night</span> 
+									<?php if($qty > 0){ ?>
 									<a href="<?=site_url('BookingForm/form').'/'.$hotelID.'/'.$roomID;?>"><button type="submit" class="btn btnYes" name="book1" value="BOOK NOW">BOOK NOW</button></a>
+									<?php }else{?>
+									<button type="submit" class="btn btnYes" name="book1" value="BOOK NOW" disabled>BOOK NOW</button>
+									<?php }?> 
 								</div>
 							</div>
 						</div>

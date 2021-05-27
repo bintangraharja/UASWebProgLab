@@ -17,6 +17,7 @@
 			$Address = $data['Address'];
 			$Qty = $data['Qty'];
 			$Price = $data['Price'];
+			$Number = $data['Number'];
 			$totalPrice = $Price;
 		}
 	?>
@@ -48,7 +49,7 @@
 							<p>: <?=$HotelName?></p>
 							<p>: <?=$RoomName?></p>
 							<p>: <?=$Address?></p>
-							<p>: Hotel's Phone Number</p>
+							<p>: <?=$Number;?></p>
 						</div>
 					</div>
 					<hr style="border-color: black;">
@@ -103,6 +104,7 @@
 							<label class="col-3 col-form-label">Subtotal</label>
 							<p class="col-5 subtotal" style="font-weight: bold;">Rp <?=$totalPrice?>,-</p>
 							<input type="hidden" class="submitTotal" name="Subtotal" value="<?php echo $totalPrice;?>">
+							<input type="hidden" class="duration" name="Duration" value="1"> 
 							<input type="hidden"  name="HotelID" value="<?=$HotelID;?>">
 							<input type="hidden"  name="RoomID" value="<?=$RoomID;?>">
 
@@ -144,7 +146,9 @@
 		function GetDays(){
             var checkin = new Date(document.getElementById("checkin").value);
             var checkout = new Date(document.getElementById("checkout").value);
-            return parseInt((checkout - checkin) / (24 * 3600 * 1000));
+			var duration = parseInt((checkout - checkin) / (24 * 3600 * 1000));
+			$(".duration").val(duration);
+            return duration;
 		}
 
 		$('.input-number-increment').click(function() {

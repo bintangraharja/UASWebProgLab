@@ -26,7 +26,12 @@ class DetailHotel extends CI_Controller {
 	{
         $data['style'] = $this->load->view('include/style.php',NULL,TRUE);
         $data['script'] = $this->load->view('include/script.php',NULL,TRUE);
-        $data['sidebar'] = $this->load->view('sidebar/sidenav.php',$data,TRUE);
+        if($this->session->userdata('status')){
+            $data['sidebar'] = $this->load->view('sidebar/sidenavIn.php',$data,TRUE);
+        }
+        else{
+            $data['sidebar'] = $this->load->view('sidebar/sidenav.php',$data,TRUE);
+        }
         $data['detailHotel'] = $this->detail_hotel_model->get_detail($HotelID);
         if($data['detailHotel'] == NULL){
             show_404();
