@@ -19,6 +19,13 @@ Class User_model extends CI_Model{
         $query = $this->db->query("SELECT * FROM account WHERE UserID = $userid");
         return $query->row_array();
     }
+    public function get_image(){
+        $result = $this->db->query("SELECT * FROM account");
+        foreach($result->result_array() as $pp){
+            $image = $pp['Pict'];
+        }
+        echo $image;
+ }
 }
 
 ?>

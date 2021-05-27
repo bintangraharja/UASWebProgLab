@@ -14,7 +14,7 @@ echo $sidebar; ?>
 						<h2>MY ACCOUNT</h2>
 					</div>
 					<div class="col-6">
-						<img src="./Gallery/example.jpg" style="width: 250px; height: 250px; padding: 10px;">
+						<img src="<?php echo site_url('Account/getImg');?>" style="width: 250px; height: 250px; padding: 10px;">
 					</div>
 				</div>
 				<br><br>

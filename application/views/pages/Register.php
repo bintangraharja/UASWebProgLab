@@ -23,7 +23,7 @@
 			<div class="col-7">
 				<div class="container" style="background: white; border-radius: 5px;">
 					<div style="padding: 25px;">
-						<form action="" method="POST">
+						<form action="<?=site_url('Register/regist');?>" method="POST" enctype="multipart/form-data">
 						<div class="form-group row">
 							<div class="col">
 								<input type="text" class="form-control" name="fname" placeholder="First Name">
