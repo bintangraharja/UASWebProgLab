@@ -20,7 +20,8 @@ Class User_model extends CI_Model{
         return $query->row_array();
     }
     public function get_image(){
-        $result = $this->db->query("SELECT * FROM account");
+        $id = $this->session->userdata('userID');
+        $result = $this->db->query("SELECT * FROM account Where UserID = '$id' ");
         foreach($result->result_array() as $pp){
             $image = $pp['Pict'];
         }

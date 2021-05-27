@@ -23,7 +23,7 @@
 			<div class="col-7">
 				<div class="container" style="background: white; border-radius: 5px;">
 					<div style="padding: 25px;">
-						<form action="<?=site_url('Register/regist');?>" method="POST" enctype="multipart/form-data">
+						<?php echo form_open_multipart('Register');?>
 						<div class="form-group row">
 							<div class="col">
 								<input type="text" class="form-control" name="fname" placeholder="First Name">
@@ -38,23 +38,24 @@
 						<div class="form-group row">
 							<div class="col">
 								<input type="password" class="form-control" name="password" placeholder="Password">
-								<small class="text-muted">Password min 8 charaters</small>
+								<small class="text-muted">Password min 8 characters</small>
 							</div>
 							<div class="col">
 								<input type="password" class="form-control" name="passwordconf" placeholder="Retype Password">
-								<small class="text-muted">Password did not match!</small>
+								<small class="text-muted"><?php echo form_error('passwordconf');?></small>
 							</div>
 						</div>
 						<div class="form-group">
 					        <input type="date" class="form-control" name="bdate" placeholder="(dd/mm/yyyy)">
 						</div>
 						<div class="form-group">
-							<input type="tel" class="form-control" name="pnumber" placeholder="0877-787-8939">
+							<input type="tel" class="form-control" name="pnumber" placeholder="08777878939">
+							<small class="text-muted"><?php echo form_error('pnumber');?></small>
 						</div>
 						<div class="form-group">
 							<label for="ppicture" style="color: black;">Upload Profile Picture</label>
 							<br>
-							<input type="file" name="ppicture" id="" required>
+							<input type="file" name="ppicture" id="" >
 						</div>
 						<div class="row d-flex justify-content-center">
 							<div class="col-md-4 text-center">

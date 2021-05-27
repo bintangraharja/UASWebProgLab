@@ -21,7 +21,7 @@ class Login extends CI_Controller {
             $contain_sess_captcha = $this->session->userdata('valuecaptchaCode');
             if ($captcha_insert === $contain_sess_captcha) {
                 $email = $this->input->post('email');
-                $password = $this->input->post('password'); //md5($this->input->post('password'));
+                $password = md5($this->input->post('password')); 
                 delete_files("image_for_captcha");
                 $cek = $this->User_model->login($email,$password);
                 if($cek > 0){
