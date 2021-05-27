@@ -15,6 +15,7 @@ class Login extends CI_Controller {
 		// if($this->session->userdata('status')){
         //     redirect('home');
         // }
+        delete_files("image_for_captcha");
 		if($this->input->post('signIn')) {
             $captcha_insert = $this->input->post('captcha');
             $contain_sess_captcha = $this->session->userdata('valuecaptchaCode');
