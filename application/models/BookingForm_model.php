@@ -12,6 +12,14 @@ Class BookingForm_model extends CI_Model{
             WHERE hotel.HotelID = '$Hid'");
         return $query->result_array();
     }
+    function addBook($values){
+        $this->db->insert('booking',$values);
+        $insertId = $this->db->insert_id();
+        $roomID = $values['RoomID'];
+        $qty = $values['RoomQty'];
+        $this->db->query("UPDATE room SET Qty = Qty - $qty WHERE RoomID = '$roomID'");
+        return  $insertId;
+    }
     
 }
 ?>

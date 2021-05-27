@@ -78,7 +78,7 @@
 		                            <div class="input-group-button">
 		                                <span class="input-number-decrement">-</span>
 		                            </div>
-		                            <input type="number" class="input-number" name="RoomQty" value="1" min="1" max="30">
+		                            <input id="Qty" type="number" class="input-number" name="RoomQty" value="1" min="1" max="30">
 		                            <div class="input-group-button">
 		                                <span class="input-number-increment">+</span>
 		                            </div>
@@ -89,7 +89,7 @@
 							<div class="col-4 text-center">
 								<label>Check-In</label>
 						    	<div class="form-group">
-							        <input type="date" id="checkin" class="form-control bForm" name="CheckIn" onchange="Cekin()" required>
+							        <input type="date" id="checkin" class="form-control bForm" name="CheckIn"  required>
 								</div>
 							</div>
 							<div class="col-4 text-center">
@@ -103,6 +103,9 @@
 							<label class="col-3 col-form-label">Subtotal</label>
 							<p class="col-5 subtotal" style="font-weight: bold;">Rp <?=$totalPrice?>,-</p>
 							<input type="hidden" class="submitTotal" name="Subtotal" value="<?php echo $totalPrice;?>">
+							<input type="hidden"  name="HotelID" value="<?=$HotelID;?>">
+							<input type="hidden"  name="RoomID" value="<?=$RoomID;?>">
+
 						</div>
 						<div class="row" style="float: right; margin: 10px;">
 							<input type="submit" class="btn btnYes" name="submit" value="BOOK HOTEL">
@@ -121,15 +124,23 @@
 			return local.toJSON().slice(0,10);
 		});
 		document.getElementById('checkin').value = new Date().toDateInputValue();
+		document.getElementById('checkout').value = new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toJSON().slice(0,10);
 
-		function Cekin(){
-			var date = document.getElementByID('checkin').value;
-			var now = new Date().toDateInputValue();
-			console.log(now);
-		}
-		function cekout(){
-
-		}
+		$('#checkin').change(function(){
+			var cek = GetDays();
+			if(cek < 1){
+				var checkout = new Date(document.getElementById("checkout").value);
+				document.getElementById('checkin').value = new Date(parseInt(checkout  -1)).toJSON().slice(0,10);
+			}
+			update_subtotal();
+		});
+		$('#checkout').change(function(){
+			var cek = GetDays();
+			if(cek < 1){
+				document.getElementById('checkout').value = "";
+			}
+			update_subtotal();
+		});
 		function GetDays(){
             var checkin = new Date(document.getElementById("checkin").value);
             var checkout = new Date(document.getElementById("checkout").value);
@@ -137,20 +148,13 @@
 		}
 
 		$('.input-number-increment').click(function() {
-			var duration = 0;
-			if(document.getElementById("checkout")){
-				duration = GetDays();
-       	 	}	 
-			console.log(duration);
 			var $input = $(this).parents('.input-number-group').find('.input-number');
 			var val = parseInt($input.val(), 10);
 			$input.val(val + 1);
 			if($input.val() > <?=$Qty?>){
 				$input.val(<?=$Qty?>);
 			}
-			$(".subtotal").text("Rp "+<?=$Price?>*$input.val() +",-");
-			$(".submitTotal").val(<?=$Price?>*$input.val());
-		
+			update_subtotal();
 		});
 		$('.input-number-decrement').click(function() {
 			var $input = $(this).parents('.input-number-group').find('.input-number');
@@ -159,9 +163,18 @@
 			if($input.val() < 1){
 				$input.val(1);
 			}
-			$(".subtotal").text("Rp "+<?=$Price?>*$input.val() +",-");
-			$(".submitTotal").val(<?=$Price?>*$input.val());
+			update_subtotal();
+			
 		})
+		function update_subtotal(){
+			var duration = GetDays();
+			if(isNaN(duration)){
+				duration = 0;
+			}
+			var qty = document.getElementById('Qty').value
+			$(".subtotal").text("Rp "+<?=$Price?>*qty*duration +",-");
+			$(".submitTotal").val(<?=$Price?>*qty*duration);
+		}
 
 	});
 		

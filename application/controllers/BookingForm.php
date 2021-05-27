@@ -36,6 +36,8 @@ class BookingForm extends CI_Controller {
         $format = '%D, %d %M %Y - %H:%i:%s WIB';
         $now = mdate($format);
         $values = array(
+            'HotelID' => $this->input->post('HotelID'),
+            'RoomID' => $this->input->post('RoomID'),
             'GName' => $this->input->post('GName'),
             'PNumber' => $this->input->post('PNumber'),
             'Email' => $this->input->post('Email'),
@@ -45,7 +47,8 @@ class BookingForm extends CI_Controller {
             'Subtotal' => $this->input->post('Subtotal'),
             'BookingTime' => $now
         );
-        print_r($values);exit;
+        $id = $this->bookingform_model->addBook($values);
+        redirect('Invoice/'.$id);
     }
 }
 ?>
