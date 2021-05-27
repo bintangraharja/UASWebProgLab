@@ -12,9 +12,9 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-		if($this->session->userdata('status')){
-            redirect('home');
-        }
+		// if($this->session->userdata('status')){
+        //     redirect('home');
+        // }
 		if($this->input->post('signIn')) {
             $captcha_insert = $this->input->post('captcha');
             $contain_sess_captcha = $this->session->userdata('valuecaptchaCode');

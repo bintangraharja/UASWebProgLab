@@ -15,6 +15,10 @@ Class User_model extends CI_Model{
     public function register($account){
         $this->db->insert('account', $account);
     }
+    public function getDetailAcc($userid){
+        $query = $this->db->query("SELECT * FROM account WHERE UserID = $userid");
+        return $query->row_array();
+    }
 }
 
 ?>
