@@ -38,8 +38,8 @@
 					$price =$hotel['Price'];
 					//isi data
 				?>
-				<div class="media" style="background: rgba(153, 225, 217, 0.64); padding: 5px; margin-bottom: 5px;">
-					<img  src="<?php echo site_url('home/showImg/').$hotelID ?>" style="width: 175px; height: 175px;">
+				<div class="media" style="background: rgba(153, 225, 217, 0.64); padding: 10px; margin-bottom: 5px;">
+					<img class="align-self-center" src="<?php echo site_url('home/showImg/').$hotelID ?>" style="width: 175px; height: 175px;">
 					<div class="media-body" style="padding-left: 10px;">
 						<div class="row">
 							<div class="col-9">
@@ -52,8 +52,8 @@
 								<p><i class="fas fa-map-marker-alt"></i> <?php echo $address; ?></p>
 								<p>Start from <span style="font-weight: bold;">Rp <?=$price;?>,-</span> /night</p>
 							</div>
-							<div class="col-3">
-								<a href="<?=site_url('DetailHotel').'/'.$hotelID;?>" class="details" style="line-height: 175px;">View Details</a>
+							<div class="col-3 align-self-center">
+								<a href="<?=site_url('DetailHotel').'/'.$hotelID;?>" style="color: black;">View Details</a>
 							</div>
 						</div>
 					</div>

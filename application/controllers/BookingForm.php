@@ -9,14 +9,18 @@ class BookingForm extends CI_Controller {
 
     }
     function _remap($method){
-        if($method === 'index'){
-            show_404();
-        }else if($method === 'form'){
-            $this->index();
-        }else if($method === 'book'){
-            $this->book();
+        if($this->session->userdata('status')){
+            if($method === 'index'){
+                show_404();
+            }else if($method === 'form'){
+                $this->index();
+            }else if($method === 'book'){
+                $this->book();
+            }else{
+                show_404();
+            }
         }else{
-            show_404();
+            redirect('Login');
         }
     }
    
@@ -36,6 +40,7 @@ class BookingForm extends CI_Controller {
         $format = '%D, %d %M %Y - %H:%i:%s WIB';
         $now = mdate($format);
         $values = array(
+            'UserID'=> $this->session->userdata('userID'),
             'HotelID' => $this->input->post('HotelID'),
             'RoomID' => $this->input->post('RoomID'),
             'GName' => $this->input->post('GName'),
@@ -45,8 +50,10 @@ class BookingForm extends CI_Controller {
             'CheckIn' => $this->input->post('CheckIn'),
             'CheckOut' => $this->input->post('CheckOut'),
             'Subtotal' => $this->input->post('Subtotal'),
+            'Duration' =>$this->input->post('Duration'),
             'BookingTime' => $now
         );
+        print_r($values);exit;
         $id = $this->bookingform_model->addBook($values);
         redirect('Invoice/'.$id);
     }

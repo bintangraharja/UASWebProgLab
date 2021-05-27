@@ -6,7 +6,7 @@ Class BookingForm_model extends CI_Model{
     }
     function get_data_form($Hid,$Rid){
         $query = $this->db->query(
-            "SELECT hotel.HotelID,`HotelName`,`Address`,`RoomName`,`Qty` ,`Price`, room.RoomID
+            "SELECT hotel.HotelID,`Number`,`HotelName`,`Address`,`RoomName`,`Qty` ,`Price`, room.RoomID
             FROM `hotel` 
             JOIN `room` ON RoomID = '$Rid'
             WHERE hotel.HotelID = '$Hid'");
