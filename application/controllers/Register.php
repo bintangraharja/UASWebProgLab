@@ -8,6 +8,7 @@ class Register extends CI_Controller {
 		parent::__construct();
 		$this->load->model("User_model");
 		$this->load->library('form_validation');
+		$this->load->helper('file');
 	}
 
 	public function index()
@@ -48,6 +49,7 @@ class Register extends CI_Controller {
 					);	
 				}
 				$this->User_model->register($account);
+				delete_files("image_for_captcha");
 				redirect('login');
 			}
 		}
