@@ -7,14 +7,14 @@
 	echo $script;
 	?>
 	<script>
-       $(document).ready(function(){
-           $('.captcha-refresh').on('click', function(){
-               $.get('<?php echo base_url().'login/refresh'; ?>', function(data){
-                   $('#image_captcha').html(data);
-               });
-           });
-       });
-   </script>
+		$(document).ready(function(){
+			$('.captcha-refresh').on('click', function(){
+				$.get('<?php echo base_url().'login/refresh'; ?>', function(data){
+					$('#image_captcha').html(data);
+				});
+			});
+		});
+	</script>
 	<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 </head>
 <body style="background: #DBDBDB;">

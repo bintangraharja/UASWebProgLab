@@ -19,8 +19,9 @@
 				<h1><?php echo $hotelName;?> - <?php for($i = 0; $i < $rating ;$i++){ ?>⭐<?php } ?></h1>
 				<h4><span class="fas fa-map-marker-alt"></span> <?php echo $address;?> (<?=$number;?>)</h4>
 			</div>
-			<div class="col-3">
-				LOGO
+			<div class="col-3 d-flex justify-content-end">
+				<!-- Logo Potrait/Landscape -->
+				<img src="./Gallery/example.jpg" style="width: 100px; height: 100px; margin-left: 20px;">
 			</div>
 		</div>
 		<hr style="border-color: black;">
@@ -191,17 +192,15 @@
 									<?php echo $facility;?>
 								</ul>
 							</div>
-							<div class="col-3">
-								<div class="details">
-									<span style="font-weight: bold;">Rp <?php echo $price;?>,-</span><span> /night</span> 
-									<?php if($qty <= 0){?>
-									<button type="submit" class="btn btnYes" disabled >BOOK NOW</button>
-									<?php }else if(!$this->session->userdata('status')){ ?>
-									<a href="<?=site_url('Login');?>"><button type="submit" class="btn btnYes" >BOOK NOW</button></a>
-									<?php }else{?>
-									<a href="<?=site_url('BookingForm/form').'/'.$hotelID.'/'.$roomID;?>"><button type="submit" class="btn btnYes" name="book1" value="BOOK NOW">BOOK NOW</button></a>
-									<?php }?> 
-								</div>
+							<div class="col-3 align-self-end">
+								<p><span style="font-weight: bold;">Rp <?php echo $price;?>,-</span> /night</p> 
+								<?php if($qty <= 0){?>
+								<button type="submit" class="btn btnYes" disabled >BOOK NOW</button>
+								<?php }else if(!$this->session->userdata('status')){ ?>
+								<a href="<?=site_url('Login');?>"><button type="submit" class="btn btnYes" >BOOK NOW</button></a>
+								<?php }else{?>
+								<a href="<?=site_url('BookingForm/form').'/'.$hotelID.'/'.$roomID;?>"><button type="submit" class="btn btnYes" name="book1" value="BOOK NOW">BOOK NOW</button></a>
+								<?php }?> 
 							</div>
 						</div>
 					</div>

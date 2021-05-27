@@ -38,9 +38,11 @@
 						<div class="form-group row">
 							<div class="col">
 								<input type="password" class="form-control" name="password" placeholder="Password">
+								<small class="text-muted">Password min 8 charaters</small>
 							</div>
 							<div class="col">
 								<input type="password" class="form-control" name="passwordconf" placeholder="Retype Password">
+								<small class="text-muted">Password did not match!</small>
 							</div>
 						</div>
 						<div class="form-group">
@@ -51,6 +53,7 @@
 						</div>
 						<div class="form-group">
 							<label for="ppicture" style="color: black;">Upload Profile Picture</label>
+							<br>
 							<input type="file" name="ppicture" id="" required>
 						</div>
 						<div class="row d-flex justify-content-center">

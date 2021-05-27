@@ -3,9 +3,15 @@
 <!DOCTYPE html>
 <html>
 <body class="home">
-	<div class="container">
-		<div class="text-right">
-			<!-- Logo Potrait/Landscape -->
+<div class="container" style="margin-top: 25px;">
+		<div class="row">
+			<div class="col-6 align-self-center">
+				<h1>Booking History</h1>
+			</div>
+			<div class="col-6 d-flex justify-content-end">
+				<!-- Logo Potrait/Landscape -->
+				<img src="./Gallery/example.jpg" style="width: 100px; height: 100px;">
+			</div>
 		</div>
 	</div>
 	<br><br><br>
