@@ -1,7 +1,5 @@
-<?php
-	include_once('sidenavIn.php');
-?>
-
+<?php 
+echo $sidebar; ?>
 <!DOCTYPE html>
 <html>
 <body class="home">
@@ -25,7 +23,7 @@
 							<i class="fas fa-user-alt fa-2x" style="background-color: white; border-radius: 25px; padding: 10px;"></i>
 						</div>
 					<div class="col-6 align-self-center">
-						<h3>Ferry Lay</h3>
+						<h3><?php echo $user['FName'].' '.$user['LName']?></h3>
 					</div>
 				</div>
 				<br>
@@ -34,7 +32,7 @@
 							<i class="fas fa-envelope fa-2x" style="background-color: white; border-radius: 25px; padding: 10px;"></i>
 						</div>
 					<div class="col-6 align-self-center">
-						<h3>Ferrylay@gmail.com</h3>
+						<h3><?php echo $user['Email']?></h3>
 					</div>
 				</div>
 				<br>
@@ -43,7 +41,7 @@
 							<i class="fas fa-calendar-alt fa-2x" style="background-color: white; border-radius: 25px; padding: 10px;"></i>
 						</div>
 					<div class="col-6 align-self-center">
-						<h3>22 - 04 - 1995</h3>
+						<h3><?php echo $user['BDay']?></h3>
 					</div>
 				</div>
 				<br>
@@ -52,7 +50,7 @@
 							<i class="fas fa-phone fa-2x" style="background-color: white; border-radius: 25px; padding: 10px;"></i>
 						</div>
 					<div class="col-6 align-self-center">
-						<h3>+62 8788 7789</h3>
+						<h3><?php echo $user['PNumber']?></h3>
 					</div>
 				</div>
 				<br><br>

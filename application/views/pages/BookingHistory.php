@@ -1,6 +1,4 @@
-<?php
-	include_once('sidenavIn.php');
-?>
+<?php echo $sidebar?>
 
 <!DOCTYPE html>
 <html>
