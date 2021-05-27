@@ -24,7 +24,7 @@
 	                </span>
 	            </div>
 			</div>
-			<div class="col-7">
+			<div class="col-7 custom-scrollbar-css p-2">
 
 				<?php
 				//ini buat masukin list hotel
@@ -53,7 +53,7 @@
 								<p>Start from <span style="font-weight: bold;">Rp <?=$price;?>,-</span> /night</p>
 							</div>
 							<div class="col-3 align-self-center">
-								<a href="<?=site_url('DetailHotel').'/'.$hotelID;?>" style="color: black;">View Details</a>
+								<a href="<?=site_url('DetailHotel').'/'.$hotelID;?>" class="details">View Details</a>
 							</div>
 						</div>
 					</div>

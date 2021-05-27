@@ -22,11 +22,13 @@
 				<h4 style="color: white;">Customer's Email</h4>
 			</div>
 			<div class="col-2">
-				<h2><u>INVOICE</u></h2>
-				<p>Invoice to : </p>
-				<h4 style="font-weight: bold;">Customer's Name</h4>
-				<h4 style="color: white;">Customer's ID</h4>
-				<h4 style="color: white;">Customer's Email</h4>
+				<div class="row d-flex justify-content-center">
+					<img src="./Gallery/paid.png" style="width: 110px; height: 110px; margin: 15px; background-color: #99E1D9; border-radius: 50%;">
+				</div>
+				<div class="row d-flex justify-content-center">
+					<h5>Your Booking ID</h5>
+					<h5 style="font-weight: bold;">Booking's ID</h5>
+				</div>
 			</div>
 			<div class="col-8 d-flex justify-content-end">
 				<!-- Logo Potrait/Landscape -->
