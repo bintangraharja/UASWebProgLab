@@ -16,10 +16,11 @@
 		<div class="row">
 			<div class="col-9">
 				<h1><?php echo $hotelName;?> - <?php for($i = 0; $i < $rating ;$i++){ ?>⭐<?php } ?></h1>
-				<h4><span class="fas fa-map-marker-alt"></span> <?php echo $address;?></h4>
+				<h4><span class="fas fa-map-marker-alt"></span> <?php echo $address;?> (021-23583800)</h4>
 			</div>
-			<div class="col-3">
-				LOGO
+			<div class="col-3 d-flex justify-content-end">
+				<!-- Logo Potrait/Landscape -->
+				<img src="./Gallery/example.jpg" style="width: 100px; height: 100px; margin-left: 20px;">
 			</div>
 		</div>
 		<hr style="border-color: black;">

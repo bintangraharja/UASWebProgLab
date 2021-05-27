@@ -2,13 +2,16 @@
 <html>
 <?php echo $sidebar; ?>
 <body class="home" style= "background-image: url('http://localhost/UASWebprogLab/assets/HomeBG.jpg');">
-	<div class="container">
-		<div class="text-right">
-			<a href="AboutUs.php">About Us</a>
+	<div class="container-fluid" style="margin-top: 25px; padding-right: 100px;">
+		<div class="row d-flex justify-content-end">
+			<div class="d-flex align-items-end">
+				<a href="AboutUs.php"><h5><u>About Us</u></h5></a>
+			</div>
 			<!-- Logo Potrait/Landscape -->
+			<img src="./Gallery/example.jpg" style="width: 100px; height: 100px; margin-left: 20px;">
 		</div>
 	</div>
-	<div class="container-fluid" style="margin-top: 50px; padding-left: 100px; padding-right: 50px;">
+	<div class="container-fluid" style="margin-top: 10px; padding-left: 100px; padding-right: 50px;">
 		<div class="row">
 			<div class="col-5">
 	            <div class="input-group">

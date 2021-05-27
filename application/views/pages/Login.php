@@ -7,6 +7,15 @@
 	echo $script;
 	?>
 	<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+	<script>        
+		$(document).ready(function(){            
+			$('.captcha-refresh').on('click', function(){                
+				$.get('<?php echo base_url().'login/refresh'; ?>', function(data){                    
+					$('#image_captcha').html(data);                
+				});            
+			});        
+		});    
+	</script>
 </head>
 <body style="background: #DBDBDB;">
 	<br><br><br>
@@ -36,10 +45,12 @@
 						        </div>
 						        <input type="password" class="form-control" name="password" placeholder="********">
 							</div>
-							<div class="form-group row">
-								<div class="">
-						        	<!-- insert captcha -->
-						        </div>
+							<div class="form-group row">                                 
+								<div class="">                                     
+									<?php echo $captchaImg; ?>                                     
+									<a href="javascript:void(0);"><button class="btn" style="background-color: #858585; color: white;"><span class="glyphicon glyphicon-refresh"></span></button></a>                                     
+									<input type="text" name="captcha" />                                 
+								</div>                             
 							</div>
 							<div class="row d-flex justify-content-center">
 								<div class="col-md-4 text-center">

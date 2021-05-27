@@ -28,8 +28,9 @@
 				<h4 style="color: white;">Customer's ID</h4>
 				<h4 style="color: white;">Customer's Email</h4>
 			</div>
-			<div class="col-8">
+			<div class="col-8 d-flex justify-content-end">
 				<!-- Logo Potrait/Landscape -->
+				<img src="./Gallery/example.jpg" style="width: 100px; height: 100px; margin: 20px;">
 			</div>
 		</div>
 		<br>
@@ -98,8 +99,8 @@
 			</div>
 		</div>
 		<br>
-		<div class="row d-flex justify-content-end">
-			<a href="BookingHistory.php"><button class="btn btnYes">DONE</button></a>
+		<div class="row d-flex justify-content-end" style="margin-right: 20px;">
+			<a href="BookingHistory.php"><button class="btn btnYes btn-block" style="margin-left: 20px; margin-right: 20px;">DONE</button></a>
 		</div>
 	</div>
 </body>
