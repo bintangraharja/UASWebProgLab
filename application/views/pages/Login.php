@@ -6,16 +6,16 @@
 	echo $style;
 	echo $script;
 	?>
-	<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-	<script>        
-		$(document).ready(function(){            
-			$('.captcha-refresh').on('click', function(){                
-				$.get('<?php echo base_url().'login/refresh'; ?>', function(data){                    
-					$('#image_captcha').html(data);                
-				});            
-			});        
-		});    
+	<script>
+		$(document).ready(function(){
+			$('.captcha-refresh').on('click', function(){
+				$.get('<?php echo base_url().'login/refresh'; ?>', function(data){
+					$('#image_captcha').html(data);
+				});
+			});
+		});
 	</script>
+	<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 </head>
 <body style="background: #DBDBDB;">
 	<br><br><br>
@@ -32,7 +32,7 @@
 			<div class="col-7">
 				<div class="container" style="background: white; border-radius: 5px;">
 					<div style="padding: 25px;">
-							<form actipn="">
+						<form action="" method="POST">
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
 						        	<span class="input-group-text fas fa-envelope"></span>
@@ -45,12 +45,12 @@
 						        </div>
 						        <input type="password" class="form-control" name="password" placeholder="********">
 							</div>
-							<div class="form-group row">                                 
-								<div class="">                                     
-									<?php echo $captchaImg; ?>                                     
-									<a href="javascript:void(0);"><button class="btn" style="background-color: #858585; color: white;"><span class="glyphicon glyphicon-refresh"></span></button></a>                                     
-									<input type="text" name="captcha" />                                 
-								</div>                             
+							<div class="form-group row">
+								<div class="">
+									<?php echo $captchaImg; ?>
+									<a href="javascript:void(0);"><button class="btn" style="background-color: #858585; color: white;"><span class="glyphicon glyphicon-refresh"></span></button></a>
+									<input type="text" name="captcha" />
+						        </div>
 							</div>
 							<div class="row d-flex justify-content-center">
 								<div class="col-md-4 text-center">

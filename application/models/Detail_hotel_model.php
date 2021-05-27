@@ -14,6 +14,10 @@ Class Detail_hotel_model extends CI_Model{
         $query = $this->db->query("SELECT * FROM room WHERE HotelID = '$id'");
         return $query->result_array();
     }
+    function get_facility($id){
+        $query = $this->db->query("SELECT * FROM facilityhotel WHERE HotelID = '$id'");
+        return $query->result_array();
+    }
 
     function get_hotel_image($id, $HotelID){
         $query = $this->db->query("Select * From imagehotel WHERE ImageID = '$id' AND HotelID = '$HotelID'");

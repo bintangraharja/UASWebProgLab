@@ -31,6 +31,7 @@ class DetailHotel extends CI_Controller {
         if($data['detailHotel'] == NULL){
             show_404();
         }
+        $data['facility'] = $this->detail_hotel_model->get_facility($HotelID);
         $data['hotelRoom'] = $this->detail_hotel_model->get_room($HotelID);
 		$this->load->view('pages/detailhotel.php',$data);
 	}

@@ -4,7 +4,7 @@
 Class Home_model extends CI_Model{
 
     function construct(){
-        parent::construct();
+        parent::__construct();
     }
     public function list_hotel(){
         $query = $this->db->query(

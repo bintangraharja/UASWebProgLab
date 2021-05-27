@@ -23,7 +23,7 @@
 			<div class="col-7">
 				<div class="container" style="background: white; border-radius: 5px;">
 					<div style="padding: 25px;">
-						<form actipn="">
+						<form action="" method="POST">
 						<div class="form-group row">
 							<div class="col">
 								<input type="text" class="form-control" name="fname" placeholder="First Name">
@@ -40,7 +40,7 @@
 								<input type="password" class="form-control" name="password" placeholder="Password">
 							</div>
 							<div class="col">
-								<input type="password" class="form-control" name="password" placeholder="Retype Password">
+								<input type="password" class="form-control" name="passwordconf" placeholder="Retype Password">
 							</div>
 						</div>
 						<div class="form-group">
@@ -55,7 +55,7 @@
 						</div>
 						<div class="row d-flex justify-content-center">
 							<div class="col-md-4 text-center">
-								<input type="submit" class="btn btnYes btn-block" style="border-radius: 30px;" name="signIn" value="Sign Up" >
+								<input type="submit" class="btn btnYes btn-block" style="border-radius: 30px;" name="signUp" value="Sign Up" >
 							</div>
 						</div>
 					</form>

@@ -2,19 +2,28 @@
 <html>
 <head>
 	<title>Hotel UAS IF430 - XXX</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="style.css">
-
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</head>
+	<?php 
+		echo $style;
+		echo $script;
+	?>
+	</head>
 <body style="background: #DBDBDB;">
+	<?php
+		foreach($dataForm as $data){
+			$HotelID = $data['HotelID'];
+			$RoomID = $data['RoomID'];
+			$HotelName = $data['HotelName'];
+			$RoomName = $data['RoomName'];
+			$Address = $data['Address'];
+			$Qty = $data['Qty'];
+			$Price = $data['Price'];
+			$totalPrice = $Price;
+		}
+	?>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-2">
-				<a href="DetailHotel.php">
+				<a href="<?=site_url('DetailHotel').'/'.$HotelID;?>">
 					<button type="submit" class="btn btnBack text-right" style="margin-top: 100px; margin-left: 50px;">
 						<span class="fas fa-angle-double-left"></span> Back
 					</button>
@@ -36,30 +45,30 @@
 							<p>Phone Number</p>
 						</div>
 						<div class="col-9">
-							<p>: Hotel's Name</p>
-							<p>: Room Type Name</p>
-							<p>: Hotel's Address, Indonesia</p>
+							<p>: <?=$HotelName?></p>
+							<p>: <?=$RoomName?></p>
+							<p>: <?=$Address?></p>
 							<p>: Hotel's Phone Number</p>
 						</div>
 					</div>
 					<hr style="border-color: black;">
-					<form action="">
+					<form action="<?=site_url('BookingForm/book');?>" method="post">
 						<div class="form-group row">
 							<label class="col-3 col-form-label">Guest Name</label>
 							<div class="col-5">
-								<input type="text" class="form-control bForm" name="guestName">
+								<input type="text" class="form-control bForm" name="GName" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-3 col-form-label">Phone Number</label>
 							<div class="col-5">
-								<input type="tel" class="form-control bForm" name="pNumber">
+								<input type="tel" class="form-control bForm" name="PNumber" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-3 col-form-label">Email</label>
 							<div class="col-5">
-								<input type="email" class="form-control bForm" name="email">
+								<input type="email" class="form-control bForm" name="Email" required>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -69,7 +78,7 @@
 		                            <div class="input-group-button">
 		                                <span class="input-number-decrement">-</span>
 		                            </div>
-		                            <input type="number" class="input-number" name="durations" value="1" min="1" max="30">
+		                            <input id="Qty" type="number" class="input-number" name="RoomQty" value="1" min="1" max="30">
 		                            <div class="input-group-button">
 		                                <span class="input-number-increment">+</span>
 		                            </div>
@@ -80,22 +89,26 @@
 							<div class="col-4 text-center">
 								<label>Check-In</label>
 						    	<div class="form-group">
-							        <input type="date" class="form-control bForm" name="bdate">
+							        <input type="date" id="checkin" class="form-control bForm" name="CheckIn"  required>
 								</div>
 							</div>
 							<div class="col-4 text-center">
 								<label>Check-Out</label>
 						    	<div class="form-group">
-							        <input type="date" class="form-control bForm" name="bdate">
+							        <input type="date" id="checkout" class="form-control bForm" name="CheckOut" required>
 								</div>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-3 col-form-label">Subtotal</label>
-							<p class="col-5" style="font-weight: bold;">Rp 4.500.000,-</p>
+							<p class="col-5 subtotal" style="font-weight: bold;">Rp <?=$totalPrice?>,-</p>
+							<input type="hidden" class="submitTotal" name="Subtotal" value="<?php echo $totalPrice;?>">
+							<input type="hidden"  name="HotelID" value="<?=$HotelID;?>">
+							<input type="hidden"  name="RoomID" value="<?=$RoomID;?>">
+
 						</div>
 						<div class="row" style="float: right; margin: 10px;">
-							<input type="submit" class="btn btnYes" name="book2" value="BOOK HOTEL">
+							<input type="submit" class="btn btnYes" name="submit" value="BOOK HOTEL">
 						</div>
 					</form>
 				</div>
@@ -104,16 +117,67 @@
 	</div>
 
 	<script>
+	$(document).ready(function(){
+		Date.prototype.toDateInputValue = (function() {
+			var local = new Date(this);
+			local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+			return local.toJSON().slice(0,10);
+		});
+		document.getElementById('checkin').value = new Date().toDateInputValue();
+		document.getElementById('checkout').value = new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toJSON().slice(0,10);
+
+		$('#checkin').change(function(){
+			var cek = GetDays();
+			if(cek < 1){
+				var checkout = new Date(document.getElementById("checkout").value);
+				document.getElementById('checkin').value = new Date(parseInt(checkout  -1)).toJSON().slice(0,10);
+			}
+			update_subtotal();
+		});
+		$('#checkout').change(function(){
+			var cek = GetDays();
+			if(cek < 1){
+				document.getElementById('checkout').value = "";
+			}
+			update_subtotal();
+		});
+		function GetDays(){
+            var checkin = new Date(document.getElementById("checkin").value);
+            var checkout = new Date(document.getElementById("checkout").value);
+            return parseInt((checkout - checkin) / (24 * 3600 * 1000));
+		}
+
 		$('.input-number-increment').click(function() {
 			var $input = $(this).parents('.input-number-group').find('.input-number');
 			var val = parseInt($input.val(), 10);
 			$input.val(val + 1);
+			if($input.val() > <?=$Qty?>){
+				$input.val(<?=$Qty?>);
+			}
+			update_subtotal();
 		});
 		$('.input-number-decrement').click(function() {
 			var $input = $(this).parents('.input-number-group').find('.input-number');
 			var val = parseInt($input.val(), 10);
 			$input.val(val - 1);
+			if($input.val() < 1){
+				$input.val(1);
+			}
+			update_subtotal();
+			
 		})
+		function update_subtotal(){
+			var duration = GetDays();
+			if(isNaN(duration)){
+				duration = 0;
+			}
+			var qty = document.getElementById('Qty').value
+			$(".subtotal").text("Rp "+<?=$Price?>*qty*duration +",-");
+			$(".submitTotal").val(<?=$Price?>*qty*duration);
+		}
+
+	});
+		
 	</script>
 </body>
 </html>
