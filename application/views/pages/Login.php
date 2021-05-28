@@ -15,7 +15,6 @@
 			});
 		});
 	</script>
-	<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 </head>
 <body style="background: #DBDBDB;">
 	<br><br><br>
