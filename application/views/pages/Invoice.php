@@ -3,9 +3,9 @@
 <head>
 	<title>Hotel UAS IF430 - XXX</title>
 	<?php 
-		echo $style; 
-		echo $script; 
-	?>	
+		echo $style;
+		echo $script;
+	?>
 </head>
 <body style="background: #BDBDBD;">
 	<div class="container-fluid" style="padding-left: 50px; padding-right: 50px;">

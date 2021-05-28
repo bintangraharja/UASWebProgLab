@@ -2,10 +2,10 @@
 <html>
 <?php echo $sidebar; ?>
 <body class="home" style= "background-image: url('http://localhost/UASWebprogLab/assets/HomeBG.jpg');">
-	<div class="container-fluid" style="margin-top: 25px; padding-right: 100px;">
+	<div class="container-fluid" style="margin-top: 15px; padding-right: 100px;">
 		<div class="row d-flex justify-content-end">
 			<div class="d-flex align-items-end">
-				<a href="AboutUs.php"><h5><u>About Us</u></h5></a>
+				<a href="AboutUs.php"><h3 class="details"><u>About Us</u></h3></a>
 			</div>
 			<!-- Logo Potrait/Landscape -->
 			<img src="./Gallery/example.jpg" style="width: 100px; height: 100px; margin-left: 20px;">
@@ -24,7 +24,7 @@
 	                </span>
 	            </div>
 			</div>
-			<div class="col-7 custom-scrollbar-css p-2">
+			<div class="col-7 custom-scrollbar-css p-2" style="height: 620px;">
 
 				<?php
 				//ini buat masukin list hotel

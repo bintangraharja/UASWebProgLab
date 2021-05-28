@@ -15,7 +15,7 @@ echo $sidebar; ?>
 					</div>
 					<div class="col-6" style="font-size: 24px;">
 						<?php if($user['Pict'] != NULL){?>
-						<img src="<?php echo site_url('Account/getImg');?>" style="width: 250px; height: 250px; padding: 10px;">
+						<img src="<?php echo site_url('Account/getImg');?>" style="width: 250px; height: 250px; padding: 10px; border-radius: 50%;">
 						<?php }else{?>
 						<i class="fas fa-user-circle fa-9x" style="padding: 10px;"></i>
 						<?php }?>
@@ -59,7 +59,7 @@ echo $sidebar; ?>
 				</div>
 				<br><br>
 				<div class="row d-flex justify-content-end" style="margin-right: 50px;">
-					<a href="EditProfile.php"><button class="btn btn-lg btnEdit btn-block" style="margin-right: 10px;">EDIT PROFILE</button></a>
+					<a href="<?=site_url('EditProfile');?>"><button class="btn btn-lg btnEdit btn-block" style="margin-right: 10px;">EDIT PROFILE</button></a>
 				</div>
 			</div>
 		</div>

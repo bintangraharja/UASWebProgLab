@@ -2,8 +2,8 @@
 
 <!DOCTYPE html>
 <html>
-<body class="home">
-<div class="container" style="margin-top: 25px;">
+<body class="home" style= "background-image: url('http://localhost/UASWebprogLab/assets/HomeBG.jpg');">
+<div class="container" style="margin-top: 15px; margin-bottom: 15px;">
 		<div class="row">
 			<div class="col-6 align-self-center">
 				<h1>Booking History</h1>
@@ -14,8 +14,7 @@
 			</div>
 		</div>
 	</div>
-	<br><br><br>
-	<div class="container">
+	<div class="container custom-scrollbar-css p-2" style="height: 615px;">
 		<?php foreach($history as $row){
 			$BookingID = $row["BookingID"];
             $HotelID = $row["HotelID"];
