@@ -4,6 +4,7 @@
 	<title>Hotel UAS IF430 - XXX</title>
 	<?php
 	echo $style;
+	echo $sidebar;
 	echo $script;
 	?>
 	<script>

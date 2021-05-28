@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php echo $sidebar;?>
-<body style="backgroud: #F2F2F2;">
+<body style="background: #F2F2F2;">
 	<br>
 	<?php 
 	foreach($detailHotel as $hotel){

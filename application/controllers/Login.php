@@ -64,6 +64,7 @@ class Login extends CI_Controller {
         $data['captchaImg'] = $captcha['image'];
         $data['style'] = $this->load->view('include/style.php',NULL,TRUE);
         $data['script'] = $this->load->view('include/script.php',NULL,TRUE);
+        $data['sidebar'] = $this->load->view('sidebar/sidenav.php',$data,TRUE);
         
 		$this->load->view('pages/Login.php',$data);
 	}

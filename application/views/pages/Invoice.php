@@ -17,9 +17,9 @@
 			<div class="col-2" style="background: #BB6BD9;">
 				<h2><u>INVOICE</u></h2>
 				<p>Invoice to : </p>
-				<h4 style="font-weight: bold;">Customer's Name</h4>
-				<h4 style="color: white;">Customer's ID</h4>
-				<h4 style="color: white;">Customer's Email</h4>
+				<h4 style="font-weight: bold;"><?php echo $invoice[0]['Name']?></h4>
+				<h4 style="color: white;"><?php echo $invoice[0]['UserID']?></h4>
+				<h4 style="color: white;"><?php echo $invoice[0]['Email']?></h4>
 			</div>
 			<div class="col-2">
 				<div class="row d-flex justify-content-center">
@@ -27,7 +27,7 @@
 				</div>
 				<div class="row d-flex justify-content-center">
 					<h5>Your Booking ID</h5>
-					<h5 style="font-weight: bold;">Booking's ID</h5>
+					<h5 style="font-weight: bold;"><?php echo $invoice[0]['BookingID']?></h5>
 				</div>
 			</div>
 			<div class="col-8 d-flex justify-content-end">
@@ -42,7 +42,7 @@
 		<div class="row">
 			<div class="container-fluid" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 5px; border: 2px solid white;">
 				<p style="color: rgba(0, 0, 0, 0.5);">Payment Time</p>
-				<p>Monday, 24 May 2021 - 20:13:28</p>
+				<p><?php echo $invoice[0]['BookingTime']?></p>
 				<hr style="border-color: white;">
 				<div class="container-fluid">
 					<div class="row text-center">
@@ -71,19 +71,19 @@
 							<p>1</p>
 						</div>
 						<div class="col-3">
-							<p>Hotel Indonesia Kempinski</p>
+							<p><?php echo $invoice[0]['HotelName']?></p>
 						</div>
 						<div class="col-3">
-							<p>Deluxe Double Room</p>
+							<p><?php echo $invoice[0]['RoomName']?></p>
 						</div>
 						<div class="col-1">
-							<p>2 Rooms</p>
+							<p><?php echo $invoice[0]['RoomQty']?></p>
 						</div>
 						<div class="col-1">
-							<p>3 Days</p>
+							<p><?php echo $invoice[0]['Duration']?> Days</p>
 						</div>
 						<div class="col-3">
-							<p>Rp 14.993.994,-</p>
+							<p>Rp <?php echo $invoice[0]['Price']?>,-</p>
 						</div>
 					</div>
 				</div>
@@ -95,14 +95,14 @@
 						<p>Subtotal</p>
 					</div>
 					<div class="col-3 text-center" style="font-weight: bold;">
-						<p>Rp 14.993.994,-</p>
+						<p>Rp <?php echo $invoice[0]['Subtotal']?>,-</p>
 					</div>
 				</div>
 			</div>
 		</div>
 		<br>
 		<div class="row d-flex justify-content-end" style="margin-right: 20px;">
-			<a href="BookingHistory.php"><button class="btn btnYes btn-block" style="margin-left: 20px; margin-right: 20px;">DONE</button></a>
+			<a href="<?php echo site_url('BookingHistory')?>"><button class="btn btnYes btn-block" style="margin-left: 20px; margin-right: 20px;">DONE</button></a>
 		</div>
 	</div>
 </body>

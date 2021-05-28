@@ -53,7 +53,7 @@ class BookingForm extends CI_Controller {
             'Duration' =>$this->input->post('Duration'),
             'BookingTime' => $now
         );
-        print_r($values);exit;
+        //print_r($values);exit;
         $id = $this->bookingform_model->addBook($values);
         redirect('Invoice/'.$id);
     }
