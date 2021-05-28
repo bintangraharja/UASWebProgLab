@@ -13,10 +13,21 @@ Class User_model extends CI_Model{
         return $query->row_array();
     }
     public function register($account){
+        $this->load->helper('string');
+        $rand = random_string('numeric',4); 
+        $id = 'U' . $rand;
+        $q = $this->db->query("SELECT UserID FROM account");
+        foreach($q as $cek){
+            if($cek == $id){
+                $rand = random_string('numeric',4); 
+                $id = 'UID' . $rand;    
+            }
+        }
+        $account['UserID'] = $id;
         $this->db->insert('account', $account);
     }
     public function getDetailAcc($userid){
-        $query = $this->db->query("SELECT * FROM account WHERE UserID = $userid");
+        $query = $this->db->query("SELECT * FROM account WHERE UserID = '$userid'");
         return $query->row_array();
     }
     public function get_image(){
@@ -26,7 +37,12 @@ Class User_model extends CI_Model{
             $image = $pp['Pict'];
         }
         echo $image;
- }
+    }
+    public function update($id,$account){
+        $this->db->where('UserID', $id);
+        $this->db->update('account', $account);
+
+    }
 }
 
 ?>

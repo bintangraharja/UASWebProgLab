@@ -6,6 +6,7 @@ class BookingForm extends CI_Controller {
     public function __construct(){
         parent::__construct();
         $this->load->model('bookingform_model');
+        $this->load->library('form_validation');
 
     }
     function _remap($method){
@@ -14,8 +15,6 @@ class BookingForm extends CI_Controller {
                 show_404();
             }else if($method === 'form'){
                 $this->index();
-            }else if($method === 'book'){
-                $this->book();
             }else{
                 show_404();
             }
@@ -26,6 +25,33 @@ class BookingForm extends CI_Controller {
    
 	public function index()
 	{
+        if($this->input->post('submit')){
+            $this->form_validation->set_rules('PNumber','Phone Number','numeric');
+			if($this->form_validation->run() != false){
+                $this->load->helper('date');
+                date_default_timezone_set('Asia/Jakarta');
+                $format = '%D, %d %M %Y - %H:%i:%s WIB';
+                $now = mdate($format);
+                $values = array(
+                     'BookingID'   => "",
+                     'UserID'      => $this->session->userdata('userID'),
+                     'HotelID'     => $this->input->post('HotelID'),
+                     'RoomID'      => $this->input->post('RoomID'),
+                     'GName'       => $this->input->post('GName'),
+                     'PNumber'     => $this->input->post('PNumber'),
+                     'Email'       => $this->input->post('Email'),
+                     'RoomQty'     => $this->input->post('RoomQty'),
+                     'CheckIn'     => $this->input->post('CheckIn'),
+                     'CheckOut'    => $this->input->post('CheckOut'),
+                     'Subtotal'    => $this->input->post('Subtotal'),
+                     'Duration'    =>$this->input->post('Duration'),
+                     'BookingTime' => $now
+                    );
+                    //print_r($values);exit;
+                $id = $this->bookingform_model->addBook($values);
+                redirect('Invoice/'.$id);
+            }
+        }
         $hotelid= $this->uri->segment(3);
         $roomid = $this->uri->segment(4);
         $data['dataForm'] = $this->bookingform_model->get_data_form($hotelid,$roomid);
@@ -34,29 +60,5 @@ class BookingForm extends CI_Controller {
         
 		$this->load->view('pages/BookingForm.php',$data);
 	}
-    public function book(){
-        $this->load->helper('date');
-        date_default_timezone_set('Asia/Jakarta');
-        $format = '%D, %d %M %Y - %H:%i:%s WIB';
-        $now = mdate($format);
-        $values = array(
-            'BookingID' => "",
-            'UserID'=> $this->session->userdata('userID'),
-            'HotelID' => $this->input->post('HotelID'),
-            'RoomID' => $this->input->post('RoomID'),
-            'GName' => $this->input->post('GName'),
-            'PNumber' => $this->input->post('PNumber'),
-            'Email' => $this->input->post('Email'),
-            'RoomQty' => $this->input->post('RoomQty'),
-            'CheckIn' => $this->input->post('CheckIn'),
-            'CheckOut' => $this->input->post('CheckOut'),
-            'Subtotal' => $this->input->post('Subtotal'),
-            'Duration' =>$this->input->post('Duration'),
-            'BookingTime' => $now
-        );
-        //print_r($values);exit;
-        $id = $this->bookingform_model->addBook($values);
-        redirect('Invoice/'.$id);
-    }
 }
 ?>

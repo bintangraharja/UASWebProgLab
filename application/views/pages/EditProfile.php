@@ -2,13 +2,10 @@
 <html>
 <head>
 	<title>Hotel UAS IF430 - XXX</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="style.css">
-
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<?php
+	echo $style;
+	echo $script;
+	?>
 </head>
 <body style="background: #BDBDBD;">
 	<div class="container-fluid">
@@ -22,38 +19,41 @@
 							</div>
 						</div>
 						<br>
-						<form actipn="">
+						<?php echo form_open_multipart('EditProfile');?>
 							<div class="form-group row">
 								<div class="col">
-									<input type="text" class="form-control" name="fname" placeholder="First Name">
+									<input type="text" class="form-control" name="fname" placeholder="First Name" value=<?=$profile['FName'];?>>
 								</div>
 								<div class="col">
-									<input type="text" class="form-control" name="lname" placeholder="Last Name">
+									<input type="text" class="form-control" name="lname" placeholder="Last Name" value=<?=$profile['LName'];?>>
 								</div>
 							</div>
 							<div class="form-group">
-						        <input type="email" class="form-control" name="email" placeholder="example@gmail.com">
+						        <input type="email" class="form-control" name="email" placeholder="example@gmail.com" value=<?=$profile['Email'];?>>
 							</div>
 							<div class="form-group row">
 								<div class="col">
-									<input type="password" class="form-control" name="password" placeholder="Password">
+									<input type="password" class="form-control" name="password" placeholder="Password" required>
+									<small class="text-muted">Password min 8 characters</small>
 								</div>
 								<div class="col">
-									<input type="password" class="form-control" name="password" placeholder="Retype Password">
+									<input type="password" class="form-control" name="passwordconf" placeholder="Retype Password" required>
+									<small class="text-muted"><?php echo form_error('passwordconf');?></small>
 								</div>
 							</div>
 							<div class="form-group">
-						        <input type="date" class="form-control" name="bdate" placeholder="(dd/mm/yyyy)">
+						        <input type="date" class="form-control" name="bdate" placeholder="(dd/mm/yyyy) " value=<?=$profile['BDay'];?>>
 							</div>
 							<div class="form-group">
-								<input type="tel" class="form-control" name="pnumber" placeholder="0877-787-8939">
+								<input type="tel" class="form-control" name="pnumber" placeholder="0877-787-8939" value=<?=$profile['PNumber'];?>>
+								<small class="text-muted"><?php echo form_error('pnumber');?></small>
 							</div>
 							<br>
 							<div class="form-group">
 								<div class="row" style="margin-left: 5px;">
 									<label for="ppicture" style="color: black;">Upload Profile Picture</label>
 								</div>
-								<input type="file" name="picture" id="" required>
+								<input type="file" name="ppicture" id="" >
 							</div>
 							<br>
 							<div class="row d-flex justify-content-center">
@@ -65,7 +65,7 @@
 						</form>
 						<div class="row d-flex justify-content-center">
 							<div class="col-md-4 text-center">
-								<a href="MyAccount.php"><button class="btn btnBack btn-block" style="padding: 5px;">CANCEL</button></a>
+								<a href="<?=site_url('Account');?>"><button class="btn btnBack btn-block" style="padding: 5px;">CANCEL</button></a>
 							</div>
 						</div>
 					</div>

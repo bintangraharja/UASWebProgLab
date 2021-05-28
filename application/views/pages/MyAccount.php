@@ -2,7 +2,7 @@
 echo $sidebar; ?>
 <!DOCTYPE html>
 <html>
-<body class="home">
+<body class="home" style= "background-image: url('http://localhost/UASWebprogLab/assets/HomeBG.jpg');">
 	<div class="container">
 		<div class="row">
 			<div class="col-6">
@@ -59,7 +59,7 @@ echo $sidebar; ?>
 				</div>
 				<br><br>
 				<div class="row d-flex justify-content-end" style="margin-right: 50px;">
-					<a href="EditProfile.php"><button class="btn btn-lg btnEdit btn-block" style="margin-right: 10px;">EDIT PROFILE</button></a>
+					<a href="<?=site_url('EditProfile');?>"><button class="btn btn-lg btnEdit btn-block" style="margin-right: 10px;">EDIT PROFILE</button></a>
 				</div>
 			</div>
 		</div>

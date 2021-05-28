@@ -53,7 +53,7 @@
 						</div>
 					</div>
 					<hr style="border-color: black;">
-					<form action="<?=site_url('BookingForm/book');?>" method="post">
+					<?php echo form_open('BookingForm/form/'.$HotelID.'/'.$RoomID);?>
 						<div class="form-group row">
 							<label class="col-3 col-form-label">Guest Name</label>
 							<div class="col-5">
@@ -64,6 +64,7 @@
 							<label class="col-3 col-form-label">Phone Number</label>
 							<div class="col-5">
 								<input type="tel" class="form-control bForm" name="PNumber" required>
+								<small class="text-muted"><?php echo form_error('PNumber');?></small>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -120,12 +121,8 @@
 
 	<script>
 	$(document).ready(function(){
-		Date.prototype.toDateInputValue = (function() {
-			var local = new Date(this);
-			local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
-			return local.toJSON().slice(0,10);
-		});
-		document.getElementById('checkin').value = new Date().toDateInputValue();
+
+		document.getElementById('checkin').value = new Date(new Date().getTime() + 1* 1000).toJSON().slice(0,10);
 		document.getElementById('checkout').value = new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toJSON().slice(0,10);
 
 		$('#checkin').change(function(){
