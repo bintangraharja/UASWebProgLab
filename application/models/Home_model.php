@@ -21,5 +21,14 @@ Class Home_model extends CI_Model{
         }
         echo $image;
     }
+    public function search_hotel($name){
+        $query = $this->db->query(
+        "SELECT `hotel`.`HotelID`, `HotelName`, `Rating`, `Address`, `Description` ,MIN(`Price`) as `Price` 
+        FROM `hotel` JOIN `room` ON `hotel`.`HotelID` = `room`.`HotelID`
+        WHERE `Address` LIKE '%$name%'
+        GROUP BY `room`.`HotelID`
+        ORDER BY HotelName");
+        return $query->result_array();
+    }
 }
 ?>

@@ -1,5 +1,8 @@
+
 <?php
-	include_once('sidenavAdmin.php');
+	echo $script;
+	echo $style;
+	echo $sidebar;
 ?>
 
 <!DOCTYPE html>
@@ -18,8 +21,10 @@
 				<br>
 				<div class="row d-flex justify-content-end">
 					<div class="input-group">
+						<form method="post">
 						<label>Search : &nbsp;</label>
 						<input type="text" class="form-control border" name="search">
+						</form>
 					</div>
 				</div>
 			</div>
@@ -50,21 +55,36 @@
 	</div>
 	<div class="container-fluid" style="margin-top: 10px; padding-left: 15%; padding-right: 5%;">
 		<div class="col bodyAdmin custom-scrollbar-css p-2" style="height: 420px;">
+				<?php
+					//ini buat masukin list hotel
+					//start looping
+					
+					foreach($listHotel as $hotel){
+					$hotelID = $hotel['HotelID'];
+					$hotelName = $hotel['HotelName'];
+					$rating = $hotel['Rating'];
+					$address = $hotel['Address'];
+					$description = $hotel['Description'];
+					$price =$hotel['Price'];
+					//isi data
+				?>
 			<div class="row">
 				<div class="col-2">
-					<img src="./Gallery/example.jpg" style="width: 100px; height: 100px;">
+					<img src="<?php echo site_url('home/showImg/').$hotelID ?>" style="width: 100px; height: 100px;">
 				</div>
 				<div class="col-2">
-					<p>H0001</p>
+					<p><?= $hotelID ?></p>
 				</div>
 				<div class="col-2">
-					<p>Ritz Carlton</p>
+					<p><?= $hotelName?></p>
 				</div>
 				<div class="col-2">
-					<p>⭐⭐⭐⭐⭐</p>
+					<p><?php for($i = 0; $i < $rating ;$i++){ ?>
+									⭐
+						<?php }?></p>
 				</div>
 				<div class="col-2">
-					<p>Jl.M.H Thamrin no. 1 Jakarta Pusat, Jakarta</p>
+					<p><?= $address?></p>
 				</div>
 				<div class="col-2">
 					<a href=""><span class="fas fa-trash-alt fa-2x details"></span></a>
@@ -73,97 +93,10 @@
 				</div>
 			</div>
 			<hr style="border-color: rgba(0, 0, 0, 0.25);">
-			<div class="row">
-				<div class="col-2">
-					<img src="./Gallery/example.jpg" style="width: 100px; height: 100px;">
-				</div>
-				<div class="col-2">
-					<p>H0001</p>
-				</div>
-				<div class="col-2">
-					<p>Ritz Carlton</p>
-				</div>
-				<div class="col-2">
-					<p>⭐⭐⭐⭐⭐</p>
-				</div>
-				<div class="col-2">
-					<p>Jl.M.H Thamrin no. 1 Jakarta Pusat, Jakarta</p>
-				</div>
-				<div class="col-2">
-					<a href=""><span class="fas fa-trash-alt fa-2x details"></span></a>
-					<!-- modal edit -->
-					<a href="HomePage.php"><span class="far fa-edit fa-2x details"></span></a>
-				</div>
-			</div>
-			<hr style="border-color: rgba(0, 0, 0, 0.25);">
-			<div class="row">
-				<div class="col-2">
-					<img src="./Gallery/example.jpg" style="width: 100px; height: 100px;">
-				</div>
-				<div class="col-2">
-					<p>H0001</p>
-				</div>
-				<div class="col-2">
-					<p>Ritz Carlton</p>
-				</div>
-				<div class="col-2">
-					<p>⭐⭐⭐⭐⭐</p>
-				</div>
-				<div class="col-2">
-					<p>Jl.M.H Thamrin no. 1 Jakarta Pusat, Jakarta</p>
-				</div>
-				<div class="col-2">
-					<a href=""><span class="fas fa-trash-alt fa-2x details"></span></a>
-					<!-- modal edit -->
-					<a href="HomePage.php"><span class="far fa-edit fa-2x details"></span></a>
-				</div>
-			</div>
-			<hr style="border-color: rgba(0, 0, 0, 0.25);">
-			<div class="row">
-				<div class="col-2">
-					<img src="./Gallery/example.jpg" style="width: 100px; height: 100px;">
-				</div>
-				<div class="col-2">
-					<p>H0001</p>
-				</div>
-				<div class="col-2">
-					<p>Ritz Carlton</p>
-				</div>
-				<div class="col-2">
-					<p>⭐⭐⭐⭐⭐</p>
-				</div>
-				<div class="col-2">
-					<p>Jl.M.H Thamrin no. 1 Jakarta Pusat, Jakarta</p>
-				</div>
-				<div class="col-2">
-					<a href=""><span class="fas fa-trash-alt fa-2x details"></span></a>
-					<!-- modal edit -->
-					<a href="HomePage.php"><span class="far fa-edit fa-2x details"></span></a>
-				</div>
-			</div>
-			<hr style="border-color: rgba(0, 0, 0, 0.25);">
-			<div class="row">
-				<div class="col-2">
-					<img src="./Gallery/example.jpg" style="width: 100px; height: 100px;">
-				</div>
-				<div class="col-2">
-					<p>H0001</p>
-				</div>
-				<div class="col-2">
-					<p>Ritz Carlton</p>
-				</div>
-				<div class="col-2">
-					<p>⭐⭐⭐⭐⭐</p>
-				</div>
-				<div class="col-2">
-					<p>Jl.M.H Thamrin no. 1 Jakarta Pusat, Jakarta</p>
-				</div>
-				<div class="col-2">
-					<a href=""><span class="fas fa-trash-alt fa-2x details"></span></a>
-					<!-- modal edit -->
-					<a href="HomePage.php"><span class="far fa-edit fa-2x details"></span></a>
-				</div>
-			</div>
+			<?php 
+				//akhir looping
+				}
+			?>
 		</div>
 	</div>
 
@@ -216,7 +149,9 @@
 			</div>
 		</div>
 	</div>
-	
+	<!-- <script type="text/javascript" language="javascript">
+		var array = <?php //echo json_encode($listHotel); ?>;           >>>>> buat nanti editing
+	</script> -->
 
 	<script>
 		

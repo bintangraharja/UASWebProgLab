@@ -14,15 +14,17 @@
 	<div class="container-fluid" style="margin-top: 10px; padding-left: 100px; padding-right: 50px;">
 		<div class="row">
 			<div class="col-5">
-	            <div class="input-group">
-	                <span class="input-group-prepend">
-	                    <div class="input-group-text border-right-0 bg-white"><i class="fas fa-map-marker-alt d-flex "></i></div>
-	                </span>
-	                <input type="text" class="form-control py-2 border-left-0 border" name="search" placeholder="Enter a Destination">
-	                <span class="input-group-append">
-	                	<button class="btn btnYes" type="button">Search</button>
-	                </span>
-	            </div>
+				<form method="POST">
+					<div class="input-group">
+						<span class="input-group-prepend">
+							<div class="input-group-text border-right-0 bg-white"><i class="fas fa-map-marker-alt d-flex "></i></div>
+						</span>
+						<input type="text" class="form-control py-2 border-left-0 border" name="search" placeholder="Enter a Destination">
+						<span class="input-group-append">
+							<button class="btn btnYes" type="submit">Search</button>
+						</span>
+					</div>
+				</form>
 			</div>
 			<div class="col-7 custom-scrollbar-css p-2" style="height: 620px;">
 
