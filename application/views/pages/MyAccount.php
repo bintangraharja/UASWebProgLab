@@ -2,24 +2,24 @@
 echo $sidebar; ?>
 <!DOCTYPE html>
 <html>
-<body class="home">
+<body class="home" style= "background-image: url('http://localhost/UASWebprogLab/assets/HomeBG.jpg');">
 	<div class="container">
 		<div class="row">
 			<div class="col-6">
 				
 			</div>
-			<div class="col-6" style="background-color: rgba(153, 225, 217, 0.64); padding-bottom: 80px;">
+			<div class="col-6" style="background-color: rgba(153, 225, 217, 0.64); padding-bottom: 90px;">
 				<div class="row">
 					<div class="col-6 align-self-center">
 						<h2>MY ACCOUNT</h2>
 					</div>
-					<div class="col-6">
+					<div class="col-6" style="font-size: 24px;">
 						<?php if($user['Pict'] != NULL){?>
 						<img src="<?php echo site_url('Account/getImg');?>" style="width: 250px; height: 250px; padding: 10px;">
 						<?php }else{?>
-						<img src="http://localhost/UASWebprogLab/assets/batik.jpg" style="width: 250px; height: 250px; padding: 10px;">
+						<i class="fas fa-user-circle fa-9x" style="padding: 10px;"></i>
 						<?php }?>
-						</div>
+					</div>
 				</div>
 				<br><br>
 				<div class="row">

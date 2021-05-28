@@ -18,13 +18,19 @@
 	<div class="container">
 		<?php foreach($history as $row){
 			$BookingID = $row["BookingID"];
-			$HotelID = $row["HotelID"];
-			$HotelName = $row["HotelName"];
-			$Address = $row["Address"];
-			$RoomName = $row["RoomName"];
-			$CheckIn = $row["CheckIn"];
-			$CheckOut = $row["CheckOut"];
-			$Subtotal = $row["Subtotal"];
+            $HotelID = $row["HotelID"];
+            $HotelName = $row["HotelName"];
+            $Address = $row["Address"];
+            $RoomName = $row["RoomName"];
+            $original = $row['CheckIn'];
+            $newDate = date("d-m-Y", strtotime($original));
+            $date = date_create("$newDate 0:00:00");
+            $CheckIn = date_format($date,"d F Y");
+            $original = $row['CheckOut'];
+            $newDate = date("d-m-Y", strtotime($original));
+            $date = date_create("$newDate 0:00:00");
+            $CheckOut = date_format($date,"d F Y");
+            $Subtotal = $row["Subtotal"];
 		?>
 		<div class="media" style="background: rgba(153, 225, 217, 0.64); padding: 10px; margin-bottom: 5px; margin-left: 200px;">
 			<img src="<?= site_url('home/showImg/').$HotelID ?>" style="width: 175px; height: 175px;">
