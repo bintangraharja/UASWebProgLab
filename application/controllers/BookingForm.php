@@ -40,6 +40,7 @@ class BookingForm extends CI_Controller {
         $format = '%D, %d %M %Y - %H:%i:%s WIB';
         $now = mdate($format);
         $values = array(
+            'BookingID' => "",
             'UserID'=> $this->session->userdata('userID'),
             'HotelID' => $this->input->post('HotelID'),
             'RoomID' => $this->input->post('RoomID'),

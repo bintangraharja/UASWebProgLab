@@ -10,7 +10,7 @@ Class Invoice_model extends CI_Model{
     public function getInvoice($id){
         $this->db->escape($id);
         $query = $this->db->query("SELECT 
-        CONCAT(account.FName,' ', account.LName) AS 'Name', account.UserID, account.Email, booking.BookingID, booking.BookingTime, hotel.HotelName,
+         GName, account.UserID,booking.Email, booking.BookingID, booking.BookingTime, hotel.HotelName,
         room.RoomName, booking.RoomQty, booking.Duration, room.Price, booking.Subtotal
         FROM booking 
         LEFT OUTER JOIN hotel ON hotel.HotelID = booking.HotelID

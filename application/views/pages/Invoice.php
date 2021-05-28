@@ -17,13 +17,13 @@
 			<div class="col-2" style="background: #BB6BD9;">
 				<h2><u>INVOICE</u></h2>
 				<p>Invoice to : </p>
-				<h4 style="font-weight: bold;"><?php echo $invoice[0]['Name']?></h4>
+				<h4 style="font-weight: bold;"><?php echo $invoice[0]['GName']?></h4>
 				<h4 style="color: white;"><?php echo $invoice[0]['UserID']?></h4>
 				<h4 style="color: white;"><?php echo $invoice[0]['Email']?></h4>
 			</div>
 			<div class="col-2">
 				<div class="row d-flex justify-content-center">
-					<img src="./Gallery/paid.png" style="width: 110px; height: 110px; margin: 15px; background-color: #99E1D9; border-radius: 50%;">
+					<img src="http://localhost/UASWebprogLab/assets/paid.png" style="width: 110px; height: 110px; margin: 15px; background-color: #99E1D9; border-radius: 50%;">
 				</div>
 				<div class="row d-flex justify-content-center">
 					<h5>Your Booking ID</h5>

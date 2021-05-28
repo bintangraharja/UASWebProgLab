@@ -14,8 +14,12 @@ echo $sidebar; ?>
 						<h2>MY ACCOUNT</h2>
 					</div>
 					<div class="col-6">
+						<?php if($user['Pict'] != NULL){?>
 						<img src="<?php echo site_url('Account/getImg');?>" style="width: 250px; height: 250px; padding: 10px;">
-					</div>
+						<?php }else{?>
+						<img src="http://localhost/UASWebprogLab/assets/batik.jpg" style="width: 250px; height: 250px; padding: 10px;">
+						<?php }?>
+						</div>
 				</div>
 				<br><br>
 				<div class="row">

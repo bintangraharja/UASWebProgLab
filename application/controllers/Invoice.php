@@ -12,9 +12,12 @@ class Invoice extends CI_Controller {
     }
 
     public function index($bookingID){
+        $data['invoice'] = $this->Invoice_model->getInvoice($bookingID);
+        if($data['invoice'] == NULL){
+            show_404();
+        }
         $data['style'] = $this->load->view('include/style.php',NULL,TRUE);
         $data['script'] = $this->load->view('include/script.php',NULL,TRUE);
-        $data['invoice'] = $this->Invoice_model->getInvoice($bookingID);
         $this->load->view("pages/Invoice.php",$data);
     }
 }
