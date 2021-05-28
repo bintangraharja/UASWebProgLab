@@ -1,8 +1,8 @@
 <?php
 Class BookingForm_model extends CI_Model{
 
-    function construct(){
-        parent::construct();
+    function __construct(){
+        parent::__construct();
     }
     function get_data_form($Hid,$Rid){
         $query = $this->db->query(

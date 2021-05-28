@@ -16,38 +16,33 @@
 	</div>
 	<br><br><br>
 	<div class="container">
+		<?php foreach($history as $row){
+			$BookingID = $row["BookingID"];
+			$HotelID = $row["HotelID"];
+			$HotelName = $row["HotelName"];
+			$Address = $row["Address"];
+			$RoomName = $row["RoomName"];
+			$CheckIn = $row["CheckIn"];
+			$CheckOut = $row["CheckOut"];
+			$Subtotal = $row["Subtotal"];
+		?>
 		<div class="media" style="background: rgba(153, 225, 217, 0.64); padding: 10px; margin-bottom: 5px; margin-left: 200px;">
-			<img src="./Gallery/H0006-example.jpg" style="width: 175px; height: 175px;">
+			<img src="<?= site_url('home/showImg/').$HotelID ?>" style="width: 175px; height: 175px;">
 			<div class="media-body" style="padding-left: 10px;">
 				<div class="row">
 					<div class="col-9">
-						<h4>Hotel Indonesia Kempinski - Salon Suite</h4>
-						<p><i class="fas fa-map-marker-alt"></i> Jl.M.H Thamrin no. 1 Jakarta Pusat, Jakarta</p>
-						<p>Tanggal Check-In s/d Check-Out</p>
-						<h5 style="font-weight: bold;">Subtotal Rp 5.749.000,-</h5>
+						<h4><?= $HotelName?> - <?= $RoomName?></h4>
+						<p><i class="fas fa-map-marker-alt"></i> <?= $Address?></p>
+						<p>Tanggal <?= $CheckIn?> s/d <?= $CheckOut?></p>
+						<h5 style="font-weight: bold;">Subtotal Rp <?= $Subtotal?>,-</h5>
 					</div>
 					<div class="col-3">
-						<a href="Invoice.php" class="btn btnYes">See Invoice</a>
+						<a href="<?= site_url('Invoice/'.$BookingID)?>" class="btn btnYes">See Invoice</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="media" style="background: rgba(153, 225, 217, 0.64); padding: 10px; margin-bottom: 5px; margin-left: 200px;">
-			<img src="./Gallery/H0006-example.jpg" style="width: 175px; height: 175px;">
-			<div class="media-body" style="padding-left: 10px;">
-				<div class="row">
-					<div class="col-9">
-						<h4>Hotel Indonesia Kempinski - Salon Suite</h4>
-						<p><i class="fas fa-map-marker-alt"></i> Jl.M.H Thamrin no. 1 Jakarta Pusat, Jakarta</p>
-						<p>Tanggal Check-In s/d Check-Out</p>
-						<p style="font-weight: bold;">Subtotal Rp 5.749.000,-</p>
-					</div>
-					<div class="col-3">
-						<a href="Invoice.php" class="btn btnYes">See Invoice</a>
-					</div>
-				</div>
-			</div>
-		</div>
+		<?php }?>
 	</div>
 </body>
 </html>
