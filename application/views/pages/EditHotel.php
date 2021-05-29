@@ -1,0 +1,485 @@
+<?php
+	include_once('sidenavAdmin.php');
+?>
+
+<!DOCTYPE html>
+<html>
+<body class="home">
+	<div class="container-fluid" style="margin-top: 15px; padding-right: 100px; position: fixed;">
+		<div class="row">
+			<div class="col-3 d-flex justify-content-end">
+				<div class="d-flex align-items-end">
+					<a href="HomeAdmin.php"><button type="submit" class="btn btnBack btn-lg"><i class="fas fa-angle-double-left"></i> Back</button></a>
+				</div>
+			</div>
+			<div class="col">
+					<div class="row d-flex justify-content-end">
+					<!-- Logo Potrait/Landscape -->
+					<img src="./Gallery/example.jpg" style="width: 100px; height: 100px; margin-left: 20px;">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid" style="padding-top: 5%; margin-bottom: 15px; padding-left: 100px;">
+		<div class="row" style="padding-left: 30%;">
+			<div class="col-7">
+				<div class="container">
+					<!-- form 1 - edit hotel -->
+					<div class="row">
+						<div class="col" style="background: #C4C4C4; border-radius: 5px; padding: 15px;">
+							<div class="row d-flex justify-content-center">
+								<div class="col-md-6 text-center">
+									<h1>Edit Hotel</h1>
+								</div>
+							</div>
+							<div class="row" style="background-color: #99E1D9; padding: 5px;">
+								<h5 class="col">Hotel's Information</h5>
+							</div>
+							<br>
+							<form action="">
+								<div class="form-group row">
+									<label class="col-3 col-form-label">Hotel's ID</label>
+									<div class="col-7">
+										<input type="text" class="form-control" name="hotelID" disabled>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-3 col-form-label">Hotel's Name</label>
+									<div class="col-7">
+										<input type="text" class="form-control" name="hotelName">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-3 col-form-label">Hotel's Rating</label>
+									<div class="col-7">
+										<input type="text" class="form-control" name="rating">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-3 col-form-label">Hotel's Address</label>
+									<div class="col-7">
+										<textarea type="text" class="form-control" name="address"></textarea>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-3 col-form-label" for="ppicture" >Hotel's Main Photo</label>
+									<div class="col-7 align-self-center">
+										<input type="file" name="hotelPict">
+									</div>
+								</div>
+								<div class="row d-flex justify-content-end" style="padding-right: 15px;">
+									<input type="submit" class="btn btnYes" name="updateHotel" value="UPDATE">
+								</div>
+							</form>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col" style="background: #C4C4C4; border-radius: 5px;">
+							<div class="row" style="background-color: #99E1D9; padding: 5px; border-radius: 5px;">
+								<h5 class="col">Hotel's Main Facilities</h5>
+							</div>
+                            <!-- edit facilities -->
+							<form action="">
+								<div class="row" style="padding-top: 10px;">
+									<div class="col-4">
+										<div class="row" style="padding-left: 5%;">
+											<div class="form-check">
+												<label class="form-check-label">
+												<input type="checkbox" class="form-check-input" value="">Meeting Room
+												</label>
+											</div>
+										</div>
+										<div class="row" style="padding-left: 5%;">
+											<div class="form-check">
+												<label class="form-check-label">
+												<input type="checkbox" class="form-check-input" value="">Swimming Pool
+												</label>
+											</div>
+										</div>
+										<div class="row" style="padding-left: 5%;">
+											<div class="form-check">
+												<label class="form-check-label">
+												<input type="checkbox" class="form-check-input" value="">Restaurant
+												</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-4">
+										<div class="row" style="padding-left: 5%;">
+											<div class="form-check">
+												<label class="form-check-label">
+												<input type="checkbox" class="form-check-input" value="">Receptionist 24 Hours
+												</label>
+											</div>
+										</div>
+										<div class="row" style="padding-left: 5%;">
+											<div class="form-check">
+												<label class="form-check-label">
+												<input type="checkbox" class="form-check-input" value="">WiFi
+												</label>
+											</div>
+										</div>
+										<div class="row" style="padding-left: 5%;">
+											<div class="form-check">
+												<label class="form-check-label">
+												<input type="checkbox" class="form-check-input" value="">Spa
+												</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-4">
+										<div class="row" style="padding-left: 5%;">
+											<div class="form-check">
+												<label class="form-check-label">
+												<input type="checkbox" class="form-check-input" value="">Gym
+												</label>
+											</div>
+										</div>
+										<div class="row" style="padding-left: 5%;">
+											<div class="form-check">
+												<label class="form-check-label">
+												<input type="checkbox" class="form-check-input" value="">Bar
+												</label>
+											</div>
+										</div>
+										<div class="row" style="padding-left: 5%;">
+											<div class="form-check">
+												<label class="form-check-label">
+												<input type="checkbox" class="form-check-input" value="">Picked Up from Airport
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row d-flex justify-content-end" style="padding-right: 15px;">
+									<input type="submit" class="btn btnYes" name="updateHotel" value="UPDATE">
+								</div>
+							</form>
+						</div>
+					</div>
+					<br>
+					<!-- edit photo -->
+					<div class="row">
+						<div class="col" style="background: #C4C4C4; border-radius: 5px; padding-bottom: 10px;">
+							<div class="row" style="background-color: #99E1D9; border-radius: 5px; margin-bottom: 10px; padding: 5px;">
+								<h5 class="col">Hotel's Facilities</h5>
+							</div>
+							<div class="row">
+								<div class="col-3">
+									<img src="./Gallery/H0003 - 2.jpg" style="width: 125px; height: 75px;">
+								</div>
+								<div class="col-6 align-self-center">
+									<h4 class="text-center">Image's ID</h4>
+								</div>
+								<div class="col-3 align-self-center">
+									<a id="editPhoto"><button class="btn btnYes">Edit Photo</button></a>
+								</div>
+							</div>
+							<hr style="border-color: black;">
+							<div class="row">
+								<div class="col-3">
+									<img src="./Gallery/H0003 - 2.jpg" style="width: 125px; height: 75px;">
+								</div>
+								<div class="col-6 align-self-center">
+									<h4 class="text-center">Image's ID</h4>
+								</div>
+								<div class="col-3 align-self-center">
+									<a id="editPhoto"><button class="btn btnYes">Edit Photo</button></a>
+								</div>
+							</div>
+							<hr style="border-color: black;">
+							<div class="row">
+								<div class="col-3">
+									<img src="./Gallery/H0003 - 2.jpg" style="width: 125px; height: 75px;">
+								</div>
+								<div class="col-6 align-self-center">
+									<h4 class="text-center">Image's ID</h4>
+								</div>
+								<div class="col-3 align-self-center">
+									<a id="editPhoto"><button class="btn btnYes">Edit Photo</button></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<!-- edit room type -->
+		<div class="row">
+			<div class="container">
+				<div class="col" style="background: #C4C4C4; border-radius: 5px; padding-bottom: 10px;">
+					<div class="row" style="background-color: #99E1D9; border-radius: 5px; padding: 10px;">
+						<div class="col-6 align-self-end">
+							<h5 class="col">Hotel's Facilities</h5>
+						</div>
+						<div class="col-6 align-self-end">
+							<div class="row d-flex justify-content-end">
+								<a id="addRoom"><button class="btn btnYes">Add Room Type</button></a>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-2 text-center">
+							<h5>Image</h5>
+						</div>
+						<div class="col-2 text-center">
+							<h5>Room's ID</h5>
+						</div>
+						<div class="col-2 text-center">
+							<h5>Room's Name</h5>
+						</div>
+						<div class="col-2 text-center">
+							<h5>Room's Price</h5>
+						</div>
+						<div class="col-2 text-center">
+							<h5>Room's Facilities</h5>
+						</div>
+						<div class="col-2 text-center">
+							<h5>Action</h5>
+						</div>
+					</div>
+					<hr style="background-color: white;">
+					<div class="row">
+						<div class="col custom-scrollbar-css p-2" style="height: 250px;">
+							<div class="row">
+								<div class="col-2 text-center">
+									<img src="./Gallery/R4001.jpg" style="width: 125px; height:85px;">
+								</div>
+								<div class="col-2 text-center">
+									<p>R4001</p>
+								</div>
+								<div class="col-2 text-center">
+									<p>Premiere Deluxe Room</p>
+								</div>
+								<div class="col-2 text-center">
+									<p>Rp 800.000,-</p>
+								</div>
+								<div class="col-2">
+									<li>Breakfast (2 pax)</li>
+									<li>Double Bed</li>
+									<li>2 Guest</li>
+									<li>32m<sup>2</sup></li>
+								</div>
+								<div class="col-2 text-center">
+									<a id="editRoom"><button class="btn btnYes">Edit Room</button></a>
+								</div>
+							</div>
+							<hr style="border-color: black;">
+							<div class="row">
+								<div class="col-2 text-center">
+									<img src="./Gallery/R4001.jpg" style="width: 125px; height:85px;">
+								</div>
+								<div class="col-2 text-center">
+									<p>R4001</p>
+								</div>
+								<div class="col-2 text-center">
+									<p>Premiere Deluxe Room</p>
+								</div>
+								<div class="col-2 text-center">
+									<p>Rp 800.000,-</p>
+								</div>
+								<div class="col-2">
+									<li>Breakfast (2 pax)</li>
+									<li>Double Bed</li>
+									<li>2 Guest</li>
+									<li>32m<sup>2</sup></li>
+								</div>
+								<div class="col-2 text-center">
+									<a id="editRoom"><button class="btn btnYes">Edit Room</button></a>
+								</div>
+							</div>
+							<hr style="border-color: black;">
+							<div class="row">
+								<div class="col-2 text-center">
+									<img src="./Gallery/R4001.jpg" style="width: 125px; height:85px;">
+								</div>
+								<div class="col-2 text-center">
+									<p>R4001</p>
+								</div>
+								<div class="col-2 text-center">
+									<p>Premiere Deluxe Room</p>
+								</div>
+								<div class="col-2 text-center">
+									<p>Rp 800.000,-</p>
+								</div>
+								<div class="col-2">
+									<li>Breakfast (2 pax)</li>
+									<li>Double Bed</li>
+									<li>2 Guest</li>
+									<li>32m<sup>2</sup></li>
+								</div>
+								<div class="col-2 text-center">
+									<a id="editRoom"><button class="btn btnYes">Edit Room</button></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- modal edit photo -->
+	<div class="container">
+		<div class="modal fade" id="editHotel1" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #99E1D9;">
+						<h5>Edit Hotel's Facilities</h5>
+						<button type="button" class="close" data-dismiss="modal"><span class="fas fa-times-circle" style="color: red;"></span></button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Image's ID</label>
+							<div class="col-7">
+								<input type="text" class="form-control" name="imageID" disabled>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 col-form-label" for="ppicture" >Hotel's Image</label>
+							<div class="col-7 align-self-center">
+								<input type="file" name="hotelPict">
+							</div>
+						</div>
+						<div class="row d-flex justify-content-end" style="padding-right: 10px;">
+							<input type="submit" class="btn btnYes" name="updateRoom" value="UPDATE">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- modal add room -->
+	<div class="container">
+		<div class="modal fade" id="editHotel2" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #99E1D9;">
+						<h5>Add Hotel's Room</h5>
+						<button type="button" class="close" data-dismiss="modal"><span class="fas fa-times-circle" style="color: red;"></span></button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Room's ID</label>
+							<div class="col-7">
+								<input type="text" class="form-control" name="roomID">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Room's Name</label>
+							<div class="col-7">
+								<input type="text" class="form-control" name="roomName">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Room's Price</label>
+							<div class="col-7">
+								<input type="text" class="form-control" name="roomPrice" >
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Room's Facilities</label>
+							<div class="col-7">
+								<textarea class="form-control" name="roomFacilities"></textarea> 
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 col-form-label" for="ppicture" >Room's Photo</label>
+							<div class="col-7 align-self-center">
+								<input type="file" name="roomPict">
+							</div>
+						</div>
+						<div class="row d-flex justify-content-end" style="padding-right: 10px;">
+							<input type="submit" class="btn btnYes" name="addRoom" value="SUBMIT">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- modal edit room -->
+	<div class="container">
+		<div class="modal fade" id="editHotel3" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #99E1D9;">
+						<h5>Edit Hotel's Room</h5>
+						<button type="button" class="close" data-dismiss="modal"><span class="fas fa-times-circle" style="color: red;"></span></button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Room's ID</label>
+							<div class="col-7">
+								<input type="text" class="form-control" name="roomID" disabled="">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Room's Name</label>
+							<div class="col-7">
+								<input type="text" class="form-control" name="roomName">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Room's Price</label>
+							<div class="col-7">
+								<input type="text" class="form-control" name="roomPrice" >
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Room's Facilities</label>
+							<div class="col-7">
+								<textarea class="form-control" name="roomFacilities"></textarea> 
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 col-form-label" for="ppicture" >Room's Photo</label>
+							<div class="col-7 align-self-center">
+								<input type="file" name="roomPict">
+							</div>
+						</div>
+						<div class="row d-flex justify-content-end" style="padding-right: 10px;">
+							<input type="submit" class="btn btnYes" name="addRoom" value="UPDATE">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		$(document).ready(function() {
+			$('#editHotel1').modal({
+				keyboard: false,
+				show: false,
+				backdrop: 'static'
+			});
+			$('#editPhoto').click(function() {
+				$('#editHotel1').modal('show');
+			})
+
+			$('#editHotel2').modal({
+				keyboard: false,
+				show: false,
+				backdrop: 'static'
+			});
+			$('#addRoom').click(function() {
+				$('#editHotel2').modal('show');
+			})
+
+			$('#editHotel3').modal({
+				keyboard: false,
+				show: false,
+				backdrop: 'static'
+			});
+			$('#editRoom').click(function() {
+				$('#editHotel3').modal('show');
+			})
+		});
+	</script>
+</body>
+</html>

@@ -7,7 +7,7 @@
 
 <!DOCTYPE html>
 <html>
-<body class="home">
+<body class="home" style= "background-image: url('http://localhost/UASWebprogLab/assets/HomeBG.jpg');">
 	<div class="container-fluid" style="margin-top: 10px; padding-left: 15%; padding-right: 5%;">
 		<div class="row">
 			<div class="col-9 align-self-center">
@@ -58,7 +58,6 @@
 				<?php
 					//ini buat masukin list hotel
 					//start looping
-					
 					foreach($listHotel as $hotel){
 					$hotelID = $hotel['HotelID'];
 					$hotelName = $hotel['HotelName'];
@@ -88,8 +87,7 @@
 				</div>
 				<div class="col-2">
 					<a href=""><span class="fas fa-trash-alt fa-2x details"></span></a>
-					<!-- modal edit -->
-					<a id="edit"><span class="far fa-edit fa-2x details"></span></a>
+					<a href="EditHotel.php"><span class="far fa-edit fa-2x details"></span></a>
 				</div>
 			</div>
 			<hr style="border-color: rgba(0, 0, 0, 0.25);">
@@ -99,72 +97,8 @@
 			?>
 		</div>
 	</div>
-
-	<div class="container">
-		<div class="modal fade" id="editHotel" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"><span class="fas fa-times-circle" style="color: red;"></span></button>
-						<h3>Add Menu</h3>
-					</div>
-					<form action="">
-						<div class="modal-body">
-						
-							<div class="form-group">
-								<label for="idMenu">ID Menu :</label>
-								<input type="text" name="idMenu" class="form-control" id="idMenu" required>
-							</div>
-							<div class="form-group">
-								<label for="namaMenu">Menu Name :</label>
-								<input type="text" name="namaMenu" class="form-control" id="namaMenu" required>
-							</div>
-							<div class="form-group">
-								<label for="harga">Price :</label>
-								<input type="text" name="harga" class="form-control" id="harga" required>
-							</div>
-							<div class="form-group">
-								<label for="kategori">Category :</label>
-	                                <select class="form-control" name="kategori" id="kategori">
-	                                    <option>Appetizer</option>
-	                                    <option>Dessert</option>
-	                                    <option>Drinks</option>
-	                                    <option>Main Dish</option>
-	                                </select>
-							</div>
-							<div class="form-group">
-								<label for="deskripsi">Description :</label>
-								<textarea class="form-control" name="deskripsi" id="deskripsi"></textarea>
-							</div>
-							<div class="form-group">
-								<label for="imageMenu">Upload Image</label>
-								<input type="file" name="imageMenu" id="imageMenu" required>
-							</div>
-						</div>
-						<div class="modal-footer">
-							<input type="submit" class="btn btnYes" name="" value="UPDATE">
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
 	<!-- <script type="text/javascript" language="javascript">
 		var array = <?php //echo json_encode($listHotel); ?>;           >>>>> buat nanti editing
 	</script> -->
-
-	<script>
-		$(document).ready(function() {
-			$('#editHotel').modal({
-				keyboard: false,
-				show: false,
-				backdrop: 'static'
-			});
-
-			$('#edit').click(function() {
-				$('#editHotel').modal('show');
-			})
-		});
-	</script>
 </body>
 </html>
