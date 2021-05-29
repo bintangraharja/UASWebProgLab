@@ -10,6 +10,9 @@ class BookingHistory extends CI_Controller {
     }
 
     public function index(){
+        if(!$this->session->userdata('status')){
+			redirect('Login');
+		}
         $data['style'] = $this->load->view('include/style.php',NULL,TRUE);
         $data['script'] = $this->load->view('include/script.php',NULL,TRUE);
         $data['sidebar'] = $this->load->view('sidebar/sidenavIn.php',$data,TRUE);

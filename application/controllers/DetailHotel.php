@@ -24,6 +24,7 @@ class DetailHotel extends CI_Controller {
     }
 	public function index($HotelID)
 	{
+        
         $data['style'] = $this->load->view('include/style.php',NULL,TRUE);
         $data['script'] = $this->load->view('include/script.php',NULL,TRUE);
         if($this->session->userdata('status')){

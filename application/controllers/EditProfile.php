@@ -12,6 +12,9 @@ class EditProfile extends CI_Controller {
     }
 
     public function index(){
+		if(!$this->session->userdata('status')){
+			redirect('Login');
+		}
         if($this->input->post('update')){
             $config['upload_path'] = './image_for_captcha/';
 			$config['allowed_types'] = 'gif|jpg|png';
