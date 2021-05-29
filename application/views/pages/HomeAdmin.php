@@ -89,7 +89,7 @@
 				<div class="col-2">
 					<a href=""><span class="fas fa-trash-alt fa-2x details"></span></a>
 					<!-- modal edit -->
-					<a href="" data-toogle="modal" data-target="#editHotel"><span class="far fa-edit fa-2x details"></span></a>
+					<a id="edit"><span class="far fa-edit fa-2x details"></span></a>
 				</div>
 			</div>
 			<hr style="border-color: rgba(0, 0, 0, 0.25);">
@@ -154,7 +154,17 @@
 	</script> -->
 
 	<script>
-		
+		$(document).ready(function() {
+			$('#editHotel').modal({
+				keyboard: false,
+				show: false,
+				backdrop: 'static'
+			});
+
+			$('#edit').click(function() {
+				$('#editHotel').modal('show');
+			})
+		});
 	</script>
 </body>
 </html>
