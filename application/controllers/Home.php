@@ -10,7 +10,7 @@ class Home extends CI_Controller {
     }
 	public function index()
 	{
-        if($this->session->userdata('userID') == '1'){
+        if($this->session->userdata('userID') == 'ADMIN'){
             redirect('Admin');
         }
         if($this->input->post('search')){

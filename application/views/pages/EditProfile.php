@@ -29,7 +29,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-						        <input type="email" class="form-control" name="email" placeholder="example@gmail.com" value=<?=$profile['Email'];?>>
+						        <input type="email" class="form-control" name="email" placeholder="example@gmail.com" value=<?=$profile['Email'];?> readonly>
 							</div>
 							<div class="form-group row">
 								<div class="col">

@@ -33,12 +33,11 @@ class Login extends CI_Controller {
                         'status' => "login"
                     );
                     $this->session->set_userdata($data_session);
-					redirect('home');
-                    // if($akun['UserID']== "1"){
-                    //     redirect('admin');
-                    // }else{
-                    //     redirect('home');
-                    // }
+                    if($akun['UserID']== "ADMIN"){
+                        redirect('admin');
+                    }else{
+                        redirect('home');
+                    }
                 }else{
                     $this->session->sess_destroy();
                     $data['failInfo'] = "Email/Password are wrong";
