@@ -44,20 +44,20 @@ echo $script;?>
 								<div class="form-group row">
 									<label class="col-3 col-form-label">Hotel's Name</label>
 									<div class="col-7">
-										<input type="text" value="<?= $hotel[0]['HotelName']?>" class="form-control" name="hotelName">
+										<input type="text" value="<?= $hotel[0]['HotelName']?>" class="form-control" name="hotelName" required>
 									</div>
 								</div>
 								<div class="form-group row">
 									<label class="col-3 col-form-label">Hotel's Rating</label>
 									<div class="col-7">
-										<input type="text" value="<?= $hotel[0]['Rating']?>" class="form-control" name="rating">
+										<input type="text" value="<?= $hotel[0]['Rating']?>" class="form-control" name="rating" required>
 										<small class="text-muted"><?php echo form_error('rating');?></small>
 									</div>
 								</div>
 								<div class="form-group row">
 									<label class="col-3 col-form-label">Hotel's Address</label>
 									<div class="col-7">
-										<textarea type="text" class="form-control" name="address"><?= $hotel[0]['Address']?></textarea>
+										<textarea required type="text" class="form-control" name="address"><?= $hotel[0]['Address']?></textarea>
 									</div>
 								</div>
 								<div class="form-group row">
@@ -304,27 +304,28 @@ echo $script;?>
 						<button type="button" class="close" data-dismiss="modal"><span class="fas fa-times-circle" style="color: red;"></span></button>
 					</div>
 					<div class="modal-body">
-						<div class="form-group row">
-							<label class="col-4 col-form-label">Image's ID</label>
-							<div class="col-7">
-								<input type="text" id="photoimageID" class="form-control" name="imageID" readonly>
+						<?php echo form_open_multipart();?>
+							<div class="form-group row">
+								<label class="col-4 col-form-label">Image's ID</label>
+								<div class="col-7">
+									<input type="text" id="photoimageID" class="form-control" name="imageID" readonly>
+								</div>
 							</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-4 col-form-label" for="ppicture" >Hotel's Image</label>
-							<div class="col-7 align-self-center">
-								<input type="file" name="hotelPict">
+							<div class="form-group row">
+								<label class="col-4 col-form-label" for="ppicture" >Hotel's Image</label>
+								<div class="col-7 align-self-center">
+									<input type="file" name="hotelFacilityPict" required/>
+								</div>
 							</div>
-						</div>
-						<div class="row d-flex justify-content-end" style="padding-right: 10px;">
-							<input type="submit" class="btn btnYes" name="updateRoom" value="UPDATE">
-						</div>
+							<div class="row d-flex justify-content-end" style="padding-right: 10px;">
+								<input type="submit" class="btn btnYes" name="updatePhoto" value="UPDATE">
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<!-- modal add room -->
 	<div class="container">
 		<div class="modal fade" id="editHotel2" role="dialog">
@@ -335,6 +336,7 @@ echo $script;?>
 						<button type="button" class="close" data-dismiss="modal"><span class="fas fa-times-circle" style="color: red;"></span></button>
 					</div>
 					<div class="modal-body">
+					<?php echo form_open_multipart();?>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Room's ID</label>
 							<div class="col-7">
@@ -368,6 +370,7 @@ echo $script;?>
 						<div class="row d-flex justify-content-end" style="padding-right: 10px;">
 							<input type="submit" class="btn btnYes" name="addRoom" value="SUBMIT">
 						</div>
+						<?php echo form_close();?>
 					</div>
 				</div>
 			</div>
@@ -384,6 +387,7 @@ echo $script;?>
 						<button type="button" class="close" data-dismiss="modal"><span class="fas fa-times-circle" style="color: red;"></span></button>
 					</div>
 					<div class="modal-body">
+					<?php echo form_open_multipart();?>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Room's ID</label>
 							<div class="col-7">
@@ -417,6 +421,7 @@ echo $script;?>
 						<div class="row d-flex justify-content-end" style="padding-right: 10px;">
 							<input type="submit" class="btn btnYes" name="editRoom" value="UPDATE">
 						</div>
+						<?php echo form_close();?>
 					</div>
 				</div>
 			</div>

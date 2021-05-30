@@ -31,5 +31,10 @@ Class Admin_model extends CI_Model{
         $this->db->where('HotelID', $id);
         $this->db->update('hotel', $values);
     }
+    public function update_img_hotel($values,$Rid,$Hid){
+        $this->db->where('HotelID',$Hid);
+        $this->db->where('ImageID',$Rid);
+        $this->db->update('imagehotel',$values);
+    }
 }
 ?>

@@ -32,22 +32,24 @@ class Admin extends CI_Controller {
             redirect('Home');
         }
         $id = $this->uri->segment(3);
+        
+        $config['upload_path'] = './image_for_captcha/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size'] = 10240;
+		$config['max_width'] = 5000;
+		$config['max_height'] = 5000;
+
+		$this->load->library('upload', $config);
         if($this->input->post('updateHotel')){
-            $config['upload_path'] = './image_for_captcha/';
-			$config['allowed_types'] = 'gif|jpg|png';
-			$config['max_size'] = 10240;
-			$config['max_width'] = 5000;
-			$config['max_height'] = 5000;
-
-			$this->load->library('upload', $config);
-
             $this->form_validation->set_rules('rating','Rating','less_than_equal_to[5]|greater_than_equal_to[0]');
             if($this->form_validation->run() != false){
                 if (!$this->upload->do_upload('hotelPict')) {
                     $values = array(
                         'HotelName' => $this->input->post('hotelName'),
                         'Rating' => $this->input->post('rating'),
-                        'Address' => $this->input->post('address')
+                        'Address' => $this->input->post('address') //,
+                        //'Number' => $this->input->post('Number'),
+                        //'Description' => $this->input->post('Description')
                     );
                 }else{
                     $imagedata = $this->upload->data();
@@ -56,7 +58,9 @@ class Admin extends CI_Controller {
                         'Pict' => $image,
                         'HotelName' => $this->input->post('hotelName'),
                         'Rating' => $this->input->post('rating'),
-                        'Address' => $this->input->post('address')
+                        'Address' => $this->input->post('address')//,
+                        //'Number' => $this->input->post('Number'),
+                        //'Description' => $this->input->post('Description')
                     );
                 }
             $this->admin_model->updateHotel($values,$id);
@@ -114,6 +118,24 @@ class Admin extends CI_Controller {
             );
             $this->admin_model->updateFacility($values,$id);
             redirect('Admin/editHotel/'.$id);
+        }
+        if($this->input->post('updatePhoto')){
+            if($this->upload->do_upload('hotelFacilityPict')){
+                $imagedata = $this->upload->data();
+                $image = file_get_contents($imagedata['full_path']);
+                $values = array(
+                    'Pict' => $image
+                );
+                $this->admin_model->update_img_hotel($values,$this->input->post('imageID'),$id);
+                delete_files("image_for_captcha");
+            }
+            redirect('Admin/editHotel/'.$id);
+        }
+        if($this->input->post('addRoom')){
+
+        }
+        if($this->input->post('editRoom')){
+
         }
         $data['hotel'] = $this->admin_model->hotelDetail($id);
         if($data['hotel'] == NULL){
