@@ -372,12 +372,14 @@ echo $script;?>
 							<label class="col-4 col-form-label">Room's Qty</label>
 							<div class="col-7">
 								<input type="number" class="form-control" name="rqty" required>
+								<small class="text-muted"><?php echo form_error('rqty');?></small>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Room's Price</label>
 							<div class="col-7">
 								<input type="text" class="form-control" name="roomPrice" required>
+								<small class="text-muted"><?php echo form_error('roomPrice');?></small>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -429,12 +431,14 @@ echo $script;?>
 							<label class="col-4 col-form-label">Room's Qty</label>
 							<div class="col-7">
 								<input type="number" id="editroomQty" class="form-control" name="rqty" required>
+								<small class="text-muted"><?php echo form_error('rqty');?></small>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Room's Price</label>
 							<div class="col-7">
 								<input type="text" id="editroomPrice" class="form-control" name="editroomPrice" required>
+								<small class="text-muted"><?php echo form_error('editroomPrice');?></small>
 							</div>
 						</div>
 						<div class="form-group row">

@@ -155,7 +155,7 @@ class Admin extends CI_Controller {
         }
         if($this->input->post('editRoom')){
             $this->form_validation->set_rules('rqty','Quantity','numeric');
-            $this->form_validation->set_rules('roomPrice','Room Price','numeric');
+            $this->form_validation->set_rules('editroomPrice','Room Price','numeric');
             if($this->form_validation->run() != false){
                 if ($this->upload->do_upload('editroomPict')) {
                     $imagedata = $this->upload->data();
@@ -211,9 +211,102 @@ class Admin extends CI_Controller {
         if($this->session->userdata('userID') != 'ADMIN'){
             redirect('Home');
         }
+        $config['upload_path'] = './image_for_captcha/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size'] = 10240;
+		$config['max_width'] = 5000;
+		$config['max_height'] = 5000;
+
+		$this->load->library('upload', $config);
+        if($this->input->post('addHotel')){
+            $this->form_validation->set_rules('rating','Rating','less_than_equal_to[5]|greater_than_equal_to[0]');
+            $this->form_validation->set_rules('hnumber','Hotel Number','numeric');
+            $this->form_validation->set_rules('rqty','Quantity','numeric');
+            $this->form_validation->set_rules('roomPrice','Room Price','numeric');
+            if($this->form_validation->run() != false){
+                $this->upload->do_upload('hotelPict');
+                    $imagedata = $this->upload->data();
+                    $hotelPict = file_get_contents($imagedata['full_path']);  
+                
+                $this->upload->do_upload('hotelPict1');
+                $imagedata = $this->upload->data();
+                $hotelPict1 = file_get_contents($imagedata['full_path']); 
+                $this->upload->do_upload('hotelPict2');
+                $imagedata = $this->upload->data();
+                $hotelPict2 = file_get_contents($imagedata['full_path']); 
+                $this->upload->do_upload('hotelPict3');
+                $imagedata = $this->upload->data();
+                $hotelPict3 = file_get_contents($imagedata['full_path']); 
+                $this->upload->do_upload('roomPict');
+                $imagedata = $this->upload->data();
+                $roomPict = file_get_contents($imagedata['full_path']); 
+                
+                
+                $hotel = array(
+                    'Pict' => $hotelPict,
+                    'HotelID' => $this->input->post('hotelID'),
+                    'HotelName' => $this->input->post('hotelName'),
+                    'Rating' => $this->input->post('rating'),
+                    'Address' => $this->input->post('address'),
+                    'Number' => $this->input->post('hnumber'),
+                    'Description'=> $this->input->post('description')
+                );
+                $MeetingRoom = 0;$SwimmingPool = 0;$Restaurant = 0;
+                $Spa = 0;$Gym = 0;$Bar = 0;$WiFi = 0;$Receptionist24 = 0;$PUAirport = 0;
+                if($this->input->post('MeetingRoom')){$MeetingRoom = 1;}
+                if($this->input->post('SwimmingPool')){$SwimmingPool = 1;}
+                if($this->input->post('Restaurant')){$Restaurant = 1;}
+                if($this->input->post('Spa')){$Spa = 1;}
+                if($this->input->post('Gym')){$Gym = 1;}
+                if($this->input->post('Bar')){$Bar = 1;}
+                if($this->input->post('WiFi')){$WiFi = 1;}
+                if($this->input->post('Receptionist24')){$Receptionist24 = 1;}
+                if($this->input->post('PUAirport')){$PUAirport = 1;}
+                $facility = array(
+                    'HotelID' => $this->input->post('hotelID'),
+                    'MeetingRoom'   => $MeetingRoom,
+                    'SwimmingPool'  => $SwimmingPool,
+                    'Restaurant'    => $Restaurant,
+                    'Spa'           => $Spa,
+                    'Gym'           => $Gym,
+                    'Bar'           => $Bar,
+                    'WiFi'          => $WiFi,
+                    'Receptionist24'=> $Receptionist24,
+                    'PUAirport'     => $PUAirport
+                );
+                $room = array(
+                    'HotelID' => $this->input->post('hotelID'),
+                    'Pict' => $roomPict,
+                    'RoomID' => $this->input->post('roomID'),
+                    'RoomName' => $this->input->post('roomName'),
+                    'Qty' => $this->input->post('rqty'),
+                    'Price' => $this->input->post('roomPrice'),
+                    'Facility' => $this->input->post('roomFacilities')
+                );
+                $imageHotel1 = array (
+                    'HotelID' => $this->input->post('hotelID'),
+                    'ImageID' => '1',
+                    'Pict' => $hotelPict1
+                );
+                $imageHotel2 = array (
+                    'HotelID' => $this->input->post('hotelID'),
+                    'ImageID' => '2',
+                    'Pict' => $hotelPict2
+                );
+                $imageHotel3 = array (
+                    'HotelID' => $this->input->post('hotelID'),
+                    'ImageID' => '3',
+                    'Pict' => $hotelPict3
+                );
+            $this->admin_model->AddHotel($hotel,$facility,$room,$imageHotel1,$imageHotel2,$imageHotel3);
+            delete_files("image_for_captcha");
+            redirect('Admin');
+            }
+        }
         $data['style'] = $this->load->view('include/style.php',NULL,TRUE);
         $data['script'] = $this->load->view('include/script.php',NULL,TRUE);
         $data['sidebar'] = $this->load->view('sidebar/sidenavAdmin.php',$data,TRUE);
+        $data['lastHotel'] = $this->admin_model->last_hotel();
         $this->load->view('pages/HotelForm.php',$data);
     }
 }
