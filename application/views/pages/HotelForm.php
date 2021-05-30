@@ -5,7 +5,7 @@
 
 <!DOCTYPE html>
 <html>
-<body class="home">
+<body class="home" style="background-image: url('http://localhost/UASWebprogLab/assets/HomeBG.jpg');">
 	<div class="container-fluid" style="margin-top: 15px; padding-right: 100px; position: fixed;">
 		<div class="row">
 			<div class="col-3 d-flex justify-content-end">
@@ -56,9 +56,21 @@
 									</div>
 								</div>
 								<div class="form-group row">
+									<label class="col-3 col-form-label">Hotel's Number</label>
+									<div class="col-7">
+										<input type="tel" class="form-control" name="hnumber" required>
+									</div>
+								</div>
+								<div class="form-group row">
 									<label class="col-3 col-form-label">Hotel's Address</label>
 									<div class="col-7">
 										<textarea type="text" class="form-control" name="address" required></textarea>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-3 col-form-label">Hotel's Description</label>
+									<div class="col-7">
+										<textarea type="text" class="form-control" name="description" required></textarea>
 									</div>
 								</div>
 								<div class="form-group row">
@@ -182,6 +194,12 @@
 									<label class="col-4 col-form-label">Room's Name</label>
 									<div class="col-7">
 										<input type="text" class="form-control" name="roomName" required>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-4 col-form-label">Room's Qty</label>
+									<div class="col-7">
+										<input type="number" class="form-control" name="rqty" required>
 									</div>
 								</div>
 								<div class="form-group row">

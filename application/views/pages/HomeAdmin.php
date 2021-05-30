@@ -7,7 +7,7 @@
 
 <!DOCTYPE html>
 <html>
-<body class="home" style= "background-image: url('http://localhost/UASWebprogLab/assets/HomeBG.jpg');">
+<body class="home" style="background-image: url('http://localhost/UASWebprogLab/assets/HomeBG.jpg');">
 	<div class="container-fluid" style="margin-top: 10px; padding-left: 15%; padding-right: 5%;">
 		<div class="row">
 			<div class="col-9 align-self-center">

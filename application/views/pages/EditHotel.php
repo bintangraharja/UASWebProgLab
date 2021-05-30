@@ -2,7 +2,7 @@
 echo $script;?>
 <!DOCTYPE html>
 <html>
-<body class="home">
+<body class="home" style="background-image: url('http://localhost/UASWebprogLab/assets/HomeBG.jpg');">
 	<div class="container-fluid" style="margin-top: 15px; padding-right: 100px; position: fixed;">
 		<div class="row">
 			<div class="col-3 d-flex justify-content-end">
@@ -36,32 +36,44 @@ echo $script;?>
 							<br>
 							<?php echo form_open_multipart('Admin/editHotel/'.$hotel[0]['HotelID']);?>
 								<div class="form-group row">
-									<label class="col-3 col-form-label">Hotel's ID</label>
+									<label class="col-4 col-form-label">Hotel's ID</label>
 									<div class="col-7">
 										<input type="text" value="<?= $hotel[0]['HotelID']?>" class="form-control" name="hotelID" readonly>
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-3 col-form-label">Hotel's Name</label>
+									<label class="col-4 col-form-label">Hotel's Name</label>
 									<div class="col-7">
 										<input type="text" value="<?= $hotel[0]['HotelName']?>" class="form-control" name="hotelName" required>
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-3 col-form-label">Hotel's Rating</label>
+									<label class="col-4 col-form-label">Hotel's Rating</label>
 									<div class="col-7">
 										<input type="text" value="<?= $hotel[0]['Rating']?>" class="form-control" name="rating" required>
 										<small class="text-muted"><?php echo form_error('rating');?></small>
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-3 col-form-label">Hotel's Address</label>
+									<label class="col-4 col-form-label">Hotel's Number</label>
+									<div class="col-7">
+										<input type="tel" class="form-control" name="hnumber">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-4 col-form-label">Hotel's Address</label>
 									<div class="col-7">
 										<textarea required type="text" class="form-control" name="address"><?= $hotel[0]['Address']?></textarea>
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-3 col-form-label" for="ppicture" >Hotel's Main Photo</label>
+									<label class="col-4 col-form-label">Hotel's Description</label>
+									<div class="col-7">
+										<textarea type="text" class="form-control" name="description"></textarea>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-4 col-form-label" for="ppicture" >Hotel's Main Photo</label>
 									<div class="col-7 align-self-center">
 										<input type="file" name="hotelPict">
 									</div>
@@ -350,6 +362,12 @@ echo $script;?>
 							</div>
 						</div>
 						<div class="form-group row">
+							<label class="col-4 col-form-label">Room's Qty</label>
+							<div class="col-7">
+								<input type="number" class="form-control" name="rqty" required>
+							</div>
+						</div>
+						<div class="form-group row">
 							<label class="col-4 col-form-label">Room's Price</label>
 							<div class="col-7">
 								<input type="text" class="form-control" name="roomPrice" >
@@ -398,6 +416,12 @@ echo $script;?>
 							<label class="col-4 col-form-label">Room's Name</label>
 							<div class="col-7">
 								<input type="text" id="editroomName" class="form-control" name="editroomName">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Room's Qty</label>
+							<div class="col-7">
+								<input type="number" class="form-control" name="rqty">
 							</div>
 						</div>
 						<div class="form-group row">
