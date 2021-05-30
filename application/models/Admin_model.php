@@ -78,5 +78,8 @@ Class Admin_model extends CI_Model{
         $this->db->insert('imagehotel',$imageHotel3);
 
     }
+    public function DeleteHotel($HotelID){
+        $this->db->delete('hotel',['HotelID' =>$HotelID]);
+    }
 }
 ?>

@@ -309,5 +309,11 @@ class Admin extends CI_Controller {
         $data['lastHotel'] = $this->admin_model->last_hotel();
         $this->load->view('pages/HotelForm.php',$data);
     }
+
+    public function DeleteHotel(){
+        $id = $this->uri->segment(3);
+        $this->admin_model->DeleteHotel($id);
+        redirect('Admin');
+    }
 }
 ?>
