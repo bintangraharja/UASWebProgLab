@@ -13,11 +13,20 @@ class Home extends CI_Controller {
         if($this->session->userdata('userID') == 'ADMIN'){
             redirect('Admin');
         }
-        if($this->input->post('search')){
-            $data['listHotel'] = $this->home_model->search_hotel($this->input->post('search'));
+        if($this->input->GET('search')){
+            if($this->input->POST('filter')){
+                $data['listHotel'] = $this->home_model->search_filter($this->input->GET('search'), $this->input->POST('minPrice'), $this->input->POST('maxPrice'), $this->input->POST('rating'));
+            }else{
+                $data['listHotel'] = $this->home_model->search_hotel($this->input->GET('search'));
+            }
         }else{
-            $data['listHotel'] = $this->home_model->list_hotel();
+            if($this->input->POST('filter')){
+                $data['listHotel'] = $this->home_model->search_filter2($this->input->POST('minPrice'), $this->input->POST('maxPrice'), $this->input->POST('rating'));
+            }else{
+                $data['listHotel'] = $this->home_model->list_hotel();
+            }
         }
+        
         $data['style'] = $this->load->view('include/style.php',NULL,TRUE);
         $data['script'] = $this->load->view('include/script.php',NULL,TRUE);
         if($this->session->userdata('status')){
@@ -31,6 +40,11 @@ class Home extends CI_Controller {
     public function showImg(){
         $id = $this->uri->segment(3);
         $this->home_model->get_image($id);
+    }
+    public function AboutUs(){
+        $data['style'] = $this->load->view('include/style.php',NULL,TRUE);
+        $data['script'] = $this->load->view('include/script.php',NULL,TRUE);
+        $this->load->view('pages/AboutUs.php',$data);
     }
 }
 ?>

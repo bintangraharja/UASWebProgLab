@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <?php echo $sidebar; ?>
-<body class="home" style= "background-image: url('http://localhost/UASWebprogLab/assets/HomeBG.jpg');">
+<body class="home">
 	<div class="container-fluid" style="margin-top: 15px; padding-right: 100px;">
 		<div class="row d-flex justify-content-end">
 			<div class="d-flex align-items-end">
-				<a href="AboutUs.php"><h3 class="details"><u>About Us</u></h3></a>
+				<a href="<?= site_url('Home/AboutUs')?>"><h3 class="details"><u>About Us</u></h3></a>
 			</div>
 			<!-- Logo Potrait/Landscape -->
 			<img src="./Gallery/example.jpg" style="width: 100px; height: 100px; margin-left: 20px;">
@@ -14,8 +14,8 @@
 	<div class="container-fluid" style="margin-top: 10px; padding-left: 100px; padding-right: 50px;">
 		<div class="row">
 			<div class="col-5">
-				<div class="row">
-					<form method="POST">
+				<div class="row d-flex flex-column">
+					<form method="GET">
 						<div class="input-group">
 							<span class="input-group-prepend">
 								<div class="input-group-text border-right-0 bg-white"><i class="fas fa-map-marker-alt d-flex "></i></div>
@@ -27,36 +27,44 @@
 						</div>
 					</form>
 				</div>
+				<br><br>
 				<div class="row">
 					<div class="col" style="margin-left: 25%; padding-bottom: 10px; background: rgba(255, 255, 255, 0.5);">
 	            		<div class="row" style="padding: 10px;">
 	            			<h3>Price Range</h3>
 	            		</div>
-	            		<div class="form-row">
-	            			<div class="col-5">
-	            				<input type="text" class="form-control" name="minPrice">
-	            			</div>
-	            			<div class="col-2 text-center">
-	            				<h4>to</h4>
-	            			</div>
-	            			<div class="col-5">
-	            				<input type="text" class="form-control" name="maxPrice">
-	            			</div>
-	            		</div>
-	            		<hr style="border-color: black;">
-	            		<div class="row" style="padding: 10px;">
-	            			<h3>Star Rating</h3>
-	            		</div>
-	            		<div class="row" style="padding: 10px;">
-	            			<div class="rating">
-	            				<span class="rating__result"></span> 
-								<i class="rating__star far fa-star fa-2x"></i>
-								<i class="rating__star far fa-star fa-2x"></i>
-								<i class="rating__star far fa-star fa-2x"></i>
-								<i class="rating__star far fa-star fa-2x"></i>
-								<i class="rating__star far fa-star fa-2x"></i>
-	            			</div>
-	            		</div>
+						<form method="POST">
+							<div class="form-row">
+								<div class="col-5">
+									<input type="text" class="form-control" name="minPrice" value="0">
+								</div>
+								<div class="col-2 text-center">
+									<h4>to</h4>
+								</div>
+								<div class="col-5">
+									<input type="text" class="form-control" name="maxPrice" value="10000000">
+								</div>
+							</div>
+							<hr style="border-color: black;">
+							<div class="row" style="padding: 10px;">
+								<h3>Star Rating</h3>
+							</div>
+							<div class="row" style="padding: 10px;">
+								<div class="rating">
+									<span class="rating__result"></span>
+									<input id="rating" name="rating" type="hidden">
+									<i class="rating__star far fa-star fa-4x"></i>
+									<i class="rating__star far fa-star fa-4x"></i>
+									<i class="rating__star far fa-star fa-4x"></i>
+									<i class="rating__star far fa-star fa-4x"></i>
+									<i class="rating__star far fa-star fa-4x"></i>
+								</div>
+							</div>
+							<br>
+							<div class="row" style="padding-left: 15px;">
+								<input type="submit" class="btn btnYes btn-lg" name="filter" value="FILTER">
+							</div>
+						</form>
 	            	</div>
 				</div>
 			</div>
@@ -130,6 +138,7 @@
 
 		function printRatingResult(result, num = 0) {
 		   result.textContent = `${num}/5`;
+		   $('#rating').val($('.rating__result').html().slice(0,1));
 		}
 
 		executeRating(ratingStars, ratingResult);
