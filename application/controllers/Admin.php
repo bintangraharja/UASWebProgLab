@@ -7,9 +7,15 @@ class Admin extends CI_Controller {
         parent::__construct();
         $this->load->model('home_model');
         $this->load->model('admin_model');
+        $this->load->helper('file');
+        $this->load->library('form_validation');
+        $this->load->library('form_validation');
     }
 	public function index()
 	{
+        if($this->session->userdata('userID') != 'ADMIN'){
+            redirect('Home');
+        }
         if($this->input->post('search')){
             $data['listHotel'] = $this->home_model->search_hotel($this->input->post('search'));
         }else{
@@ -22,7 +28,41 @@ class Admin extends CI_Controller {
 	}
 
     public function editHotel(){
+        if($this->session->userdata('userID') != 'ADMIN'){
+            redirect('Home');
+        }
         $id = $this->uri->segment(3);
+        if($this->input->post('updateHotel')){
+            $config['upload_path'] = './image_for_captcha/';
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size'] = 10240;
+			$config['max_width'] = 5000;
+			$config['max_height'] = 5000;
+
+			$this->load->library('upload', $config);
+
+            $this->form_validation->set_rules('rating','Rating','less_than_equal_to[5]|greater_than_equal_to[0]');
+            if($this->form_validation->run() != false){
+                if (!$this->upload->do_upload('hotelPict')) {
+                    $values = array(
+                        'HotelName' => $this->input->post('hotelName'),
+                        'Rating' => $this->input->post('rating'),
+                        'Address' => $this->input->post('address')
+                    );
+                }else{
+                    $imagedata = $this->upload->data();
+                    $image = file_get_contents($imagedata['full_path']);
+                    $values = array(
+                        'Pict' => $image,
+                        'HotelName' => $this->input->post('hotelName'),
+                        'Rating' => $this->input->post('rating'),
+                        'Address' => $this->input->post('address')
+                    );
+                }
+            $this->admin_model->updateHotel($values,$id);
+            redirect('Admin/editHotel/'.$id);
+            }; 
+        }
         if($this->input->post('updateHotelFacility')){
             $MeetingRoom = 0;
             $SwimmingPool = 0;
@@ -75,12 +115,30 @@ class Admin extends CI_Controller {
             redirect('Admin/editHotel/'.$id);
         }
         $data['hotel'] = $this->admin_model->hotelDetail($id);
+        if($data['hotel'] == NULL){
+            show_404();
+        }
         $data['facility'] = $this->admin_model->facilityDetail($id);
         $data['room'] = $this->admin_model->roomDetail($id);
         $data['style'] = $this->load->view('include/style.php',NULL,TRUE);
         $data['script'] = $this->load->view('include/script.php',NULL,TRUE);
         $data['sidebar'] = $this->load->view('sidebar/sidenavAdmin.php',$data,TRUE);
         $this->load->view('pages/edithotel.php',$data);
+    }
+    public function BookHistory(){
+        if($this->session->userdata('userID') != 'ADMIN'){
+            redirect('Home');
+        }
+        $bookid = $this->uri->segment(3);
+        if($bookid != NULL){
+            redirect('Invoice/'.$bookid);
+        }
+        
+        $data['style'] = $this->load->view('include/style.php',NULL,TRUE);
+        $data['script'] = $this->load->view('include/script.php',NULL,TRUE);
+        $data['sidebar'] = $this->load->view('sidebar/sidenavAdmin.php',$data,TRUE);
+        $data['listBook'] = $this->admin_model->get_book();
+        $this->load->view('pages/HistoryAdmin.php',$data);
     }
 }
 ?>

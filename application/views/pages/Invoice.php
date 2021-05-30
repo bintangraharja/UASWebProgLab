@@ -118,7 +118,11 @@
 		</div>
 		<br>
 		<div class="row d-flex justify-content-end" style="margin-right: 20px;">
+			<?php if($this->session->userdata('userID') == 'ADMIN'){ ?>
+			<a href="<?php echo site_url('Admin/BookHistory')?>"><button class="btn btnYes btn-block" style="margin-left: 20px; margin-right: 20px;">DONE</button></a>
+			<?php }else{?>
 			<a href="<?php echo site_url('BookingHistory')?>"><button class="btn btnYes btn-block" style="margin-left: 20px; margin-right: 20px;">DONE</button></a>
+			<?php }?>
 		</div>
 	</div>
 </body>

@@ -35,11 +35,11 @@ echo $script;?>
 								<h5 class="col">Hotel's Information</h5>
 							</div>
 							<br>
-							<form action="">
+							<?php echo form_open_multipart('Admin/editHotel/'.$hotel[0]['HotelID']);?>
 								<div class="form-group row">
 									<label class="col-3 col-form-label">Hotel's ID</label>
 									<div class="col-7">
-										<input type="text" value="<?= $hotel[0]['HotelID']?>" class="form-control" name="hotelID" disabled>
+										<input type="text" value="<?= $hotel[0]['HotelID']?>" class="form-control" name="hotelID" readonly>
 									</div>
 								</div>
 								<div class="form-group row">
@@ -52,6 +52,7 @@ echo $script;?>
 									<label class="col-3 col-form-label">Hotel's Rating</label>
 									<div class="col-7">
 										<input type="text" value="<?= $hotel[0]['Rating']?>" class="form-control" name="rating">
+										<small class="text-muted"><?php echo form_error('rating');?></small>
 									</div>
 								</div>
 								<div class="form-group row">

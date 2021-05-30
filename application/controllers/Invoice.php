@@ -12,6 +12,9 @@ class Invoice extends CI_Controller {
     }
 
     public function index($bookingID){
+        if(!$this->session->userdata('status')){
+            redirect('Home');
+        }
         $data['invoice'] = $this->Invoice_model->getInvoice($bookingID);
         if($data['invoice'] == NULL){
             show_404();

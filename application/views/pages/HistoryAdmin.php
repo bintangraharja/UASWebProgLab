@@ -1,9 +1,6 @@
-<?php
-	include_once('sidenavAdmin.php');
-?>
-
 <!DOCTYPE html>
 <html>
+<?php echo $sidebar;?>
 <body class="home">
 	<div class="container" style="margin-top: 15px; margin-bottom: 15px;">
 		<div class="row">
@@ -17,86 +14,35 @@
 		</div>
 	</div>
 	<div class="container custom-scrollbar-css p-2" style="height: 615px; margin-left: 20%;">
+		<?php 
+			foreach($listBook as $books){
+				$Bookid = $books['BookingID'];
+				$GName = $books['GName'];
+				$Price = $books['Subtotal'];
+
+			
+		?>
 		<div class="row" style="background: #99E1D9; padding-top: 10px; margin-bottom: 10px;">
 			<div class="col-2 text-center">
 				<h5 style="font-weight: bold;">Order ID</h5>
-				<p>#12375</p>
+				<p><?=$Bookid;?></p>
 			</div>
 			<div class="col-2 text-center">
 				<h5 style="font-weight: bold;">Customer</h5>
-				<p>Ananda Setiyani</p>
+				<p><?=$GName;?></p>
 			</div>
 			<div class="col-3 text-center">
 				<h5 style="font-weight: bold;">Hotel's Name</h5>
 				<p>Ritz Carlton</p>
 			</div>
 			<div class="col-3 align-self-end text-center">
-				<p style="font-weight: bold;">Subtotal Rp 4.000.000,-</p>
+				<p style="font-weight: bold;">Subtotal Rp <?=$Price;?>,-</p>
 			</div>
 			<div class="col-2 align-self-center text-center">
-				<a href="Invoice.php" class="details"><h5 style="font-weight: bold;">View Details</h5></a>
+				<a href="<?=site_url('Admin/BookHistory/'.$Bookid);?>" class="details"><h5 style="font-weight: bold;">View Details</h5></a>
 			</div>
 		</div>
-		<div class="row" style="background: #99E1D9; padding-top: 10px; margin-bottom: 10px;">
-			<div class="col-2 text-center">
-				<h5 style="font-weight: bold;">Order ID</h5>
-				<p>#12375</p>
-			</div>
-			<div class="col-2 text-center">
-				<h5 style="font-weight: bold;">Customer</h5>
-				<p>Ananda Setiyani</p>
-			</div>
-			<div class="col-3 text-center">
-				<h5 style="font-weight: bold;">Hotel's Name</h5>
-				<p>Ritz Carlton</p>
-			</div>
-			<div class="col-3 align-self-end text-center">
-				<p style="font-weight: bold;">Subtotal Rp 4.000.000,-</p>
-			</div>
-			<div class="col-2 align-self-center text-center">
-				<a href="Invoice.php" class="details"><h5 style="font-weight: bold;">View Details</h5></a>
-			</div>
-		</div>
-		<div class="row" style="background: #99E1D9; padding-top: 10px; margin-bottom: 10px;">
-			<div class="col-2 text-center">
-				<h5 style="font-weight: bold;">Order ID</h5>
-				<p>#12375</p>
-			</div>
-			<div class="col-2 text-center">
-				<h5 style="font-weight: bold;">Customer</h5>
-				<p>Ananda Setiyani</p>
-			</div>
-			<div class="col-3 text-center">
-				<h5 style="font-weight: bold;">Hotel's Name</h5>
-				<p>Ritz Carlton</p>
-			</div>
-			<div class="col-3 align-self-end text-center">
-				<p style="font-weight: bold;">Subtotal Rp 4.000.000,-</p>
-			</div>
-			<div class="col-2 align-self-center text-center">
-				<a href="Invoice.php" class="details"><h5 style="font-weight: bold;">View Details</h5></a>
-			</div>
-		</div>
-		<div class="row" style="background: #99E1D9; padding-top: 10px; margin-bottom: 10px;">
-			<div class="col-2 text-center">
-				<h5 style="font-weight: bold;">Order ID</h5>
-				<p>#12375</p>
-			</div>
-			<div class="col-2 text-center">
-				<h5 style="font-weight: bold;">Customer</h5>
-				<p>Ananda Setiyani</p>
-			</div>
-			<div class="col-3 text-center">
-				<h5 style="font-weight: bold;">Hotel's Name</h5>
-				<p>Ritz Carlton</p>
-			</div>
-			<div class="col-3 align-self-end text-center">
-				<p style="font-weight: bold;">Subtotal Rp 4.000.000,-</p>
-			</div>
-			<div class="col-2 align-self-center text-center">
-				<a href="Invoice.php" class="details"><h5 style="font-weight: bold;">View Details</h5></a>
-			</div>
-		</div>
+		<?php } ?>	
 	</div>
 </body>
 </html>
