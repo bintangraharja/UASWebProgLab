@@ -16,7 +16,7 @@ Class Admin_model extends CI_Model{
     }
     public function roomDetail($id){
         $id = $this->db->escape($id);
-        $query = $this->db->query("Select * From room WHERE HotelID= $id");
+        $query = $this->db->query("Select RoomID, RoomName, Price, Facility, Qty From room WHERE HotelID= $id");
         return $query->result_array();
     }
     public function updateFacility($values, $id){
