@@ -60,6 +60,7 @@ class Admin extends CI_Controller {
                     );
                 }
             $this->admin_model->updateHotel($values,$id);
+            delete_files("image_for_captcha");
             redirect('Admin/editHotel/'.$id);
             }; 
         }
