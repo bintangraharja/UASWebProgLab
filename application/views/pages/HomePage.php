@@ -14,17 +14,51 @@
 	<div class="container-fluid" style="margin-top: 10px; padding-left: 100px; padding-right: 50px;">
 		<div class="row">
 			<div class="col-5">
-				<form method="POST">
-					<div class="input-group">
-						<span class="input-group-prepend">
-							<div class="input-group-text border-right-0 bg-white"><i class="fas fa-map-marker-alt d-flex "></i></div>
-						</span>
-						<input type="text" class="form-control py-2 border-left-0 border" name="search" placeholder="Enter a Destination">
-						<span class="input-group-append">
-							<button class="btn btnYes" type="submit">Search</button>
-						</span>
-					</div>
-				</form>
+				<div class="row">
+					<form method="POST">
+						<div class="input-group">
+							<span class="input-group-prepend">
+								<div class="input-group-text border-right-0 bg-white"><i class="fas fa-map-marker-alt d-flex "></i></div>
+							</span>
+							<input type="text" class="form-control py-2 border-left-0 border" name="search" placeholder="Enter a Destination">
+							<span class="input-group-append">
+								<button class="btn btnYes" type="submit">Search</button>
+							</span>
+						</div>
+					</form>
+				</div>
+				<div class="row">
+					<div class="col" style="margin-left: 25%; padding-bottom: 10px; background: rgba(255, 255, 255, 0.5);">
+	            		<div class="row" style="padding: 10px;">
+	            			<h3>Price Range</h3>
+	            		</div>
+	            		<div class="form-row">
+	            			<div class="col-5">
+	            				<input type="text" class="form-control" name="minPrice">
+	            			</div>
+	            			<div class="col-2 text-center">
+	            				<h4>to</h4>
+	            			</div>
+	            			<div class="col-5">
+	            				<input type="text" class="form-control" name="maxPrice">
+	            			</div>
+	            		</div>
+	            		<hr style="border-color: black;">
+	            		<div class="row" style="padding: 10px;">
+	            			<h3>Star Rating</h3>
+	            		</div>
+	            		<div class="row" style="padding: 10px;">
+	            			<div class="rating">
+	            				<span class="rating__result"></span> 
+								<i class="rating__star far fa-star fa-2x"></i>
+								<i class="rating__star far fa-star fa-2x"></i>
+								<i class="rating__star far fa-star fa-2x"></i>
+								<i class="rating__star far fa-star fa-2x"></i>
+								<i class="rating__star far fa-star fa-2x"></i>
+	            			</div>
+	            		</div>
+	            	</div>
+				</div>
 			</div>
 			<div class="col-7 custom-scrollbar-css p-2" style="height: 620px;">
 
@@ -67,5 +101,38 @@
 			</div>
 		</div>
 	</div>
+
+	<script>
+		const ratingStars = [...document.getElementsByClassName("rating__star")];
+		const ratingResult = document.querySelector(".rating__result");
+
+		printRatingResult(ratingResult);
+
+		function executeRating(stars, result) {
+		   const starClassActive = "rating__star fas fa-star";
+		   const starClassUnactive = "rating__star far fa-star";
+		   const starsLength = stars.length;
+		   let i;
+		   stars.map((star) => {
+		      star.onclick = () => {
+		         i = stars.indexOf(star);
+
+		         if (star.className.indexOf(starClassUnactive) !== -1) {
+		            printRatingResult(result, i + 1);
+		            for (i; i >= 0; --i) stars[i].className = starClassActive;
+		         } else {
+		            printRatingResult(result, i);
+		            for (i; i < starsLength; ++i) stars[i].className = starClassUnactive;
+		         }
+		      };
+		   });
+		}
+
+		function printRatingResult(result, num = 0) {
+		   result.textContent = `${num}/5`;
+		}
+
+		executeRating(ratingStars, ratingResult);
+	</script>
 </body>
 </html>
