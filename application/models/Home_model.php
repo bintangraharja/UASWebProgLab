@@ -30,5 +30,23 @@ Class Home_model extends CI_Model{
         ORDER BY HotelName");
         return $query->result_array();
     }
+    public function search_filter($name, $minPrice, $maxPrice, $rating){
+        $query = $this->db->query(
+        "SELECT `hotel`.`HotelID`, `HotelName`, `Rating`, `Address`, `Description` ,MIN(`Price`) as `Price` 
+        FROM `hotel` JOIN `room` ON `hotel`.`HotelID` = `room`.`HotelID`
+        WHERE `Address` LIKE '%$name%' AND `Price` > $minPrice AND `Price` < $maxPrice AND `Rating` = $rating
+        GROUP BY `room`.`HotelID`
+        ORDER BY HotelName");
+        return $query->result_array();
+    }
+    public function search_filter2($minPrice, $maxPrice, $rating){
+        $query = $this->db->query(
+        "SELECT `hotel`.`HotelID`, `HotelName`, `Rating`, `Address`, `Description` ,MIN(`Price`) as `Price` 
+        FROM `hotel` JOIN `room` ON `hotel`.`HotelID` = `room`.`HotelID`
+        WHERE `Price` > $minPrice AND `Price` < $maxPrice AND `Rating` = $rating
+        GROUP BY `room`.`HotelID`
+        ORDER BY HotelName");
+        return $query->result_array();
+    }
 }
 ?>
