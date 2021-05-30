@@ -11,15 +11,14 @@ class Admin extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->library('form_validation');
     }
-	public function index()
-	{
+	public function index(){
         if($this->session->userdata('userID') != 'ADMIN'){
             redirect('Home');
         }
         if($this->input->post('search')){
-            $data['listHotel'] = $this->home_model->search_hotel($this->input->post('search'));
+            $data['listHotel'] = $this->admin_model->search_hotel($this->input->post('search'));
         }else{
-            $data['listHotel'] = $this->home_model->list_hotel();
+            $data['listHotel'] = $this->admin_model->list_hotel();
         }
         $data['style'] = $this->load->view('include/style.php',NULL,TRUE);
         $data['script'] = $this->load->view('include/script.php',NULL,TRUE);
@@ -32,7 +31,7 @@ class Admin extends CI_Controller {
             redirect('Home');
         }
         $id = $this->uri->segment(3);
-        
+
         $config['upload_path'] = './image_for_captcha/';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['max_size'] = 10240;
@@ -42,14 +41,15 @@ class Admin extends CI_Controller {
 		$this->load->library('upload', $config);
         if($this->input->post('updateHotel')){
             $this->form_validation->set_rules('rating','Rating','less_than_equal_to[5]|greater_than_equal_to[0]');
+            $this->form_validation->set_rules('hnumber','Hotel Number','numeric');
             if($this->form_validation->run() != false){
                 if (!$this->upload->do_upload('hotelPict')) {
                     $values = array(
                         'HotelName' => $this->input->post('hotelName'),
                         'Rating' => $this->input->post('rating'),
-                        'Address' => $this->input->post('address') //,
-                        //'Number' => $this->input->post('Number'),
-                        //'Description' => $this->input->post('Description')
+                        'Address' => $this->input->post('address'),
+                        'Number' => $this->input->post('hnumber'),
+                        'Description' => $this->input->post('description')
                     );
                 }else{
                     $imagedata = $this->upload->data();
@@ -58,9 +58,9 @@ class Admin extends CI_Controller {
                         'Pict' => $image,
                         'HotelName' => $this->input->post('hotelName'),
                         'Rating' => $this->input->post('rating'),
-                        'Address' => $this->input->post('address')//,
-                        //'Number' => $this->input->post('Number'),
-                        //'Description' => $this->input->post('Description')
+                        'Address' => $this->input->post('address'),
+                        'Number' => $this->input->post('hnumber'),
+                        'Description' => $this->input->post('description')
                     );
                 }
             $this->admin_model->updateHotel($values,$id);
@@ -132,10 +132,53 @@ class Admin extends CI_Controller {
             redirect('Admin/editHotel/'.$id);
         }
         if($this->input->post('addRoom')){
-
+            $this->form_validation->set_rules('rqty','Quantity','numeric');
+            $this->form_validation->set_rules('roomPrice','Room Price','numeric');
+            if($this->form_validation->run() != false){
+                if ($this->upload->do_upload('roomPict')) {
+                    $imagedata = $this->upload->data();
+                    $image = file_get_contents($imagedata['full_path']);    
+                    $values = array(
+                        'HotelID' => $id,
+                        'Pict' => $image,
+                        'RoomID' => $this->input->post('roomID'),
+                        'RoomName' => $this->input->post('roomName'),
+                        'Qty' => $this->input->post('rqty'),
+                        'Price' => $this->input->post('roomPrice'),
+                        'Facility' => $this->input->post('roomFacilities')
+                    );
+                }
+            $this->admin_model->addRoom($values);
+            delete_files("image_for_captcha");
+            redirect('Admin/editHotel/'.$id);
+            }
         }
         if($this->input->post('editRoom')){
-
+            $this->form_validation->set_rules('rqty','Quantity','numeric');
+            $this->form_validation->set_rules('roomPrice','Room Price','numeric');
+            if($this->form_validation->run() != false){
+                if ($this->upload->do_upload('editroomPict')) {
+                    $imagedata = $this->upload->data();
+                    $image = file_get_contents($imagedata['full_path']);    
+                    $values = array(
+                        'Pict' => $image,
+                        'RoomName' => $this->input->post('editroomName'),
+                        'Qty' => $this->input->post('rqty'),
+                        'Price' => $this->input->post('editroomPrice'),
+                        'Facility' => $this->input->post('editroomFacilities')
+                    );
+                }else{
+                    $values = array(
+                        'RoomName' => $this->input->post('editroomName'),
+                        'Qty' => $this->input->post('rqty'),
+                        'Price' => $this->input->post('editroomPrice'),
+                        'Facility' => $this->input->post('editroomFacilities')
+                    );
+                }
+                $this->admin_model->editRoom($values,$id,$this->input->post('editroomID'));
+                delete_files("image_for_captcha");
+                redirect('Admin/editHotel/'.$id);
+            }
         }
         $data['hotel'] = $this->admin_model->hotelDetail($id);
         if($data['hotel'] == NULL){

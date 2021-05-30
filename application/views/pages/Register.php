@@ -26,30 +26,30 @@
 						<?php echo form_open_multipart('Register');?>
 						<div class="form-group row">
 							<div class="col">
-								<input type="text" class="form-control" name="fname" placeholder="First Name">
+								<input type="text" class="form-control" name="fname" placeholder="First Name" required>
 							</div>
 							<div class="col">
 								<input type="text" class="form-control" name="lname" placeholder="Last Name">
 							</div>
 						</div>
 						<div class="form-group">
-					        <input type="email" class="form-control" name="email" placeholder="example@gmail.com">
+					        <input type="email" class="form-control" name="email" placeholder="example@gmail.com" required>
 						</div>
 						<div class="form-group row">
 							<div class="col">
-								<input type="password" class="form-control" name="password" placeholder="Password">
+								<input type="password" class="form-control" name="password" placeholder="Password" required>
 								<small class="text-muted">Password min 8 characters</small>
 							</div>
 							<div class="col">
-								<input type="password" class="form-control" name="passwordconf" placeholder="Retype Password">
+								<input type="password" class="form-control" name="passwordconf" placeholder="Retype Password" required>
 								<small class="text-muted"><?php echo form_error('passwordconf');?></small>
 							</div>
 						</div>
 						<div class="form-group">
-					        <input type="date" class="form-control" name="bdate" placeholder="(dd/mm/yyyy)">
+					        <input type="date" class="form-control" name="bdate" placeholder="(dd/mm/yyyy)" required>
 						</div>
 						<div class="form-group">
-							<input type="tel" class="form-control" name="pnumber" placeholder="08777878939">
+							<input type="tel" class="form-control" name="pnumber" placeholder="08777878939" required>
 							<small class="text-muted"><?php echo form_error('pnumber');?></small>
 						</div>
 						<div class="form-group">

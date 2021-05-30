@@ -57,7 +57,8 @@ echo $script;?>
 								<div class="form-group row">
 									<label class="col-4 col-form-label">Hotel's Number</label>
 									<div class="col-7">
-										<input type="tel" class="form-control" name="hnumber">
+										<input type="tel" class="form-control" name="hnumber" value=<?=$hotel[0]['Number']?>>
+										<small class="text-muted"><?php echo form_error('hnumber');?></small>
 									</div>
 								</div>
 								<div class="form-group row">
@@ -69,7 +70,7 @@ echo $script;?>
 								<div class="form-group row">
 									<label class="col-4 col-form-label">Hotel's Description</label>
 									<div class="col-7">
-										<textarea type="text" class="form-control" name="description"></textarea>
+										<textarea required type="text" class="form-control" name="description"><?=$hotel[0]['Description']?></textarea>
 									</div>
 								</div>
 								<div class="form-group row">
@@ -244,28 +245,31 @@ echo $script;?>
 						</div>
 						<div class="col-6 align-self-end">
 							<div class="row d-flex justify-content-end">
-								<a id="addRoom"><button class="btn btnYes">Add Room Type</button></a>
+								<a class="addRoom" id="addRoom"><button class="btn btnYes">Add Room Type</button></a>
 							</div>
 						</div>
 					</div>
 					<br>
 					<div class="row">
-						<div class="col-2 text-center">
+						<div class="col-2 text-center align-self-center">
 							<h5>Image</h5>
 						</div>
-						<div class="col-2 text-center">
+						<div class="col text-center align-self-center">
 							<h5>Room's ID</h5>
 						</div>
-						<div class="col-2 text-center">
+						<div class="col-2 text-center align-self-center">
 							<h5>Room's Name</h5>
 						</div>
-						<div class="col-2 text-center">
+						<div class="col-1 text-center align-self-center">
+							<h5>Room's Qty</h5>
+						</div>
+						<div class="col-2 text-center align-self-center">
 							<h5>Room's Price</h5>
 						</div>
-						<div class="col-2 text-center">
+						<div class="col-2 text-center align-self-center">
 							<h5>Room's Facilities</h5>
 						</div>
-						<div class="col-2 text-center">
+						<div class="col text-center align-self-center ">
 							<h5>Action</h5>
 						</div>
 					</div>
@@ -280,11 +284,14 @@ echo $script;?>
 								<div class="col-2 text-center">
 									<img src="<?php echo site_url('DetailHotel/roomImg/').$hotel[0]['HotelID'].'/'.$row['RoomID'];?>" style="width: 125px; height:85px;">
 								</div>
-								<div class="col-2 text-center">
+								<div class="col text-center">
 									<p><?= $row['RoomID']?></p>
 								</div>
 								<div class="col-2 text-center">
 									<p><?= $row['RoomName']?></p>
+								</div>
+								<div class="col-1 text-center">
+									<p><?= $row['Qty']?></p>
 								</div>
 								<div class="col-2 text-center">
 									<p>Rp <?= $row['Price']?>,-</p>
@@ -292,8 +299,8 @@ echo $script;?>
 								<div class="col-2">
 									<?= $row['Facility']?>
 								</div>
-								<div class="col-2 text-center">
-									<a class="editRoom" data-index="<?= $x?>"><button class="btn btnYes">Edit Room</button></a>
+								<div class="col text-center">
+									<a class="editRoom" data-index="<?= $x?>"><button class="btn btnYes">Edit</button></a>
 								</div>
 							</div>
 							<hr style="border-color: black;">
@@ -352,13 +359,13 @@ echo $script;?>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Room's ID</label>
 							<div class="col-7">
-								<input type="text" class="form-control" name="roomID">
+								<input type="text" id="addroomID" class="form-control" name="roomID" readonly>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Room's Name</label>
 							<div class="col-7">
-								<input type="text" class="form-control" name="roomName">
+								<input type="text" class="form-control" name="roomName" required>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -370,19 +377,19 @@ echo $script;?>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Room's Price</label>
 							<div class="col-7">
-								<input type="text" class="form-control" name="roomPrice" >
+								<input type="text" class="form-control" name="roomPrice" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Room's Facilities</label>
 							<div class="col-7">
-								<textarea class="form-control" name="roomFacilities"></textarea> 
+								<textarea class="form-control" name="roomFacilities" required></textarea> 
 							</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-4 col-form-label" for="ppicture" >Room's Photo</label>
+							<label class="col-4 col-form-label" for="ppicture"  >Room's Photo</label>
 							<div class="col-7 align-self-center">
-								<input type="file" name="roomPict">
+								<input type="file" name="roomPict" required>
 							</div>
 						</div>
 						<div class="row d-flex justify-content-end" style="padding-right: 10px;">
@@ -415,25 +422,25 @@ echo $script;?>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Room's Name</label>
 							<div class="col-7">
-								<input type="text" id="editroomName" class="form-control" name="editroomName">
+								<input type="text" id="editroomName" class="form-control" name="editroomName" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Room's Qty</label>
 							<div class="col-7">
-								<input type="number" class="form-control" name="rqty">
+								<input type="number" id="editroomQty" class="form-control" name="rqty" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Room's Price</label>
 							<div class="col-7">
-								<input type="text" id="editroomPrice" class="form-control" name="editroomPrice" >
+								<input type="text" id="editroomPrice" class="form-control" name="editroomPrice" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Room's Facilities</label>
 							<div class="col-7">
-								<textarea class="form-control" id="editroomFacilities" name="editroomFacilities"></textarea> 
+								<textarea class="form-control" id="editroomFacilities" name="editroomFacilities" required></textarea> 
 							</div>
 						</div>
 						<div class="form-group row">
@@ -488,8 +495,17 @@ echo $script;?>
 				$('#editroomID').val(array[index]["RoomID"]);
 				$('#editroomName').val(array[index]["RoomName"]);
 				$('#editroomPrice').val(array[index]["Price"]);
+				$('#editroomQty').val(array[index]["Qty"]);
 				$('#editroomFacilities').html(array[index]["Facility"]);
 				$('#editHotel3').modal('show');
+			})
+			$('.addRoom').click(function(){
+				var hotelID = '<?=$hotel[0]['HotelID'];?>'
+				var Hid = hotelID.substr(1,4);
+				var roomID = 'R000201';
+				var rid = parseInt(roomID.substr(5,7)) +1;
+				$('#addroomID').val('R'+ Hid+rid);
+
 			})
 		});
 	</script>
