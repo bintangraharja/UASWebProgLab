@@ -1,5 +1,6 @@
 <?php
-	include_once('sidenavAdmin.php');
+	echo $style;
+	echo $script;
 ?>
 
 <!DOCTYPE html>

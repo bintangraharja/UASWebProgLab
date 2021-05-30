@@ -141,5 +141,14 @@ class Admin extends CI_Controller {
         $data['listBook'] = $this->admin_model->get_book();
         $this->load->view('pages/HistoryAdmin.php',$data);
     }
+    public function AddHotel(){
+        if($this->session->userdata('userID') != 'ADMIN'){
+            redirect('Home');
+        }
+        $data['style'] = $this->load->view('include/style.php',NULL,TRUE);
+        $data['script'] = $this->load->view('include/script.php',NULL,TRUE);
+        $data['sidebar'] = $this->load->view('sidebar/sidenavAdmin.php',$data,TRUE);
+        $this->load->view('pages/HotelForm.php',$data);
+    }
 }
 ?>
