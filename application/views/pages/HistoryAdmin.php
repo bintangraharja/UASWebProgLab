@@ -22,6 +22,7 @@
 				$Bookid = $books['BookingID'];
 				$GName = $books['GName'];
 				$Price = $books['Subtotal'];
+				$hotelName = $books['HotelName'];
 		?>
 		<div class="row" style="background: #99E1D9; padding-top: 10px; margin-bottom: 10px;">
 			<div class="col-2 text-center">
@@ -34,7 +35,7 @@
 			</div>
 			<div class="col-3 text-center">
 				<h5 style="font-weight: bold;">Hotel's Name</h5>
-				<p>Ritz Carlton</p>
+				<p><?=$hotelName;?></p>
 			</div>
 			<div class="col-3 align-self-end text-center">
 				<p style="font-weight: bold;">Subtotal Rp <?=$Price;?>,-</p>

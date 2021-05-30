@@ -35,7 +35,7 @@ Class Admin_model extends CI_Model{
         return $query->row_array();
     }
     public function get_book(){
-        $query = $this->db->query('SELECT * FROM booking');
+        $query = $this->db->query('SELECT BookingID, GName, Subtotal, HotelName FROM `booking` JOIN hotel');
         return $query->result_array();
     }
     public function facilityDetail($id){
