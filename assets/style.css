@@ -67,7 +67,7 @@
 /* style home */
 .home {
 	background-color: #F2F2F2;
-	background-image: url("./Gallery/HomeBG.jpg");
+	background-image: url('http://localhost/UASWebprogLab/assets/HomeBG.jpg');
 	background-attachment: fixed;
 	background-size: 1470px 760px;
 	background-repeat: no-repeat;
@@ -93,12 +93,12 @@
 	left: 0;
 	transform: translateY(-10px) translateX(-5px);
 	z-index: -9;
-	font: 50px Arial, Helvetica, sans-serif;
+	font: 25px Arial, Helvetica, sans-serif;
 	color: #ebebeb8e;
 	pointer-events: none;
 }
 .rating__star {
-	font-size: 50px;
+	font-size: 25px;
 	cursor: pointer;
 	color: #dabd18b2;
 	transition: filter linear .3s;
