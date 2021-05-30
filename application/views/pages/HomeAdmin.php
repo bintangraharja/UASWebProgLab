@@ -87,7 +87,7 @@
 				</div>
 				<div class="col-2">
 					<a href=""><span class="fas fa-trash-alt fa-2x details"></span></a>
-					<a href="EditHotel.php"><span class="far fa-edit fa-2x details"></span></a>
+					<a href="<?php echo site_url('Admin/EditHotel/'.$hotelID)?>"><span class="far fa-edit fa-2x details"></span></a>
 				</div>
 			</div>
 			<hr style="border-color: rgba(0, 0, 0, 0.25);">
