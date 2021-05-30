@@ -45,7 +45,7 @@
 						        <input type="password" class="form-control" name="password" placeholder="********">
 							</div>
 							<div class="form-group row">
-								<div class="">
+								<div class="col">
 									<?php echo $captchaImg; ?>
 									<a href="javascript:void(0);"><button class="btn" style="background-color: #858585; color: white;"><span class="glyphicon glyphicon-refresh"></span></button></a>
 									<input type="text" name="captcha" />
