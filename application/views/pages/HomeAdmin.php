@@ -97,8 +97,6 @@
 			?>
 		</div>
 	</div>
-	<!-- <script type="text/javascript" language="javascript">
-		var array = <?php //echo json_encode($listHotel); ?>;           >>>>> buat nanti editing
-	</script> -->
+	
 </body>
 </html>

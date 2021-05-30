@@ -1,6 +1,5 @@
 <?php echo $style;
 echo $script;?>
-
 <!DOCTYPE html>
 <html>
 <body class="home">
@@ -280,8 +279,9 @@ echo $script;?>
 					<hr style="background-color: white;">
 					<div class="row">
 						<div class="col custom-scrollbar-css p-2" style="height: 250px;">
-							<?php foreach($room as $row){
-									
+							<?php 
+							$x = 0;
+							foreach($room as $row){
 								?>
 							<div class="row">
 								<div class="col-2 text-center">
@@ -300,11 +300,12 @@ echo $script;?>
 									<?= $row['Facility']?>
 								</div>
 								<div class="col-2 text-center">
-									<a id="editRoom"><button class="btn btnYes">Edit Room</button></a>
+									<a class="editRoom" data-index="<?= $x?>"><button class="btn btnYes">Edit Room</button></a>
 								</div>
 							</div>
 							<hr style="border-color: black;">
-							<?php }?>
+							<?php 
+						$x++;}?>
 						</div>
 					</div>
 				</div>
@@ -405,35 +406,35 @@ echo $script;?>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Room's ID</label>
 							<div class="col-7">
-								<input type="text" class="form-control" name="roomID" disabled="">
+								<input type="text" id="editroomID" class="form-control" name="editroomID" readonly>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Room's Name</label>
 							<div class="col-7">
-								<input type="text" class="form-control" name="roomName">
+								<input type="text" id="editroomName" class="form-control" name="editroomName">
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Room's Price</label>
 							<div class="col-7">
-								<input type="text" class="form-control" name="roomPrice" >
+								<input type="text" id="editroomPrice" class="form-control" name="editroomPrice" >
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Room's Facilities</label>
 							<div class="col-7">
-								<textarea class="form-control" name="roomFacilities"></textarea> 
+								<textarea class="form-control" id="editroomFacilities" name="editroomFacilities"></textarea> 
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-4 col-form-label" for="ppicture" >Room's Photo</label>
 							<div class="col-7 align-self-center">
-								<input type="file" name="roomPict">
+								<input type="file" name="editroomPict">
 							</div>
 						</div>
 						<div class="row d-flex justify-content-end" style="padding-right: 10px;">
-							<input type="submit" class="btn btnYes" name="addRoom" value="UPDATE">
+							<input type="submit" class="btn btnYes" name="editRoom" value="UPDATE">
 						</div>
 					</div>
 				</div>
@@ -441,8 +442,11 @@ echo $script;?>
 		</div>
 	</div>
 
+	
+
 	<script>
 		$(document).ready(function() {
+			var array = <?php echo json_encode($room); ?>;
 			$('#editHotel1').modal({
 				keyboard: false,
 				show: false,
@@ -450,7 +454,7 @@ echo $script;?>
 			});
 			$('#editPhoto').click(function() {
 				$('#editHotel1').modal('show');
-			})
+			});
 
 			$('#editHotel2').modal({
 				keyboard: false,
@@ -459,14 +463,20 @@ echo $script;?>
 			});
 			$('#addRoom').click(function() {
 				$('#editHotel2').modal('show');
-			})
+			});
 
 			$('#editHotel3').modal({
 				keyboard: false,
 				show: false,
 				backdrop: 'static'
 			});
-			$('#editRoom').click(function() {
+			$('.editRoom').click(function() {
+				index = $(this).data('index')
+				console.log(index);
+				$('#editroomID').val(array[index]["RoomID"]);
+				$('#editroomName').val(array[index]["RoomName"]);
+				$('#editroomPrice').val(array[index]["Price"]);
+				$('#editroomFacilities').html(array[index]["Facility"]);
 				$('#editHotel3').modal('show');
 			})
 		});
