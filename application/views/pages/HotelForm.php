@@ -10,7 +10,7 @@
 		<div class="row">
 			<div class="col-3 d-flex justify-content-end">
 				<div class="d-flex align-items-end">
-					<a href="HomeAdmin.php"><button type="submit" class="btn btnBack btn-lg"><i class="fas fa-angle-double-left"></i> Back</button></a>
+					<a href="<?=site_url('Admin');?>"><button type="submit" class="btn btnBack btn-lg"><i class="fas fa-angle-double-left"></i> Back</button></a>
 				</div>
 			</div>
 			<div class="col">

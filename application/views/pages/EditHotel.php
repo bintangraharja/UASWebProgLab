@@ -500,12 +500,11 @@ echo $script;?>
 				$('#editHotel3').modal('show');
 			})
 			$('.addRoom').click(function(){
-				var hotelID = '<?=$hotel[0]['HotelID'];?>'
+				var hotelID = '<?=$hotel[0]['HotelID']?>';
 				var Hid = hotelID.substr(1,4);
-				var roomID = 'R000201';
+				var roomID = '<?=$lastroom['RoomID']?>';
 				var rid = parseInt(roomID.substr(5,7)) +1;
-				$('#addroomID').val('R'+ Hid+rid);
-
+				$('#addroomID').val('R'+ Hid+(rid < 10 ? '0'+rid : rid));
 			})
 		});
 	</script>

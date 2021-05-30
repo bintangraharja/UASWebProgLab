@@ -26,6 +26,10 @@ Class Admin_model extends CI_Model{
         $query = $this->db->query("Select * From hotel WHERE HotelID= $id");
         return $query->result_array();
     }
+    public function get_lastroom($id){
+        $query = $this->db->query("SELECT `RoomID` FROM `room` WHERE HotelID = '$id' Order BY RoomID DESC LIMIT 1");
+        return $query->row_array();
+    }
     public function get_book(){
         $query = $this->db->query('SELECT * FROM booking');
         return $query->result_array();

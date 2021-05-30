@@ -14,7 +14,7 @@
 	<div class="container-fluid" style="margin-top: 10px; padding-left: 100px; padding-right: 50px;">
 		<div class="row">
 			<div class="col-5">
-				<div class="row">
+				<div class="row d-flex flex-column">
 					<form method="POST">
 						<div class="input-group">
 							<span class="input-group-prepend">
@@ -27,6 +27,7 @@
 						</div>
 					</form>
 				</div>
+				<br><br>
 				<div class="row">
 					<div class="col" style="margin-left: 25%; padding-bottom: 10px; background: rgba(255, 255, 255, 0.5);">
 	            		<div class="row" style="padding: 10px;">
@@ -60,6 +61,9 @@
 	            	</div>
 				</div>
 			</div>
+			<?php if($listHotel == NULL){
+
+			}else{ ?>
 			<div class="col-7 custom-scrollbar-css p-2" style="height: 620px;">
 
 				<?php
@@ -99,6 +103,7 @@
 				}
 				?>
 			</div>
+			<?php } ?>
 		</div>
 	</div>
 
