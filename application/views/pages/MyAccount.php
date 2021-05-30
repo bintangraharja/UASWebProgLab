@@ -8,7 +8,7 @@ echo $sidebar; ?>
 			<div class="col-6">
 				
 			</div>
-			<div class="col-6" style="background-color: rgba(153, 225, 217, 0.64); padding-bottom: 90px;">
+			<div class="col-6" style="background-color: rgba(153, 225, 217, 0.64); padding-bottom: 80px;">
 				<div class="row">
 					<div class="col-6 align-self-center">
 						<h2>MY ACCOUNT</h2>

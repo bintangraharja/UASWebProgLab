@@ -10,12 +10,12 @@ echo $style;
 	<div class="container-fluid" style="background-color:#99E1D9; height: 50%; position: fixed;"> </div>
 	<div class="container-fluid" style="padding-top: 5%;">
         <div class="row d-flex justify-content-center" style="">
-            <h1 style="color: red; position: absolute;">Meet Our Team Members</h1>
+            <h1 style="color: white; position: absolute;">Meet Our Team Members</h1>
         </div>
         <br><br><br>
 		<div class="row">
 			<div class="col-2 d-flex justify-content-end">
-                <a href="<?php echo site_url('Home');?>">
+				<a href="<?php echo site_url('Home');?>">
 			        <button type="submit" class="btn btnBack"><span class="fas fa-angle-double-left"></span> Back</button>
 		        </a>
 			</div>
@@ -23,7 +23,7 @@ echo $style;
         <br><br><br>
 		<div class="row" data-aos="zoom-out-right" data-aos-anchor-placement="top-center">
             <div class="col-6 d-flex justify-content-end">
-                <img src="./Gallery/foto.jpg" style="width: 50%; border-radius: 50%;">
+                <img src="<?php echo site_url('home/showImg/H0001') ?>" style="width: 50%; border-radius: 50%;">
             </div>
             <div class="col-4 align-self-center" style="text-align : left;">
                 <h2 style="text-decoration: underline;">Ananda Setiyani</h2>
@@ -57,7 +57,7 @@ echo $style;
                 </p>
             </div>
             <div class="col-6">
-                <img src="./Gallery/foto.jpg" style="width: 50%; border-radius: 50%;">
+                <img src="<?php echo site_url('home/showImg/H0001') ?>" style="width: 50%; border-radius: 50%;">
             </div>
         </div>
         <br><br><br>
@@ -97,7 +97,7 @@ echo $style;
                 </p>
             </div>
             <div class="col-6">
-                <img src="./Gallery/foto.jpg" style="width: 50%; border-radius: 50%;">
+                <img src="<?php echo site_url('home/showImg/H0001') ?>" style="width: 50%; border-radius: 50%;">
             </div>
         </div>
         <br><br><br>

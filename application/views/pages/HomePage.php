@@ -68,6 +68,9 @@
 	            	</div>
 				</div>
 			</div>
+			<?php if($listHotel == NULL){
+
+			}else{ ?>
 			<div class="col-7 custom-scrollbar-css p-2" style="height: 620px;">
 
 				<?php
@@ -107,6 +110,7 @@
 				}
 				?>
 			</div>
+			<?php } ?>
 		</div>
 	</div>
 

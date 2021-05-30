@@ -14,6 +14,9 @@
 			</div>
 		</div>
 	</div>
+	<?php if($history == NULL){
+
+	}else{?>
 	<div class="container custom-scrollbar-css p-2" style="height: 615px;">
 		<?php foreach($history as $row){
 			$BookingID = $row["BookingID"];
@@ -49,5 +52,6 @@
 		</div>
 		<?php }?>
 	</div>
+	<?php } ?>
 </body>
 </html>

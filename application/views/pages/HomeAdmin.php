@@ -23,7 +23,7 @@
 					<div class="input-group">
 						<form method="post">
 						<label>Search : &nbsp;</label>
-						<input type="text" class="form-control border" name="search">
+						<input type="text" class="form-control border" name="search" placeholder="Location">
 						</form>
 					</div>
 				</div>
