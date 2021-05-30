@@ -41,7 +41,7 @@ class Admin extends CI_Controller {
 		$this->load->library('upload', $config);
         if($this->input->post('updateHotel')){
             $this->form_validation->set_rules('rating','Rating','less_than_equal_to[5]|greater_than_equal_to[0]');
-            $this->form_validation->set_rules('hnumber','Hotel Number','numeric');
+            $this->form_validation->set_rules('hnumber','Hotel Number','numeric|max_length[13]');
             if($this->form_validation->run() != false){
                 if (!$this->upload->do_upload('hotelPict')) {
                     $values = array(
@@ -220,7 +220,7 @@ class Admin extends CI_Controller {
 		$this->load->library('upload', $config);
         if($this->input->post('addHotel')){
             $this->form_validation->set_rules('rating','Rating','less_than_equal_to[5]|greater_than_equal_to[0]');
-            $this->form_validation->set_rules('hnumber','Hotel Number','numeric');
+            $this->form_validation->set_rules('hnumber','Hotel Number','numeric|max_length[13]');
             $this->form_validation->set_rules('rqty','Quantity','numeric');
             $this->form_validation->set_rules('roomPrice','Room Price','numeric');
             if($this->form_validation->run() != false){
@@ -308,6 +308,23 @@ class Admin extends CI_Controller {
         $data['sidebar'] = $this->load->view('sidebar/sidenavAdmin.php',$data,TRUE);
         $data['lastHotel'] = $this->admin_model->last_hotel();
         $this->load->view('pages/HotelForm.php',$data);
+    }
+
+    public function DeleteHotel(){
+        if($this->session->userdata('userID') != 'ADMIN'){
+            redirect('Home');
+        }
+        $id = $this->uri->segment(3);
+        $this->admin_model->DeleteHotel($id);
+        redirect('Admin');
+    }
+    public function DeleteRoom(){
+        if($this->session->userdata('userID') != 'ADMIN'){
+            redirect('Home');
+        }
+        $id = $this->uri->segment(3);
+        $this->admin_model->DeleteRoom($id);
+        redirect('Admin');
     }
 }
 ?>

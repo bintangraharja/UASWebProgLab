@@ -300,7 +300,8 @@ echo $script;?>
 									<?= $row['Facility']?>
 								</div>
 								<div class="col text-center">
-									<a class="editRoom" data-index="<?= $x?>"><button class="btn btnYes">Edit</button></a>
+									<a class="editRoom" data-index="<?= $x?>"><span class="far fa-edit fa-2x details"></a>
+									<a href="<?=site_url('Admin/DeleteRoom/'.$row['RoomID']);?>"><span class="fas fa-trash-alt fa-2x details"></span></a>
 								</div>
 							</div>
 							<hr style="border-color: black;">
@@ -386,6 +387,13 @@ echo $script;?>
 							<label class="col-4 col-form-label">Room's Facilities</label>
 							<div class="col-7">
 								<textarea class="form-control" name="roomFacilities" required></textarea> 
+								<div class="row">
+									<div class="col">
+										<small>Template : &lt;li&gt; facility 1 &lt;/li&gt; <br>
+											&lt;li&gt; facility 2 &lt;/li&gt; <br>
+										&lt;li&gt; Area &lt;sup&gt;2&lt;/sup&gt; &lt;/li&gt;</small>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -444,7 +452,14 @@ echo $script;?>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Room's Facilities</label>
 							<div class="col-7">
-								<textarea class="form-control" id="editroomFacilities" name="editroomFacilities" required></textarea> 
+								<textarea class="form-control" id="editroomFacilities" name="editroomFacilities" required></textarea>
+								<div class="row">
+									<div class="col">
+										<small>Template : &lt;li&gt; facility 1 &lt;/li&gt; <br>
+											&lt;li&gt; facility 2 &lt;/li&gt; <br>
+										&lt;li&gt; Area &lt;sup&gt;2&lt;/sup&gt; &lt;/li&gt;</small>
+									</div>
+								</div> 
 							</div>
 						</div>
 						<div class="form-group row">

@@ -86,7 +86,7 @@
 					<p><?= $address?></p>
 				</div>
 				<div class="col-2">
-					<a href=""><span class="fas fa-trash-alt fa-2x details"></span></a>
+					<a href="<?= site_url("Admin/DeleteHotel/".$hotelID)?>"><span class="fas fa-trash-alt fa-2x details"></span></a>
 					<a href="<?php echo site_url('Admin/EditHotel/'.$hotelID)?>"><span class="far fa-edit fa-2x details"></span></a>
 				</div>
 			</div>

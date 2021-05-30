@@ -26,7 +26,7 @@ class BookingForm extends CI_Controller {
 	public function index()
 	{
         if($this->input->post('submit')){
-            $this->form_validation->set_rules('PNumber','Phone Number','numeric');
+            $this->form_validation->set_rules('PNumber','Phone Number','numeric|max_length[13]');
 			if($this->form_validation->run() != false){
                 $this->load->helper('date');
                 date_default_timezone_set('Asia/Jakarta');

@@ -53,11 +53,11 @@
 								<div class="rating">
 									<span class="rating__result"></span>
 									<input id="rating" name="rating" type="hidden">
-									<i class="rating__star far fa-star fa-4x"></i>
-									<i class="rating__star far fa-star fa-4x"></i>
-									<i class="rating__star far fa-star fa-4x"></i>
-									<i class="rating__star far fa-star fa-4x"></i>
-									<i class="rating__star far fa-star fa-4x"></i>
+									<i class="rating__star far fa-star fa-2x"></i>
+									<i class="rating__star far fa-star fa-2x"></i>
+									<i class="rating__star far fa-star fa-2x"></i>
+									<i class="rating__star far fa-star fa-2x"></i>
+									<i class="rating__star far fa-star fa-2x"></i>
 								</div>
 							</div>
 							<br>

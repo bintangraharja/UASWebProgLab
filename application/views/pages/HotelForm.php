@@ -215,8 +215,16 @@
 									<label class="col-4 col-form-label">Room's Facilities</label>
 									<div class="col-7">
 										<textarea class="form-control" name="roomFacilities" required></textarea> 
+										<div class="row">
+											<div class="col">
+												<small>Template : &lt;li&gt; facility 1 &lt;/li&gt; <br>
+												 &lt;li&gt; facility 2 &lt;/li&gt; <br>
+												&lt;li&gt; Area &lt;sup&gt;2&lt;/sup&gt; &lt;/li&gt;</small>
+											</div>
+										</div>
 									</div>
 								</div>
+								
 								<div class="form-group row">
 									<label class="col-4 col-form-label" for="ppicture">Room's Photo</label>
 									<div class="col-7 align-self-center">

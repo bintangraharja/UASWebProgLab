@@ -35,7 +35,7 @@ Class Admin_model extends CI_Model{
         return $query->row_array();
     }
     public function get_book(){
-        $query = $this->db->query('SELECT BookingID, GName, Subtotal, HotelName FROM `booking` JOIN hotel');
+        $query = $this->db->query('SELECT BookingID, GName, Subtotal, HotelName FROM booking JOIN hotel ON Booking.HotelID = Hotel.HotelID');
         return $query->result_array();
     }
     public function facilityDetail($id){
@@ -77,6 +77,12 @@ Class Admin_model extends CI_Model{
         $this->db->insert('imagehotel',$imageHotel2);
         $this->db->insert('imagehotel',$imageHotel3);
 
+    }
+    public function DeleteHotel($HotelID){
+        $this->db->delete('hotel',['HotelID' =>$HotelID]);
+    }
+    public function DeleteRoom($RoomID){
+        $this->db->delete('room',['RoomID' =>$RoomID]);
     }
 }
 ?>

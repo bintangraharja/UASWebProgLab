@@ -24,7 +24,7 @@ class Register extends CI_Controller {
 
 			$this->form_validation->set_rules('password', 'Password', 'required|min_length[8]');
 			$this->form_validation->set_rules('passwordconf','Password Confirmation','matches[password]');
-			$this->form_validation->set_rules('pnumber','Phone Number','numeric');
+			$this->form_validation->set_rules('pnumber','Phone Number','numeric|max_length[13]');
 			if($this->form_validation->run() != false){
 				if (!$this->upload->do_upload('ppicture')) {
 					$account = array(
