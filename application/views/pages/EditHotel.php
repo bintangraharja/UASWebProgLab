@@ -200,41 +200,22 @@ echo $script;?>
 							<div class="row" style="background-color: #99E1D9; border-radius: 5px; margin-bottom: 10px; padding: 5px;">
 								<h5 class="col">Hotel's Facilities</h5>
 							</div>
+							<?php for($i = 1; $i < 4; $i++){
+								
+							?>
 							<div class="row">
 								<div class="col-3">
-									<img src="<?php echo site_url('DetailHotel/hotelImg/').$hotel[0]['HotelID'].'/1'?>" style="width: 125px; height: 75px;">
+									<img src="<?php echo site_url('DetailHotel/hotelImg/').$hotel[0]['HotelID'].'/'.$i?>" style="width: 125px; height: 75px;">
 								</div>
 								<div class="col-6 align-self-center">
-									<h4 class="text-center">1</h4>
+									<h4 class="text-center"><?= $i?></h4>
 								</div>
 								<div class="col-3 align-self-center">
-									<a id="editPhoto"><button class="btn btnYes">Edit Photo</button></a>
+									<a class="editPhoto" data-imageID="<?= $i?>"><button class="btn btnYes">Edit Photo</button></a>
 								</div>
 							</div>
 							<hr style="border-color: black;">
-							<div class="row">
-								<div class="col-3">
-									<img src="<?php echo site_url('DetailHotel/hotelImg/').$hotel[0]['HotelID'].'/2'?>" style="width: 125px; height: 75px;">
-								</div>
-								<div class="col-6 align-self-center">
-									<h4 class="text-center">2</h4>
-								</div>
-								<div class="col-3 align-self-center">
-									<a id="editPhoto"><button class="btn btnYes">Edit Photo</button></a>
-								</div>
-							</div>
-							<hr style="border-color: black;">
-							<div class="row">
-								<div class="col-3">
-									<img src="<?php echo site_url('DetailHotel/hotelImg/').$hotel[0]['HotelID'].'/3'?>" style="width: 125px; height: 75px;">
-								</div>
-								<div class="col-6 align-self-center">
-									<h4 class="text-center">3</h4>
-								</div>
-								<div class="col-3 align-self-center">
-									<a id="editPhoto"><button class="btn btnYes">Edit Photo</button></a>
-								</div>
-							</div>
+							<?php }?>
 						</div>
 					</div>
 				</div>
@@ -326,7 +307,7 @@ echo $script;?>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Image's ID</label>
 							<div class="col-7">
-								<input type="text" class="form-control" name="imageID" disabled>
+								<input type="text" id="photoimageID" class="form-control" name="imageID" readonly>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -452,7 +433,10 @@ echo $script;?>
 				show: false,
 				backdrop: 'static'
 			});
-			$('#editPhoto').click(function() {
+			$('.editPhoto').click(function() {
+				index = $(this).data('imageid');
+				console.log(index);
+				$('#photoimageID').val(index);
 				$('#editHotel1').modal('show');
 			});
 
@@ -472,7 +456,6 @@ echo $script;?>
 			});
 			$('.editRoom').click(function() {
 				index = $(this).data('index')
-				console.log(index);
 				$('#editroomID').val(array[index]["RoomID"]);
 				$('#editroomName').val(array[index]["RoomName"]);
 				$('#editroomPrice').val(array[index]["Price"]);
