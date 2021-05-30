@@ -11,7 +11,7 @@
 	<div class="container-fluid" style="margin-top: 10px; padding-left: 15%; padding-right: 5%;">
 		<div class="row">
 			<div class="col-9 align-self-center">
-				<button type="submit" class="btn btnYes">Add Hotel</button>
+				<a href="<?php echo site_url("Admin/AddHotel")?>"><button type="submit" class="btn btnYes">Add Hotel</button></a>
 			</div>
 			<div class="col-3 ">
 				<div class="row d-flex justify-content-end">
