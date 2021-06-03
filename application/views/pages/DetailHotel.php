@@ -20,8 +20,7 @@
 				<h4><span class="fas fa-map-marker-alt"></span> <?php echo $address;?> (<?=$number;?>)</h4>
 			</div>
 			<div class="col-3 d-flex justify-content-end">
-				<!-- Logo Potrait/Landscape -->
-				<img src="./Gallery/example.jpg" style="width: 100px; height: 100px; margin-left: 20px;">
+				<img src="http://localhost/UASWebprogLab/assets/logo.png" style="width: 300px; height: 100px; margin-left: 20px;">
 			</div>
 		</div>
 		<hr style="border-color: black;">

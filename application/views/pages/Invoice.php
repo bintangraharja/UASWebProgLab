@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Hotel UAS IF430 - XXX</title>
+	<title>Hotel UAS IF430 - My Hotel</title>
 	<?php 
 		echo $style;
 		echo $script;
@@ -29,8 +29,7 @@
 				</div>
 			</div>
 			<div class="col-6 d-flex justify-content-end">
-				<!-- Logo Potrait/Landscape -->
-				<img src="./Gallery/example.jpg" style="width: 100px; height: 100px; margin: 20px;">
+				<img src="http://localhost/UASWebprogLab/assets/logo.png" style="width: 300px; height: 100px; margin-left: 20px;">
 			</div>
 		</div>
 		<br>

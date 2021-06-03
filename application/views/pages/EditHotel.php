@@ -11,9 +11,8 @@ echo $script;?>
 				</div>
 			</div>
 			<div class="col">
-					<div class="row d-flex justify-content-end">
-					<!-- Logo Potrait/Landscape -->
-					<img src="./Gallery/example.jpg" style="width: 100px; height: 100px; margin-left: 20px;">
+				<div class="row d-flex justify-content-end">
+					<img src="http://localhost/UASWebprogLab/assets/logo.png" style="width: 300px; height: 100px; margin-left: 20px;">
 				</div>
 			</div>
 		</div>

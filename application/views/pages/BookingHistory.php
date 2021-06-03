@@ -3,14 +3,13 @@
 <!DOCTYPE html>
 <html>
 <body class="home" style= "background-image: url('http://localhost/UASWebprogLab/assets/HomeBG.jpg');">
-<div class="container" style="margin-top: 15px; margin-bottom: 15px;">
+	<div class="container" style="margin-top: 15px; margin-bottom: 15px;">
 		<div class="row">
 			<div class="col-6 align-self-center">
 				<h1>Booking History</h1>
 			</div>
 			<div class="col-6 d-flex justify-content-end">
-				<!-- Logo Potrait/Landscape -->
-				<img src="./Gallery/example.jpg" style="width: 100px; height: 100px;">
+				<img src="http://localhost/UASWebprogLab/assets/logo.png" style="width: 300px; height: 100px; margin-left: 20px;">
 			</div>
 		</div>
 	</div>

@@ -7,8 +7,7 @@
 			<div class="d-flex align-items-end">
 				<a href="<?= site_url('Home/AboutUs')?>"><h3 class="details"><u>About Us</u></h3></a>
 			</div>
-			<!-- Logo Potrait/Landscape -->
-			<img src="./Gallery/example.jpg" style="width: 100px; height: 100px; margin-left: 20px;">
+			<img src="http://localhost/UASWebprogLab/assets/logo.png" style="width: 300px; height: 100px; margin-left: 20px;">
 		</div>
 	</div>
 	<div class="container-fluid" style="margin-top: 10px; padding-left: 100px; padding-right: 50px;">

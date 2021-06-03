@@ -15,8 +15,7 @@
 			</div>
 			<div class="col-3 ">
 				<div class="row d-flex justify-content-end">
-					<!-- Logo Potrait/Landscape -->
-					<img src="./Gallery/example.jpg" style="width: 100px; height: 100px;">
+					<img src="http://localhost/UASWebprogLab/assets/logo.png" style="width: 300px; height: 100px; margin-left: 20px;">
 				</div>
 				<br>
 				<div class="row d-flex justify-content-end">
