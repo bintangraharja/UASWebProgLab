@@ -16,7 +16,7 @@
 							<h1>W H O O P S!</h1>
                             <h3>The Page You’re Looking For Can’t be Found</h3>
                             <h1>4 0 4</h1>
-                            <a href="<?=site_url('Home') ?>"><h3>Click Here to XXX Page</h3></a>
+                            <a href="<?=site_url('Home') ?>"><h3>Click Here to MyHotel Page</h3></a>
 						</div>
                         <br><br><br>
 					</div>
