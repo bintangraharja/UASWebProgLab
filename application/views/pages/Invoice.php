@@ -10,7 +10,7 @@
 <body style="background: #BDBDBD;">
 	<div class="container-fluid" style="padding-left: 50px; padding-right: 50px;">
 		<div class="row">
-			<div class="col-3" style="background: #BB6BD9;">
+			<div class="col-4" style="background: #BB6BD9;">
 				<h2><u>INVOICE</u></h2>
 				<p>Invoice to : </p>
 				<h4 style="font-weight: bold;"><?php echo $invoice[0]['GName']?></h4>
@@ -28,7 +28,7 @@
 					<h5 style="font-weight: bold;"><?php echo $invoice[0]['BookingID']?></h5>
 				</div>
 			</div>
-			<div class="col-7 d-flex justify-content-end">
+			<div class="col-6 d-flex justify-content-end">
 				<!-- Logo Potrait/Landscape -->
 				<img src="./Gallery/example.jpg" style="width: 100px; height: 100px; margin: 20px;">
 			</div>

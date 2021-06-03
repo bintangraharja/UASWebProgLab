@@ -23,7 +23,7 @@ echo $style;
         <br><br><br>
 		<div class="row" data-aos="zoom-out-right" data-aos-anchor-placement="top-center">
             <div class="col-6 d-flex justify-content-end">
-                <img src="<?php echo site_url('home/showImg/H0001') ?>" style="width: 50%; border-radius: 50%;">
+                <img src="http://localhost/UASWebprogLab/assets/Nan.jpg" style="width: 50%; border-radius: 50%;">
             </div>
             <div class="col-4 align-self-center" style="text-align : left;">
                 <h2 style="text-decoration: underline;">Ananda Setiyani</h2>
@@ -34,7 +34,7 @@ echo $style;
                 <a href="https://github.com/AnandaSetiyani" target="_blank">
                     <span class="fab fa-github fa-3x details"></span>
                 </a>
-                <p style="text-align:justify;">“Berbagi itu indah, tapi jangan sampe kebaikan itu disalahgunakan orang lain.” - Nan (2021)
+                <p style="text-align:justify;">“Berbagi itu indah, tapi jangan sampai kebaikan itu disalahgunakan orang lain.” - Nan (2021)
                 </p>
             </div>
         </div>
@@ -50,11 +50,11 @@ echo $style;
                 <a href="https://github.com/bintangraharja" target="_blank">
                     <span class="fab fa-github fa-3x details"></span>
                 </a>
-                <p style="text-align:justify;">“Segala sesuatu yang berlebihan tidak akan menjadi suatu hal yang baik.” - Bintang Raharja(2021)
+                <p style="text-align:justify;">“Segala sesuatu yang berlebihan tidak akan menjadi suatu hal yang baik.” - Bintang Raharja (2021)
                 </p>
             </div>
             <div class="col-6">
-                <img src="<?php echo site_url('home/showImg/H0001') ?>" style="width: 50%; border-radius: 50%;">
+                <img src="http://localhost/UASWebprogLab/assets/Bintang.jpg" style="width: 50%; border-radius: 50%;">
             </div>
         </div>
         <br><br><br>
@@ -87,14 +87,11 @@ echo $style;
                 <a href="https://github.com/maureenzerl" target="_blank">
                    <span class="fab fa-github fa-3x details"></span>
                 </a>
-                <p style="text-align:justify;">“dipakein quotes biar keren, Lorem ipsum dolor sit amet, 
-                    consectetur adipiscing elit. Proin tincidunt dapibus ante 
-                    vel lobortis. Sed tempor cursus sodales. 
-                    Nulla sed porttitor lectus.”
+                <p style="text-align:justify;">“I'm not the best at anything, but that's not enough of a reason to quit, nor is it an excuse.” - Maureen Zerlina (2021)
                 </p>
             </div>
             <div class="col-6">
-                <img src="<?php echo site_url('home/showImg/H0001') ?>" style="width: 50%; border-radius: 50%;">
+                <img src="http://localhost/UASWebprogLab/assets/Maureen.png" style="width: 50%; border-radius: 50%;">
             </div>
         </div>
         <br><br><br>
