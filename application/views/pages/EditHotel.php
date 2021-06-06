@@ -240,7 +240,7 @@ echo $script;?>
 				<div class="col" style="background: #C4C4C4; border-radius: 5px; padding-bottom: 10px;">
 					<div class="row" style="background-color: #99E1D9; border-radius: 5px; padding: 10px;">
 						<div class="col-6 align-self-end">
-							<h5 class="col">Hotel's Facilities</h5>
+							<h5 class="col">Hotel's Room</h5>
 						</div>
 						<div class="col-6 align-self-end">
 							<div class="row d-flex justify-content-end">
