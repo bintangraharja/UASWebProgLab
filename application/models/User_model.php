@@ -20,7 +20,7 @@ Class User_model extends CI_Model{
         foreach($q as $cek){
             if($cek == $id){
                 $rand = random_string('numeric',4); 
-                $id = 'UID' . $rand;    
+                $id = 'U' . $rand;    
             }
         }
         $account['UserID'] = $id;
