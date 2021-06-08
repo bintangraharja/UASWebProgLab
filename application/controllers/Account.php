@@ -15,7 +15,7 @@ class Account extends CI_Controller {
         $data['script'] = $this->load->view('include/script.php',NULL,TRUE);
         $data['sidebar'] = $this->load->view('sidebar/sidenavIn.php',$data,TRUE);
         $data['user'] = $this->User_model->getDetailAcc($this->session->userdata('userID'));
-        $this->load->view('pages/myaccount.php',$data);
+        $this->load->view('pages/MyAccount.php',$data);
         }
         else{
            redirect('Home');

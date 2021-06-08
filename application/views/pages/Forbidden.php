@@ -5,6 +5,7 @@
 		echo $style;
 		echo $script;
 	?>
+	<title>Hotel UAS IF430 - Hotel.io</title>
 </head>
 <body class ="home"  style="background-color: #BDBDBD;">
 	<div class="container-fluid">

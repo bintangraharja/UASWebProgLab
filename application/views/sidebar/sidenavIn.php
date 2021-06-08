@@ -1,6 +1,6 @@
 
 <head>
-	<title>Hotel UAS IF430 - My Hotel</title>
+	<title>Hotel UAS IF430 - Hotel.io</title>
 	<?php 
 	echo $style;
 	echo $script;

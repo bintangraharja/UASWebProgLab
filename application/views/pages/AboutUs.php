@@ -4,7 +4,7 @@ echo $style;
 ?>
 <html>
 <head>
-	<title>Hotel UAS IF430 - My Hotel</title>
+	<title>Hotel UAS IF430 - Hotel.io</title>
 </head>
 <body>
 	<div class="container-fluid" style="background-color:#99E1D9; height: 50%; position: fixed;"> </div>

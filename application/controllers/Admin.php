@@ -23,7 +23,7 @@ class Admin extends CI_Controller {
         $data['style'] = $this->load->view('include/style.php',NULL,TRUE);
         $data['script'] = $this->load->view('include/script.php',NULL,TRUE);
         $data['sidebar'] = $this->load->view('sidebar/sidenavAdmin.php',$data,TRUE);
-        $this->load->view('pages/homeadmin.php',$data);
+        $this->load->view('pages/HomeAdmin.php',$data);
 	}
 
     public function editHotel(){
@@ -190,7 +190,7 @@ class Admin extends CI_Controller {
         $data['script'] = $this->load->view('include/script.php',NULL,TRUE);
         $data['sidebar'] = $this->load->view('sidebar/sidenavAdmin.php',$data,TRUE);
         $data['lastroom'] = $this->admin_model->get_lastroom($id);
-        $this->load->view('pages/edithotel.php',$data);
+        $this->load->view('pages/EditHotel.php',$data);
     }
     public function BookHistory(){
         if($this->session->userdata('userID') != 'ADMIN'){
